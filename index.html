@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EvoPOS | Official Web Platform</title>
-    <!-- Font elegante in stile editoriale -->
+    <!-- Font editoriale moderno -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #ffffff;
             --text: #000000;
-            --accent: #00f5ff; /* Ciano Elettrico per il richiamo Tech/Link [8] */
-            --border: 1px solid #e0e0e0; /* Hairline borders tipici di Aeline [9] */
+            --accent: #00f5ff; /* Ciano Elettrico Tech */
+            --border: 1px solid #e0e0e0; /* Hairline borders stile Aeline */
+            --spacing: 40px;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -20,9 +23,10 @@
             color: var(--text);
             margin: 0;
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Layout a griglia visibile [9] */
+        /* Layout a griglia fissa */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -30,111 +34,191 @@
             border-right: var(--border);
         }
 
-        header {
-            padding: 40px;
-            border-bottom: var(--border);
+        /* Navbar Sticky */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            letter-spacing: -1px;
-        }
-
-        /* Sezione Hero Editoriale [5] */
-        .hero {
-            padding: 100px 40px;
+            padding: 20px var(--spacing);
             border-bottom: var(--border);
+            z-index: 1000;
         }
 
-        h1 {
-            font-size: 5rem; /* Testo gigante [5] */
-            font-weight: 800;
-            line-height: 1;
-            margin: 0;
-            text-transform: uppercase;
-        }
+        .logo { font-weight: 800; letter-spacing: -1px; font-size: 1.2rem; }
+        .nav-tagline { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #666; }
 
-        .subtitle {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-top: 20px;
-        }
-
-        /* Sezione Servizi a griglia [6] */
-        .services {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        /* Hero Section - Editorial Style */
+        header {
+            padding: 120px var(--spacing);
             border-bottom: var(--border);
-        }
-
-        .service-card {
-            padding: 60px 40px;
-            border-right: var(--border);
-        }
-
-        .service-card:last-child {
-            border-right: none;
         }
 
         .label {
             font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             color: var(--accent);
             margin-bottom: 20px;
             display: block;
         }
 
-        footer {
-            padding: 40px;
-            font-size: 0.8rem;
-            text-align: center;
+        h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            line-height: 0.9;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -3px;
         }
 
-        /* Adattabilità mobile */
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
+        .hero-subtitle {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* Sezione Servizi - Griglia 3 colonne */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: var(--border);
+        }
+
+        .service-card {
+            padding: 60px var(--spacing);
+            border-right: var(--border);
+            transition: background 0.3s ease;
+        }
+
+        .service-card:last-child { border-right: none; }
+        .service-card:hover { background: #fafafa; }
+        .service-card h2 { font-size: 1.5rem; margin: 20px 0; font-weight: 700; }
+        .service-card p { font-size: 0.9rem; color: #444; }
+
+        /* Footer Legale */
+        footer {
+            padding: 80px var(--spacing);
+            background: #fdfdfd;
+            font-size: 11px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+        }
+
+        .footer-disclaimer { text-align: justify; }
+        .copyright { margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; }
+
+        /* Banner Cookie */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 2px solid #000;
+            padding: 20px var(--spacing);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 9999;
+            font-size: 12px;
+        }
+
+        .btn-accept {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
             .services { grid-template-columns: 1fr; }
             .service-card { border-right: none; border-bottom: var(--border); }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
+    <nav>
         <div class="logo">EVOPOS</div>
-        <nav>Immediato. Semplice. Trasparente.</nav>
-    </header>
+        <div class="nav-tagline">Immediato. Semplice. Trasparente.</div>
+    </nav>
 
-    <section class="hero">
-        <span class="label">Fintech Advisor</span>
+    <header>
+        <span class="label">Fintech & Energy Advisor</span>
         <h1>Soluzioni di<br>pagamento<br>evolute.</h1>
-        <p class="subtitle">Ottimizziamo gli incassi e la gestione finanziaria del tuo business con la potenza di myPOS e una consulenza sartoriale.</p>
-    </section>
+        <p class="hero-subtitle">Ottimizziamo gli incassi e la gestione delle utenze del tuo business con la potenza di myPOS e una consulenza sartoriale basata sui dati.</p>
+    </header>
 
     <section class="services">
         <div class="service-card">
-            <span class="label">Servizio 01</span>
+            <span class="label">01. Fintech</span>
             <h2>Terminali POS</h2>
-            <p>Sistemi di incasso immediato senza costi fissi, per ogni tipo di attività commerciale.</p>
+            <p>Sistemi di incasso immediato senza costi fissi. Consulenza autorizzata myPOS per ogni tipo di attività commerciale.</p>
         </div>
         <div class="service-card">
-            <span class="label">Servizio 02</span>
-            <h2>Consulenza Fintech</h2>
-            <p>Analisi dei flussi di cassa e integrazione di strumenti digitali per massimizzare la redditività.</p>
+            <span class="label">02. Energy</span>
+            <h2>Efficientamento</h2>
+            <p>Analisi tecnica dei consumi e ottimizzazione delle tariffe Luce e Gas per abbattere i costi operativi aziendali.</p>
+        </div>
+        <div class="service-card">
+            <span class="label">03. Telco</span>
+            <h2>Connettività</h2>
+            <p>Soluzioni in Fibra e reti dati ad alte prestazioni per garantire la continuità digitale del tuo punto vendita.</p>
         </div>
     </section>
 
     <footer>
-        &copy; 2026 EvoPOS - Official Page. All rights reserved.
+        <div class="footer-grid">
+            <div>
+                <p><strong>EVOPOS | Official Web Platform</strong></p>
+                <p>Vitantonio Di Zanni - Advisor</p>
+                <p>Sede Legale: Corso Garibaldi 9<br>70033 Corato (BA)</p>
+                <p>P.IVA: 09104160727</p>
+            </div>
+            <div class="footer-disclaimer">
+                <p><strong>DISCLAIMER LEGALE:</strong> Il marchio <strong>evoPOS</strong> è di esclusiva proprietà di Vitantonio Di Zanni. L'attività professionale qui presentata si configura come intermediazione e segnalazione commerciale (Lead Generation), finalizzata a mettere in relazione il soggetto acquirente con il fornitore primario dei servizi (Energy, Telco e Fintech). Il titolare opera nel pieno rispetto dei requisiti di onorabilità, limitandosi alla promozione senza concludere direttamente contratti finanziari che richiedano iscrizioni ad albi specifici (OAM/IVASS).</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 EvoPOS di Vitantonio Di Zanni. Tutti i diritti riservati. | <a href="#" style="color:#000;">Privacy & Cookie Policy</a>
+        </div>
     </footer>
 </div>
+
+<div id="cookie-banner">
+    <div>Utilizziamo cookie tecnici per migliorare la tua esperienza. Proseguendo la navigazione acconsenti al loro uso.</div>
+    <button class="btn-accept" onclick="acceptCookies()">Accetto</button>
+</div>
+
+<script>
+    function acceptCookies() {
+        document.getElementById('cookie-banner').style.display = 'none';
+        localStorage.setItem('evopos_cookies', 'true');
+    }
+    if (localStorage.getItem('evopos_cookies') === 'true') {
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
