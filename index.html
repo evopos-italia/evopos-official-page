@@ -3,21 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EvoPOS | Il tuo Hub per i Pagamenti Digitali</title>
-    <meta name="description" content="Soluzioni myPOS per la tua attività. Incassa in modo immediato, semplice e trasparente.">
+    <title>EvoPOS | Official Web Platform</title>
+    <!-- Font elegante in stile editoriale -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #000000;
+            --accent: #00f5ff; /* Ciano Elettrico per il richiamo Tech/Link [8] */
+            --border: 1px solid #e0e0e0; /* Hairline borders tipici di Aeline [9] */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Layout a griglia visibile [9] */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-left: var(--border);
+            border-right: var(--border);
+        }
+
+        header {
+            padding: 40px;
+            border-bottom: var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+        }
+
+        /* Sezione Hero Editoriale [5] */
+        .hero {
+            padding: 100px 40px;
+            border-bottom: var(--border);
+        }
+
+        h1 {
+            font-size: 5rem; /* Testo gigante [5] */
+            font-weight: 800;
+            line-height: 1;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        /* Sezione Servizi a griglia [6] */
+        .services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-bottom: var(--border);
+        }
+
+        .service-card {
+            padding: 60px 40px;
+            border-right: var(--border);
+        }
+
+        .service-card:last-child {
+            border-right: none;
+        }
+
+        .label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        footer {
+            padding: 40px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        /* Adattabilità mobile */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .services { grid-template-columns: 1fr; }
+            .service-card { border-right: none; border-bottom: var(--border); }
+        }
+    </style>
 </head>
 <body>
+
+<div class="container">
     <header>
-        <nav>
-            <div class="logo">EvoPOS</div>
-            <a href="#contatti" class="btn-primary">Richiedi Consulenza</a>
-        </nav>
+        <div class="logo">EVOPOS</div>
+        <nav>Immediato. Semplice. Trasparente.</nav>
     </header>
-    <main>
-        <section class="hero">
-            <h1>Immediato. Semplice. Trasparente.</h1>
-            <p>Evolvi il tuo business con le soluzioni di pagamento di nuova generazione.</p>
-        </section>
-    </main>
+
+    <section class="hero">
+        <span class="label">Fintech Advisor</span>
+        <h1>Soluzioni di<br>pagamento<br>evolute.</h1>
+        <p class="subtitle">Ottimizziamo gli incassi e la gestione finanziaria del tuo business con la potenza di myPOS e una consulenza sartoriale.</p>
+    </section>
+
+    <section class="services">
+        <div class="service-card">
+            <span class="label">Servizio 01</span>
+            <h2>Terminali POS</h2>
+            <p>Sistemi di incasso immediato senza costi fissi, per ogni tipo di attività commerciale.</p>
+        </div>
+        <div class="service-card">
+            <span class="label">Servizio 02</span>
+            <h2>Consulenza Fintech</h2>
+            <p>Analisi dei flussi di cassa e integrazione di strumenti digitali per massimizzare la redditività.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2026 EvoPOS - Official Page. All rights reserved.
+    </footer>
+</div>
+
 </body>
 </html>
