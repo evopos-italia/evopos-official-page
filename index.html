@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>evoPOS.it | Immediato. Semplice. Trasparente.</title>
     
+    <!-- Font Premium Google -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    <!-- Libreria Animazioni (AOS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -118,7 +120,7 @@
 
         .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
 
-        /* HERO SECTION CON SFONDO TECH AURORA (PIÙ LUMINOSO E VISIBILE) */
+        /* HERO SECTION CON SFONDO TECH AURORA ANIMATO (RIPRISTINATO) */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -237,14 +239,14 @@
             text-align: left;
         }
 
-        /* CORNICE BRAND (BLU & LIME) */
+        /* 🤖 CORNICE ANIMATA TIPO ATTIVAZIONE IA (RIPRISTINATA) */
         .gemini-card-wrapper {
             position: relative;
             border-radius: 25px;
-            padding: 2px;
-            background: linear-gradient(60deg, var(--accent-blue), var(--accent-lime), var(--accent-blue));
-            background-size: 200% 200%;
-            animation: geminiBorderAnim 5s ease infinite;
+            padding: 3px;
+            background: linear-gradient(60deg, #0071f3, #d6fd70, #ff007f, #00f0ff, #0071f3);
+            background-size: 300% 300%;
+            animation: geminiBorderAnim 6s ease infinite;
         }
 
         @keyframes geminiBorderAnim {
@@ -253,10 +255,12 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* BOX INTERNI PULITI NERI */
+        /* BOX INTERNI VETRO SATINATO NERO */
         .glass-box {
-            background: #141414;
-            border-radius: 23px;
+            background: rgba(15, 20, 28, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 22px;
             padding: 3rem;
             height: 100%;
             display: flex;
@@ -585,6 +589,7 @@
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <header data-aos="fade-down" data-aos-duration="1000">
         <div class="logo-container">
             <a href="index.html" class="brand-text">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
@@ -598,6 +603,7 @@
         </ul>
     </header>
 
+    <!-- HERO SECTION CON SFONDO TECH ANIMATO AURORA -->
     <section class="hero-section">
         <div class="tech-aurora-bg"></div>
         <div class="hero-overlay"></div>
@@ -615,11 +621,13 @@
         </div>
     </section>
 
+    <!-- SEZIONE QUOTE LIME -->
     <section class="quote-lime-section" data-aos="fade-in">
         <h2 class="main-claim">Immediato. Semplice. Trasparente.</h2>
         <p class="sub-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
     </section>
 
+    <!-- SEZIONE BUSINESS NERA CON CORNICI IA ANIMATE -->
     <section id="servizi" class="business-section">
         <div class="business-header" data-aos="fade-right">
             <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Core Business Solutions</span>
@@ -629,6 +637,7 @@
 
         <div class="business-grid">
             
+            <!-- Box 1 -->
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="100">
                 <div class="glass-box">
                     <div>
@@ -642,6 +651,7 @@
                 </div>
             </div>
 
+            <!-- Box 2 -->
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <div class="glass-box">
                     <div>
@@ -655,6 +665,7 @@
                 </div>
             </div>
 
+            <!-- Box 3 -->
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="300">
                 <div class="glass-box">
                     <div>
@@ -671,6 +682,7 @@
         </div>
     </section>
 
+    <!-- SEZIONE LISTINO E TARIFFE -->
     <section id="commissioni" class="pricing-section">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
             <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Trasparenza Assoluta</span>
@@ -680,6 +692,7 @@
 
         <div class="pricing-grid">
             
+            <!-- ACQUISTO TERMINALE -->
             <div class="pricing-card" data-aos="fade-right">
                 <div>
                     <span style="background: #e2e8f0; color: #0f172a; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">PICCOLE IMPRESE & ATTIVITÀ</span>
@@ -694,6 +707,7 @@
                 </div>
             </div>
 
+            <!-- NOLEGGIO POS -->
             <div class="pricing-card featured" data-aos="fade-left">
                 <div>
                     <span style="background: var(--accent-blue); color: white; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">BUSINESS & HIGH-VOLUME</span>
@@ -711,8 +725,12 @@
         </div>
     </section>
 
+    <!-- VANTAGGI STRATEGICI MYPOS CON OCCHIELLO BLU -->
     <section id="vantaggi" class="features-section">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+            <!-- Occhiello Blu richiesto -->
+            <span style="color: var(--accent-blue); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 8px;">Tariffe su misura, esclusive e più competitive per ogni tua reale esigenza.</span>
+            
             <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Il Vantaggio Competitivo</span>
             <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Perché scegliere myPOS con evoPOS</h2>
         </div>
@@ -794,6 +812,7 @@
         </div>
     </section>
 
+    <!-- SEZIONE CONTATTI / FORM LEAD GENERATION -->
     <section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; margin: 4rem 5%;">
         <div style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
@@ -821,6 +840,7 @@
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div>
@@ -840,7 +860,7 @@
                 <h4>Contatti Diretti & Legali</h4>
                 <ul>
                     <li><a href="mailto:info@evopos.it">✉️ Email: info@evopos.it</a></li>
-                    <li><a href="mailto:vitantonio.dizanni.pec.it">📜 PEC: vitantonio.dizanni.pec.it</a></li>
+                    <li><a href="mailto:vitantonio.dizanni@pec.it">📜 PEC: vitantonio.dizanni@pec.it</a></li>
                     <li><a href="tel:+393737600797">📞 Tel: (+39) 373 7600797</a></li>
                     <li style="color: #94a3b8; margin-top: 0.5rem;">📍 C.so Garibaldi 9, 70033 Corato (BA)</li>
                 </ul>
@@ -855,6 +875,7 @@
         </div>
     </footer>
 
+    <!-- COOKIE BANNER FLOATING -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-text">
             <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. Zero cookie di profilazione terze parti. <a href="javascript:void(0)" onclick="openCookieModal()">Leggi la Cookie Policy</a>.
@@ -865,6 +886,7 @@
         </div>
     </div>
 
+    <!-- MODAL POPUP COOKIE POLICY -->
     <div id="cookie-modal" class="modal-overlay">
         <div class="modal-card">
             <div class="modal-header">
@@ -872,10 +894,10 @@
                 <button class="close-modal" onclick="closeCookieModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni.pec.it</em> | Email: <em>info@evopos.it</em></p>
+                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
                 <p><strong>2. Tipologia di Cookie Utilizzati:</strong><br>Il portale utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong> necessari al corretto funzionamento della struttura web, all'invio dei form di contatto e al salvataggio delle impostazioni di riservatezza dell'utente.</p>
                 <p><strong>3. Cookie di Profilazione:</strong><br>Il sito <u>non utilizza in alcun modo</u> cookie di tracciamento o profilazione pubblicitaria di terze parti.</p>
-                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni.pec.it</em> o email ordinaria.</p>
+                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em> o email ordinaria.</p>
             </div>
             <div style="margin-top: 1.5rem; text-align: right;">
                 <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
@@ -883,6 +905,7 @@
         </div>
     </div>
 
+    <!-- 🟢 PULSANTE WHATSAPP FLOATING 🟢 -->
     <a href="https://wa.me/393737600797" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.05 2.05A13.9 13.9 0 002.1 15.95c0 2.45.65 4.8 1.85 6.9L2 29.9l7.25-1.9c2 .1 4.3.75 6.8.75A13.9 13.9 0 0029.95 15.95 13.9 13.9 0 0016.05 2.05zM16.05 27.55c-2.05 0-4.05-.55-5.85-1.55l-.4-.25-4.35 1.15 1.15-4.25-.3-.45A11.65 11.65 0 014.35 15.95 11.75 11.75 0 0116.05 4.3a11.75 11.75 0 0111.7 11.65 11.75 11.75 0 01-11.7 11.6z"/>
@@ -890,6 +913,7 @@
         </svg>
     </a>
 
+    <!-- JS ANIMAZIONI AOS E GESTIONE COOKIE -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 100 });
