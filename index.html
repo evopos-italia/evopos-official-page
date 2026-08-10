@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>evoPOS.it | Next-Gen Fintech & Energy Advisory</title>
+    <title>evoPOS.it | Immediato. Semplice. Trasparente.</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -31,11 +31,11 @@
             line-height: 1.6;
         }
 
-        /* LOGO TIPOGRAFICO FORMOTTATO */
+        /* LOGO TIPOGRAFICO */
         .brand-text {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.35rem;
-            font-weight: 400; /* Normale */
+            font-weight: 400;
             letter-spacing: -0.5px;
             text-decoration: none;
             color: var(--text-main);
@@ -43,11 +43,11 @@
             align-items: center;
         }
         .brand-text .pos-part {
-            font-weight: 600; /* Semi-grassetto */
+            font-weight: 600;
             color: var(--accent-blue);
         }
         .brand-text .it-part {
-            font-weight: 400; /* Normale */
+            font-weight: 400;
             color: var(--text-main);
         }
 
@@ -125,7 +125,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px 5%;
+            padding: 120px 5% 100px 5%;
             overflow: hidden;
         }
 
@@ -161,15 +161,33 @@
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(248,250,252,1) 100%);
+            background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(248,250,252,1) 100%);
             backdrop-filter: blur(10px);
             z-index: -1;
         }
 
         .hero-content {
             text-align: center;
-            max-width: 900px;
+            max-width: 920px;
             z-index: 1;
+        }
+
+        .claim-badge {
+            display: inline-block;
+            background: rgba(0, 113, 243, 0.08);
+            border: 1px solid rgba(0, 113, 243, 0.25);
+            padding: 0.6rem 1.8rem;
+            border-radius: 99px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 113, 243, 0.05);
+        }
+
+        .claim-badge span {
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent-blue);
+            font-weight: 800;
+            font-size: 1rem;
         }
 
         .hero-title {
@@ -186,7 +204,7 @@
             font-size: 1.25rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            max-width: 700px;
+            max-width: 720px;
             margin-inline: auto;
         }
 
@@ -226,11 +244,11 @@
             text-align: left;
         }
 
-        /* CORNICE MULTICOLORE "GEMINI AI" (SOLO BORDO) */
+        /* CORNICE MULTICOLORE */
         .gemini-card-wrapper {
             position: relative;
             border-radius: 25px;
-            padding: 3px; /* Spessore del bordo laser */
+            padding: 3px;
             background: linear-gradient(60deg, #0071f3, #d6fd70, #ff007f, #00f0ff, #0071f3);
             background-size: 300% 300%;
             animation: geminiBorderAnim 6s ease infinite;
@@ -242,12 +260,12 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* 3 BOX INTERNI CON VETRO SATINATO NERO (BLUR) E SFONDO INTERNO SOLIDO/TRASLUCIDO NERO */
+        /* BOX INTERNI VETRO SATINATO NERO */
         .glass-box {
-            background: rgba(15, 20, 28, 0.82); /* Vetro satinato nero */
+            background: rgba(15, 20, 28, 0.82);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-radius: 22px; /* Adattato al padding del wrapper */
+            border-radius: 22px;
             padding: 3rem;
             height: 100%;
             display: flex;
@@ -268,15 +286,30 @@
         .quote-lime-section {
             background-color: var(--accent-lime);
             color: #0f172a;
-            padding: 4rem 5%;
+            padding: 4.5rem 5%;
             text-align: center;
-            font-weight: 800;
-            font-size: 2rem;
-            letter-spacing: -1px;
             box-shadow: 0 15px 35px rgba(214, 253, 112, 0.2);
         }
 
-        /* BENTO GRID PER I VANTAGGI MYPOS (9 PUNTI) */
+        .quote-lime-section .main-claim {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+        }
+
+        .quote-lime-section .sub-quote {
+            font-size: 1.25rem;
+            font-weight: 600;
+            opacity: 0.85;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* VANTAGGI MYPOS */
         .features-section {
             padding: 6rem 5%;
             max-width: 1400px;
@@ -307,7 +340,7 @@
             border-color: var(--accent-blue);
         }
 
-        /* TABELLA COMMISSIONI A CARATTERI CUBITALI */
+        /* LISTINO TARIFFE */
         .pricing-section {
             padding: 6rem 5%;
             max-width: 1400px;
@@ -380,11 +413,151 @@
             font-size: 0.85rem;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* COOKIE BANNER FLOATING & MODAL */
+        .cookie-banner {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1000px;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            color: #ffffff;
+            z-index: 10000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .cookie-banner.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 50px);
+        }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .cookie-text a {
+            color: var(--accent-lime);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .btn-cookie-sec {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .btn-cookie-sec:hover { background: rgba(255,255,255,0.2); }
+
+        .btn-cookie-main {
+            background: var(--accent-lime);
+            color: #0f172a;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .btn-cookie-main:hover {
+            background: #c3f248;
+            transform: translateY(-1px);
+        }
+
+        /* MODAL POPUP COOKIE POLICY */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            color: var(--text-main);
+            width: calc(100% - 40px);
+            max-width: 680px;
+            max-height: 85vh;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-body p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
         }
 
         @media (max-width: 1024px) {
             .business-grid, .features-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
             .main-nav { display: none; }
+            .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
+            .cookie-buttons { width: 100%; justify-content: flex-end; }
         }
     </style>
 </head>
@@ -414,15 +587,19 @@
         <div class="hero-overlay"></div>
 
         <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--accent-blue); font-weight: 700; margin-bottom: 1rem;">Oltre 23 anni di esperienza sul campo dal 2003</p>
+            <div class="claim-badge">
+                <span>Immediato. Semplice. Trasparente.</span>
+            </div>
+            
             <h1 class="hero-title">Infrastrutture d'incasso e gestione energetica <span>senza attrito.</span></h1>
-            <p class="hero-subtitle">Consulenza indipendente di alto livello per aziende e professionisti. Ottimizziamo il tuo workflow, abbattiamo i costi, azzeriamo la burocrazia.</p>
+            <p class="hero-subtitle">Consulenza indipendente di alto livello per aziende e professionisti dal 2003. Ottimizziamo il tuo workflow, abbattiamo i costi, azzeriamo la burocrazia.</p>
             <a href="#contatti" class="btn-custom">Scopri di più</a>
         </div>
     </section>
 
     <section class="quote-lime-section" data-aos="fade-in">
-        <p>"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
+        <h2 class="main-claim">Immediato. Semplice. Trasparente.</h2>
+        <p class="sub-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
     </section>
 
     <section id="servizi" class="business-section">
@@ -477,7 +654,7 @@
     </section>
 
     <section id="commissioni" class="pricing-section">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;" data-aos="fade-up">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
             <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Trasparenza Assoluta</span>
             <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Scegli la formula ideale per la tua azienda</h2>
             <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 0.5rem;">Condizioni economiche chiare pensate su misura per il tuo volume d'affari mensile.</p>
@@ -611,25 +788,31 @@
     <section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; margin: 4rem 5%;">
         <div style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
-            <p style="color: var(--text-muted); text-align: center; margin-top: 0.5rem; margin-bottom: 2.5rem;">Compila il form per attivare le tue soluzioni POS o richiedere un audit energetico.</p>
+            <p style="color: var(--text-muted); text-align: center; margin-top: 0.5rem; margin-bottom: 2.5rem;">Compila il form con i tuoi dati. Ti ricontatteremo nel più breve tempo possibile.</p>
 
-            <form action="https://formspree.io/f/tuocodice" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
-                <input type="text" name="name" placeholder="Nome / Ragione Sociale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
-                <input type="email" name="email" placeholder="Email Aziendale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
-                <input type="tel" name="phone" placeholder="Telefono (+39)" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
                 
-                <select name="servizio" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
-                    <option value="pos">Soluzioni POS & Fintech (Acquisto / Noleggio)</option>
-                    <option value="energia">Audit Energetico & TLC</option>
-                    <option value="ecommerce">Gateway E-commerce</option>
-                </select>
+                <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
+                
+                <input type="hidden" name="subject" value="Nuovo Contatto da evoPOS.it">
+                <input type="hidden" name="from_name" value="evoPOS.it Website">
 
-                <div style="grid-column: span 2; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
-                    <input type="checkbox" id="privacy" required style="accent-color: var(--accent-blue);">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none !important;">
+
+                <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                
+                <input type="text" name="cognome_o_ragione_sociale" placeholder="Cognome o Ragione Sociale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                
+                <input type="tel" name="telefono" placeholder="Telefono (+39)" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                
+                <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+
+                <div style="grid-column: span 2; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                    <input type="checkbox" id="privacy" required style="accent-color: var(--accent-blue); width: 18px; height: 18px;">
                     <label for="privacy">Dichiaro di aver letto e accetto l'Informativa sulla Privacy (Art. 13 GDPR).</label>
                 </div>
 
-                <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%; text-align: center;">Invia Richiesta</button>
+                <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%; text-align: center; margin-top: 0.5rem;">Invia Richiesta</button>
             </form>
         </div>
     </section>
@@ -638,7 +821,7 @@
         <div class="footer-grid">
             <div>
                 <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
-                <p style="color: #94a3b8; max-width: 300px; font-size: 1.1rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
+                <p style="color: #94a3b8; max-width: 320px; font-size: 1.05rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
             </div>
             <div class="footer-links">
                 <h4>Menu</h4>
@@ -650,22 +833,51 @@
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Contatti Diretti</h4>
+                <h4>Contatti Diretti & Legali</h4>
                 <ul>
-                    <li><a href="mailto:info@evopos.it">info@evopos.it</a></li>
-                    <li><a href="tel:+393737600797">(+39) 373 7600797</a></li>
-                    <li style="color: #94a3b8;">C.so Garibaldi 9, Corato (BA)</li>
+                    <li><a href="mailto:info@evopos.it">✉️ Email: info@evopos.it</a></li>
+                    <li><a href="mailto:vitantonio.dizanni@pec.it">📜 PEC: vitantonio.dizanni@pec.it</a></li>
+                    <li><a href="tel:+393737600797">📞 Tel: (+39) 373 7600797</a></li>
+                    <li style="color: #94a3b8; margin-top: 0.5rem;">📍 C.so Garibaldi 9, 70033 Corato (BA)</li>
                 </ul>
             </div>
         </div>
         <div class="footer-legal">
-            <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: 09104160727</div>
+            <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: <strong>09104160727</strong></div>
             <div>
-                <a href="#" style="color: #64748b; text-decoration: none; margin-right: 15px;">Privacy Policy</a>
-                <a href="#" style="color: #64748b; text-decoration: none;">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline;">Privacy Policy (Art. 13 GDPR)</a>
             </div>
         </div>
     </footer>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-text">
+            <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. Zero cookie di profilazione terze parti. <a href="javascript:void(0)" onclick="openCookieModal()">Leggi la Cookie Policy</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies('necessary')" class="btn-cookie-sec">Solo Tecnici</button>
+            <button onclick="acceptCookies('all')" class="btn-cookie-main">Accetta Tutti</button>
+        </div>
+    </div>
+
+    <div id="cookie-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 style="font-size: 1.4rem; font-weight: 800;">Informativa Cookie & Privacy Policy</h3>
+                <button class="close-modal" onclick="closeCookieModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
+                <p><strong>2. Tipologia di Cookie Utilizzati:</strong><br>Il portale utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong> necessari al corretto funzionamento della struttura web, all'invio dei form di contatto e al salvataggio delle impostazioni di riservatezza dell'utente.</p>
+                <p><strong>3. Cookie di Profilazione:</strong><br>Il sito <u>non utilizza in alcun modo</u> cookie di tracciamento o profilazione pubblicitaria di terze parti.</p>
+                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em> o email ordinaria.</p>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: right;">
+                <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
+            </div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -673,6 +885,26 @@
             once: true,
             offset: 100
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var consent = localStorage.getItem("evopos_cookie_consent");
+            if (consent) {
+                document.getElementById("cookie-banner").classList.add("hidden");
+            }
+        });
+
+        function acceptCookies(type) {
+            localStorage.setItem("evopos_cookie_consent", type);
+            document.getElementById("cookie-banner").classList.add("hidden");
+        }
+
+        function openCookieModal() {
+            document.getElementById("cookie-modal").classList.add("active");
+        }
+
+        function closeCookieModal() {
+            document.getElementById("cookie-modal").classList.remove("active");
+        }
     </script>
 </body>
 </html>
