@@ -3,257 +3,910 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitantonio Di Zanni | Consulente Energetico & Fintech</title>
+    <title>evoPOS.it | Immediato. Semplice. Trasparente.</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        /* 1. VARIABILI CSS - Gestione Tema Chiaro/Scuro e Colori Brand */
         :root {
-            --bg-color: #f9f9f9;
-            --text-color: #181818; /* Sfondo Charcoal per testi nel tema chiaro */
-            --accent-green: #d6fd70; /* Verde Lime myPOS/evoPOS */
-            --accent-blue: #0071f3; /* Blu myPOS/evoPOS */
-            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --bg-main: #f8fafc;
+            --text-main: #0f172a;        
+            --text-muted: #475569;       
+            --accent-blue: #0071f3;      
+            --accent-lime: #d6fd70;      
+            --business-black: #181818;
+            --nav-glass: rgba(255, 255, 255, 0.95);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #181818; /* Sfondo Charcoal */
-                --text-color: #f9f9f9; /* Testo chiaro */
-            }
-        }
-
-        /* 2. RESET E STILE GLOBALE (Minimalista/Brutalista) */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-family);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            background: var(--bg-main);
+            overflow-x: hidden;
             line-height: 1.6;
+        }
+
+        /* LOGO TIPOGRAFICO */
+        .brand-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--text-main);
             display: flex;
-            flex-direction: column;
             align-items: center;
-            padding: 2rem;
-            transition: background-color 0.3s, color 0.3s;
+        }
+        .brand-text .pos-part {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        .brand-text .it-part {
+            font-weight: 400;
+            color: var(--text-main);
         }
 
-        main {
-            max-width: 800px;
-            width: 100%;
+        .brand-text-footer {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: #ffffff;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .brand-text-footer .pos-part {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        .brand-text-footer .it-part {
+            font-weight: 400;
+            color: #ffffff;
         }
 
-        /* 3. HEADER E NAVIGAZIONE */
+        /* NAVBAR */
         header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: var(--nav-glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 9999;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid var(--text-color);
-            margin-bottom: 3rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .main-nav a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
-        .logo span {
-            color: var(--accent-blue);
+        .main-nav a:hover { color: var(--accent-blue); }
+
+        .btn-nav {
+            background: var(--text-main);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
         }
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: 500;
+        .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
+
+        /* HERO SECTION */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 100px 5%;
+            overflow: hidden;
         }
 
-        nav a:hover {
-            color: var(--accent-blue);
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -2;
+            background: #fff;
         }
 
-        /* 4. HERO SECTION */
-        .hero {
-            margin-bottom: 4rem;
+        .hero-bg img {
+            position: absolute;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: fadeSlider 25s infinite ease-in-out;
+        }
+        
+        .hero-bg img:nth-child(1) { animation-delay: 0s; }
+        .hero-bg img:nth-child(2) { animation-delay: 5s; }
+        .hero-bg img:nth-child(3) { animation-delay: 10s; }
+        .hero-bg img:nth-child(4) { animation-delay: 15s; }
+        .hero-bg img:nth-child(5) { animation-delay: 20s; }
+
+        @keyframes fadeSlider {
+            0% { opacity: 0; transform: scale(1); }
+            10% { opacity: 1; }
+            20% { opacity: 1; }
+            30% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; }
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.1;
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(248,250,252,1) 100%);
+            backdrop-filter: blur(10px);
+            z-index: -1;
         }
 
-        /* Evidenziatore con il verde lime */
-        .hero h1 span.highlight {
-            background-color: var(--accent-green);
-            color: #181818; /* Rimane scuro per contrasto */
-            padding: 0 0.5rem;
-            display: inline-block;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        /* Animazione cursore lampeggiante in puro CSS */
-        .cursor {
-            display: inline-block;
-            width: 12px;
-            height: 1.1em;
-            background-color: var(--text-color);
-            vertical-align: text-bottom;
-            animation: blink 1s step-end infinite;
-            margin-left: 5px;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        /* 5. SEZIONI E GRIGLIA SERVIZI */
-        section {
-            margin-bottom: 4rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid var(--text-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 600px) {
-            .service-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .service-card {
-            border: 2px solid var(--text-color);
-            padding: 2rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            background-color: transparent;
-        }
-
-        /* Hover effect sfalsato in stile brutalista */
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 6px 6px 0 var(--accent-blue);
-        }
-
-        .service-card.energy:hover {
-            box-shadow: 6px 6px 0 var(--accent-green);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        /* 6. CALL TO ACTION (CTA) E FOOTER */
-        .cta {
-            background-color: var(--accent-blue);
-            color: #fff;
-            padding: 3rem 2rem;
+        .hero-content {
             text-align: center;
-            border-radius: 4px;
-            margin-bottom: 4rem;
+            max-width: 920px;
+            z-index: 1;
         }
 
-        .cta h2 {
-            border-bottom: none;
-            margin-bottom: 0.5rem;
-        }
-
-        .cta a {
+        .claim-badge {
             display: inline-block;
-            margin-top: 1.5rem;
-            padding: 1rem 2rem;
-            background-color: #181818;
-            color: var(--accent-green);
+            background: rgba(0, 113, 243, 0.08);
+            border: 1px solid rgba(0, 113, 243, 0.25);
+            padding: 0.6rem 1.8rem;
+            border-radius: 99px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 113, 243, 0.05);
+        }
+
+        .claim-badge span {
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent-blue);
+            font-weight: 800;
+            font-size: 1rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span { color: var(--accent-blue); }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 720px;
+            margin-inline: auto;
+        }
+
+        /* BOTTONI CON HOVER #d6fd70 */
+        .btn-custom {
+            display: inline-block;
+            background: var(--text-main);
+            color: white;
+            padding: 0.9rem 2.2rem;
+            border-radius: 12px;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            border: 2px solid #181818;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-custom:hover {
+            background: var(--accent-lime) !important;
+            color: #0f172a !important;
+            box-shadow: 0 0 20px rgba(214, 253, 112, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* SEZIONE BUSINESS NERA (#181818) */
+        .business-section {
+            background-color: var(--business-black);
+            color: white;
+            padding: 6rem 5%;
+            margin: 4rem 0;
+        }
+
+        .business-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem auto;
+            text-align: left;
+        }
+
+        /* CORNICE MULTICOLORE */
+        .gemini-card-wrapper {
+            position: relative;
+            border-radius: 25px;
+            padding: 3px;
+            background: linear-gradient(60deg, #0071f3, #d6fd70, #ff007f, #00f0ff, #0071f3);
+            background-size: 300% 300%;
+            animation: geminiBorderAnim 6s ease infinite;
+        }
+
+        @keyframes geminiBorderAnim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* BOX INTERNI VETRO SATINATO NERO */
+        .glass-box {
+            background: rgba(15, 20, 28, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 22px;
+            padding: 3rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* SEZIONE QUOTE LIME (#d6fd70) */
+        .quote-lime-section {
+            background-color: var(--accent-lime);
+            color: #0f172a;
+            padding: 4.5rem 5%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(214, 253, 112, 0.2);
+        }
+
+        .quote-lime-section .main-claim {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+        }
+
+        .quote-lime-section .sub-quote {
+            font-size: 1.25rem;
+            font-weight: 600;
+            opacity: 0.85;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* VANTAGGI MYPOS */
+        .features-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        /* LISTINO TARIFFE */
+        .pricing-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-blue);
+            background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+        }
+
+        .big-percentage {
+            font-size: clamp(4rem, 7vw, 6rem);
+            font-weight: 800;
+            color: var(--accent-blue);
+            line-height: 1;
+            margin: 1.5rem 0;
+            letter-spacing: -2px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0f1c;
+            color: white;
+            padding: 6rem 5% 2rem 5%;
+            margin-top: 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 4rem;
+        }
+
+        .footer-links h4 { color: var(--accent-blue); margin-bottom: 1.5rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+
+        .footer-legal {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            color: #64748b;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* COOKIE BANNER FLOATING & MODAL */
+        .cookie-banner {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1000px;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            color: #ffffff;
+            z-index: 10000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .cookie-banner.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 50px);
+        }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .cookie-text a {
+            color: var(--accent-lime);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .btn-cookie-sec {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
             transition: all 0.2s;
         }
 
-        .cta a:hover {
-            background-color: transparent;
-            color: #181818;
-            border-color: #181818;
+        .btn-cookie-sec:hover { background: rgba(255,255,255,0.2); }
+
+        .btn-cookie-main {
+            background: var(--accent-lime);
+            color: #0f172a;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
         }
 
-        footer {
-            text-align: center;
-            opacity: 0.6;
-            font-size: 0.9rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--text-color);
+        .btn-cookie-main:hover {
+            background: #c3f248;
+            transform: translateY(-1px);
+        }
+
+        /* MODAL POPUP COOKIE POLICY */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            color: var(--text-main);
+            width: calc(100% - 40px);
+            max-width: 680px;
+            max-height: 85vh;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-body p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .business-grid, .features-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
+            .main-nav { display: none; }
+            .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
+            .cookie-buttons { width: 100%; justify-content: flex-end; }
         }
     </style>
 </head>
 <body>
 
-    <main>
-        <header>
-            <a href="#" class="logo">evo<span>POS</span>.it</a>
-            <nav>
-                <a href="#servizi">Servizi</a>
-                <a href="#chi-sono">Chi Sono</a>
-                <a href="#contatti">Contatti</a>
-            </nav>
-        </header>
+    <header data-aos="fade-down" data-aos-duration="1000">
+        <div class="logo-container">
+            <a href="index.html" class="brand-text">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
+        </div>
+        <ul class="main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#servizi">Servizi & POS</a></li>
+            <li><a href="#vantaggi">I Vantaggi</a></li>
+            <li><a href="#commissioni">Listino & Tariffe</a></li>
+            <li><a href="#contatti" class="btn-nav">Contattaci</a></li>
+        </ul>
+    </header>
 
-        <section class="hero">
-            <h1>Vitantonio Di Zanni<br><span class="highlight">Energia & Fintech</span><br>per il tuo business<span class="cursor"></span></h1>
-            <p>La supervisione che accende il risparmio. Ottimizza i costi aziendali con soluzioni all'avanguardia per l'efficientamento energetico e terminali di pagamento next-gen.</p>
-        </section>
+    <section class="hero-section">
+        <div class="hero-bg">
+            <img src="2.jpg" alt="Fintech bg">
+            <img src="3.jpg" alt="Fintech bg">
+            <img src="4.jpg" alt="Fintech bg">
+            <img src="5.jpg" alt="Fintech bg">
+            <img src="webp.webp" alt="Fintech bg">
+        </div>
+        <div class="hero-overlay"></div>
 
-        <section id="servizi">
-            <h2>Cosa faccio</h2>
-            <div class="service-grid">
-                <div class="service-card energy">
-                    <h3>⚡ Consulenza Energetica</h3>
-                    <p>Riduzione dei costi in bolletta, strategie di efficientamento e soluzioni IoT per monitorare e ottimizzare i consumi della tua azienda. Diamo VITA alla tua energia.</p>
-                </div>
-                <div class="service-card fintech">
-                    <h3>💳 Servizi Fintech & POS</h3>
-                    <p>Terminali POS smart, sicuri e all'avanguardia. L'evoluzione dei pagamenti digitali per far crescere la tua impresa, con consulenza su misura.</p>
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <div class="claim-badge">
+                <span>Immediato. Semplice. Trasparente.</span>
+            </div>
+            
+            <h1 class="hero-title">Incassi immediati. Massimo controllo. <br><span>Scegli gli strumenti giusti per la tua attività.</span></h1>
+            
+            <p class="hero-subtitle">Ottieni accesso istantaneo ai tuoi fondi con ogni pagamento che ricevi. Taglia le spese inutili in bolletta e dota la tua azienda delle migliori infrastrutture di connessione Telco. Offerte esclusive e soluzioni create su misura per te, con un unico referente.</p>
+            
+            <a href="#contatti" class="btn-custom">Richiedi una Consulenza Gratuita</a>
+        </div>
+    </section>
+
+    <section class="quote-lime-section" data-aos="fade-in">
+        <h2 class="main-claim">Immediato. Semplice. Trasparente.</h2>
+        <p class="sub-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
+    </section>
+
+    <section id="servizi" class="business-section">
+        <div class="business-header" data-aos="fade-right">
+            <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Core Business Solutions</span>
+            <h2 style="font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Servizi Integrati per il Business</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 0.5rem;">Soluzioni di pagamento e consulenza di altissimo livello per far volare la tua impresa.</p>
+        </div>
+
+        <div class="business-grid">
+            
+            <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-box">
+                    <div>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">01 // FINTECH</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Terminali POS Smart</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem;">Accedi a pagamenti contactless, e-wallet e carte con accredito immediato e condizioni trasparenti.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <section id="chi-sono">
-            <h2>Chi Sono</h2>
-            <p>Professionista con oltre 19 anni di esperienza nei ruoli di General Contractor, Business Developer e Manager. La mia forza è l'ottimizzazione dei processi aziendali: ti offro una consulenza indipendente e strategica per migliorare l'efficienza organizzativa della tua attività e ridurre i costi operativi.</p>
-        </section>
+            <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-box">
+                    <div>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">02 // ENERGIA & TLC</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Audit Energetico</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem;">Analisi sartoriale dei contratti di fornitura luce, gas e TLC aziendali per eliminare sprechi e penali nascoste.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                    </div>
+                </div>
+            </div>
 
-        <section id="contatti" class="cta">
-            <h2>Pronto a dare nuova energia ai tuoi incassi?</h2>
-            <p>Richiedi una consulenza e scopri quanto puoi ottimizzare.</p>
-            <a href="mailto:info@evopos.it">Contattami ora</a>
-        </section>
+            <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="300">
+                <div class="glass-box">
+                    <div>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">03 // E-COMMERCE</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Gateway di Pagamento</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem;">Integra un gateway di pagamento semplice e sicuro o un plugin carrello per un checkout online fluido.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                    </div>
+                </div>
+            </div>
 
-        <footer>
-            &copy; 2026 Vitantonio Di Zanni - evoPOS.it. Tutti i diritti riservati.<br>
-            Design minimalista interamente in HTML5 e CSS puro.
-        </footer>
-    </main>
+        </div>
+    </section>
 
+    <section id="commissioni" class="pricing-section">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Trasparenza Assoluta</span>
+            <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Scegli la formula ideale per la tua azienda</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 0.5rem;">Condizioni economiche chiare pensate su misura per il tuo volume d'affari mensile.</p>
+        </div>
+
+        <div class="pricing-grid">
+            
+            <div class="pricing-card" data-aos="fade-right">
+                <div>
+                    <span style="background: #e2e8f0; color: #0f172a; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">PICCOLE IMPRESE & ATTIVITÀ</span>
+                    <h3 style="font-size: 2rem; margin-top: 1.5rem;">Acquisto del Terminale</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Ideale per chi transa <strong>fino a 5.000€ al mese</strong>.</p>
+                    
+                    <div class="big-percentage">1%</div>
+                    <p style="font-weight: 700; color: var(--text-main); font-size: 1.1rem;">Commissioni a partire da sul transato</p>
+                </div>
+                <div style="margin-top: 2.5rem;">
+                    <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                </div>
+            </div>
+
+            <div class="pricing-card featured" data-aos="fade-left">
+                <div>
+                    <span style="background: var(--accent-blue); color: white; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">BUSINESS & HIGH-VOLUME</span>
+                    <h3 style="font-size: 2rem; margin-top: 1.5rem;">Noleggio del POS</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Dedicato alle imprese che transano <strong>da 5.000€ al mese in su</strong>.</p>
+                    
+                    <div class="big-percentage" style="color: var(--accent-blue);">0,50%</div>
+                    <p style="font-weight: 700; color: var(--text-main); font-size: 1.1rem;">Commissioni a partire da sul transato</p>
+                </div>
+                <div style="margin-top: 2.5rem;">
+                    <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="vantaggi" class="features-section">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Il Vantaggio Competitivo</span>
+            <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Perché scegliere myPOS con evoPOS</h2>
+        </div>
+
+        <div class="features-grid">
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">01 // LIQUIDITÀ</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Accredito Immediato</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Disponibilità istantanea delle somme incassate sul tuo conto, senza attese bancarie.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">02 // CONTO ZERO SPESE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Conto Business Gratuito</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Inclusi IBAN dedicato e carta aziendale senza costi di gestione o canoni nascosti.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">03 // ATTIVAZIONE LAMPO</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Operativo in 8 Minuti</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Registrazione semplice e rapida: in soli 8 minuti sei già operativo per incassare.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">04 // CASSA & COMPLIANT</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">MyOrder & Registratore</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">myPOS Ultra diventa registratore di cassa 100% compliant secondo le ultime normative italiane.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">05 // CONNETTIVITÀ TOTALE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">SIM Multioperatore Gratuita</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Terminali sempre connessi in ogni angolo d'Europa con traffico dati incluso a costo zero.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">06 // MYPOS GLASS</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Smartphone come POS</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Trasforma il tuo smartphone in un terminale di pagamento sicuro e sempre a portata di mano.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">07 // GESTIONE MOBILE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">App Mobile Dedicata</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Tieni sotto controllo transazioni, report e attività ovunque tu sia direttamente dal telefono.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">08 // E-COMMERCE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Gateway & Checkout Web</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Hai già un sito? Integra facilmente i nostri plugin di pagamento per un'esperienza d'acquisto fluida.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="900">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">09 // SUPPORTO H24</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Assistenza 24/7</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Un team di professionisti sempre operativo e pronto ad aiutarti a qualsiasi ora.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; margin: 4rem 5%;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
+            <p style="color: var(--text-muted); text-align: center; margin-top: 0.5rem; margin-bottom: 2.5rem;">Compila il form con i tuoi dati. Ti ricontatteremo nel più breve tempo possibile.</p>
+
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                
+                <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
+                
+                <input type="hidden" name="subject" value="Nuovo Contatto da evoPOS.it">
+                <input type="hidden" name="from_name" value="evoPOS.it Website">
+
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none !important;">
+
+                <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                
+                <input type="text" name="cognome_o_ragione_sociale" placeholder="Cognome o Ragione Sociale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                
+                <input type="tel" name="telefono" placeholder="Telefono (+39)" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                
+                <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+
+                <div style="grid-column: span 2; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                    <input type="checkbox" id="privacy" required style="accent-color: var(--accent-blue); width: 18px; height: 18px;">
+                    <label for="privacy">Dichiaro di aver letto e accetto l'Informativa sulla Privacy (Art. 13 GDPR).</label>
+                </div>
+
+                <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%; text-align: center; margin-top: 0.5rem;">Invia Richiesta</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
+                <p style="color: #94a3b8; max-width: 320px; font-size: 1.05rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="#servizi">Servizi Business</a></li>
+                    <li><a href="#commissioni">Listino & Tariffe</a></li>
+                    <li><a href="#vantaggi">Vantaggi MyPOS</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contatti Diretti & Legali</h4>
+                <ul>
+                    <li><a href="mailto:info@evopos.it">✉️ Email: info@evopos.it</a></li>
+                    <li><a href="mailto:vitantonio.dizanni@pec.it">📜 PEC: vitantonio.dizanni@pec.it</a></li>
+                    <li><a href="tel:+393737600797">📞 Tel: (+39) 373 7600797</a></li>
+                    <li style="color: #94a3b8; margin-top: 0.5rem;">📍 C.so Garibaldi 9, 70033 Corato (BA)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: <strong>09104160727</strong></div>
+            <div>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline;">Privacy Policy (Art. 13 GDPR)</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-text">
+            <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. Zero cookie di profilazione terze parti. <a href="javascript:void(0)" onclick="openCookieModal()">Leggi la Cookie Policy</a>.
+        </div>
+        <div class="cookie-buttons">
+            <button onclick="acceptCookies('necessary')" class="btn-cookie-sec">Solo Tecnici</button>
+            <button onclick="acceptCookies('all')" class="btn-cookie-main">Accetta Tutti</button>
+        </div>
+    </div>
+
+    <div id="cookie-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 style="font-size: 1.4rem; font-weight: 800;">Informativa Cookie & Privacy Policy</h3>
+                <button class="close-modal" onclick="closeCookieModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
+                <p><strong>2. Tipologia di Cookie Utilizzati:</strong><br>Il portale utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong> necessari al corretto funzionamento della struttura web, all'invio dei form di contatto e al salvataggio delle impostazioni di riservatezza dell'utente.</p>
+                <p><strong>3. Cookie di Profilazione:</strong><br>Il sito <u>non utilizza in alcun modo</u> cookie di tracciamento o profilazione pubblicitaria di terze parti.</p>
+                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em> o email ordinaria.</p>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: right;">
+                <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var consent = localStorage.getItem("evopos_cookie_consent");
+            if (consent) {
+                document.getElementById("cookie-banner").classList.add("hidden");
+            }
+        });
+
+        function acceptCookies(type) {
+            localStorage.setItem("evopos_cookie_consent", type);
+            document.getElementById("cookie-banner").classList.add("hidden");
+        }
+
+        function openCookieModal() {
+            document.getElementById("cookie-modal").classList.add("active");
+        }
+
+        function closeCookieModal() {
+            document.getElementById("cookie-modal").classList.remove("active");
+        }
+    </script>
 </body>
 </html>
