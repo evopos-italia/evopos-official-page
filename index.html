@@ -8,44 +8,75 @@
     <style>
         :root {
             /* Palette Light Fintech */
-            --bg-main: #f8fafc;
-            --bg-gradient: linear-gradient(180deg, #ffffff 0%, #f1f5f9 50%, #f8fafc 100%);
-            
-            --text-main: #0f172a;        /* Slate 900 - Scuro, leggibile e crisp */
-            --text-muted: #64748b;       /* Slate 500 */
-            --text-light: #94a3b8;
-            
-            --accent-blue: #0071f3;      /* Blu MyPOS */
-            --accent-lime: #16a34a;      /* Verde Fintech energico */
-            --accent-lime-bright: #d6fd70;
+            --text-main: #0f172a;        
+            --text-muted: #475569;       
+            --accent-blue: #0071f3;      
+            --accent-lime: #16a34a;      
             
             /* Stile Vetro Satinato (Frosted Glass Light) */
-            --glass-bg: rgba(255, 255, 255, 0.78);
-            --glass-bg-accent: rgba(0, 113, 243, 0.03);
-            --glass-bg-lime: rgba(214, 253, 112, 0.15);
-            --glass-border: rgba(226, 232, 240, 0.9);
-            --glass-border-blue: rgba(0, 113, 243, 0.25);
-            --glass-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 4px 12px -2px rgba(0, 0, 0, 0.02);
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --glass-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
             
-            --nav-glass: rgba(255, 255, 255, 0.85);
-            --box-radius: 20px;          /* Angoli stondati di 20px */
-            --island-gap: 38px;          /* Spaziatura >30px per effetto isola */
+            --nav-glass: rgba(255, 255, 255, 0.9);
+            --box-radius: 20px;          /* Angoli stondati a 20px */
+            --island-gap: 35px;          /* Oltre 30px di distanza tra le isole */
             --font-main: 'Plus Jakarta Sans', 'Manrope', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background: var(--bg-main);
-            background-image: var(--bg-gradient);
             color: var(--text-main);
             font-family: var(--font-main);
             line-height: 1.6;
             padding-bottom: 5rem;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* 1. NAVBAR AD ISOLA FLOATING LIGHT (GLASSMORPHISM) */
+        /* ANIMAZIONE BACKGROUND A TUTTO SCHERMO */
+        .fullscreen-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -2;
+            background: #fff;
+        }
+
+        .fullscreen-bg img {
+            position: absolute;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            animation: kenburns 25s infinite ease-in-out;
+        }
+
+        /* Overlay sfumato di bianco per garantire il look Fintech Light */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.95) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .fullscreen-bg img:nth-child(1) { animation-delay: 0s; }
+        .fullscreen-bg img:nth-child(2) { animation-delay: 5s; }
+        .fullscreen-bg img:nth-child(3) { animation-delay: 10s; }
+        .fullscreen-bg img:nth-child(4) { animation-delay: 15s; }
+        .fullscreen-bg img:nth-child(5) { animation-delay: 20s; }
+
+        @keyframes kenburns {
+            0% { opacity: 0; transform: scale(1); }
+            10% { opacity: 1; }
+            20% { opacity: 1; }
+            30% { opacity: 0; transform: scale(1.05); }
+            100% { opacity: 0; }
+        }
+
+        /* 1. NAVBAR AD ISOLA FLOATING CON LOGO UFFICIALE */
         .nav-wrapper {
             position: sticky;
             top: 1.5rem;
@@ -60,33 +91,18 @@
             background: var(--nav-glass);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            padding: 0.8rem 2.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            padding: 0.6rem 2rem;
             border-radius: 9999px;
             display: flex;
             align-items: center;
             gap: 2.5rem;
-            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
         }
 
-        .navbar .brand {
-            font-weight: 800;
-            font-size: 1.25rem;
-            color: var(--text-main);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .navbar .brand span.pos {
-            color: var(--accent-blue);
-            font-weight: 800;
-        }
-
-        .navbar .brand span.dot {
-            color: var(--accent-lime);
+        .navbar img.logo {
+            height: 38px;
+            border-radius: 8px; /* Smussa leggermente i bordi del logo */
         }
 
         .nav-links {
@@ -99,7 +115,7 @@
             color: var(--text-muted);
             text-decoration: none;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: color 0.2s;
         }
 
@@ -118,51 +134,31 @@
         /* STILE BASE ISOLA (BOX VETRO SATINATO) */
         .island-box {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--glass-border);
             border-radius: var(--box-radius);
-            padding: 2.75rem;
+            padding: 3.5rem;
             box-shadow: var(--glass-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .island-box:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08);
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
         }
 
-        /* VARIANTI CROMATICHE ISOLE LIGHT */
-        .theme-white {
-            background: rgba(255, 255, 255, 0.92);
-        }
-
-        .theme-blue-tint {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(238, 246, 255, 0.8));
-            border-color: var(--glass-border-blue);
-        }
-
-        .theme-lime-tint {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(244, 252, 226, 0.6));
-            border-color: rgba(180, 230, 80, 0.4);
-        }
-
-        .theme-subtle-gray {
-            background: rgba(248, 250, 252, 0.85);
-        }
-
-        /* 2. HERO SLIDER ANIMATO (SHOWCASE GRAFICHE SOCIAL) */
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 2.5rem;
-            align-items: center;
+        /* EROE / HERO SECTION (A tutto schermo col vetro) */
+        .hero-island {
+            text-align: center;
+            padding: 5rem 3rem;
+            background: rgba(255, 255, 255, 0.7);
         }
 
         .hero-title {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.12;
+            line-height: 1.1;
             letter-spacing: -1.5px;
             color: var(--text-main);
             margin-bottom: 1.25rem;
@@ -174,40 +170,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* ANIMAZIONE CAROSELLO IMMAGINI SOCIAL */
-        .slider-frame {
-            position: relative;
-            width: 100%;
-            height: 380px;
-            border-radius: var(--box-radius);
-            overflow: hidden;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-        }
-
-        .slider-wrapper {
-            display: flex;
-            width: 500%; /* 5 immagini caricati */
-            height: 100%;
-            animation: slideAnimation 20s infinite ease-in-out;
-        }
-
-        .slider-wrapper img {
-            width: 20%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @keyframes slideAnimation {
-            0%, 18%   { transform: translateX(0%); }
-            20%, 38%  { transform: translateX(-20%); }
-            40%, 58%  { transform: translateX(-40%); }
-            60%, 78%  { transform: translateX(-60%); }
-            80%, 98%  { transform: translateX(-80%); }
-            100%      { transform: translateX(0%); }
-        }
-
-        /* 3. GRIGLIA A 3 SEZIONI (AELINE STYLE) */
+        /* GRIGLIA A 3 SEZIONI CON IMMAGINI UFFICIALI */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -215,58 +178,57 @@
         }
 
         .grid-3-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             border: 1px solid #e2e8f0;
             border-radius: var(--box-radius);
-            padding: 2rem;
+            overflow: hidden; /* Taglia le immagini per farle stare nel raggio di 20px */
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             transition: all 0.3s ease;
         }
 
         .grid-3-card:hover {
             border-color: var(--accent-blue);
             transform: translateY(-4px);
-            box-shadow: 0 12px 25px rgba(0, 113, 243, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 113, 243, 0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card-content {
+            padding: 2rem;
         }
 
         .grid-number {
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--accent-blue);
             letter-spacing: 1.5px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             display: block;
         }
 
-        /* 4. BLOCCO DI PACE / EDITORIAL QUOTE (ISPIRATO AD AELINE) */
+        /* BLOCCO DI PACE / EDITORIAL QUOTE */
         .pace-block {
             text-align: center;
-            padding: 3.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border-left: 3px solid var(--accent-blue);
+            padding: 4rem 2rem;
+            border-left: 4px solid var(--accent-blue);
+            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%);
         }
 
         .pace-quote {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.6rem;
+            font-weight: 700;
             color: var(--text-main);
-            max-width: 820px;
+            max-width: 800px;
+            margin: 0 auto;
             letter-spacing: -0.5px;
             line-height: 1.4;
-        }
-
-        .pace-author {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted);
-            margin-top: 1rem;
         }
 
         /* BOTTONI E BADGES LIGHT */
@@ -274,15 +236,16 @@
             display: inline-block;
             background: var(--accent-blue);
             color: #ffffff;
-            padding: 0.9rem 2.2rem;
+            padding: 1rem 2.5rem;
             border-radius: 12px;
-            font-weight: 700;
+            font-weight: 800;
             text-decoration: none;
             transition: all 0.2s ease;
             box-shadow: 0 4px 15px rgba(0, 113, 243, 0.25);
             border: none;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            margin-top: 1rem;
         }
 
         .btn-primary:hover {
@@ -308,7 +271,7 @@
             gap: 0.75rem;
             color: var(--text-main);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.02);
             transition: border-color 0.2s, transform 0.2s;
@@ -324,25 +287,25 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.25rem;
-            margin-top: 1.75rem;
+            margin-top: 2rem;
         }
 
         .form-input {
             width: 100%;
-            padding: 1rem;
+            padding: 1.1rem;
             background: #ffffff;
             border: 1px solid #cbd5e1;
             border-radius: 12px;
             color: var(--text-main);
             font-family: inherit;
             font-size: 0.95rem;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(0, 113, 243, 0.12);
+            box-shadow: 0 0 0 4px rgba(0, 113, 243, 0.1);
         }
 
         .gdpr-check {
@@ -352,7 +315,6 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            margin-top: 0.5rem;
         }
 
         /* FOOTER LIGHT NORMATIVO ITALIANO */
@@ -361,32 +323,41 @@
             color: var(--text-muted);
             font-size: 0.85rem;
             line-height: 1.8;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .footer-island strong { color: var(--text-main); }
-        .footer-island a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+        .footer-island a { color: var(--accent-blue); text-decoration: none; font-weight: 700; }
         .footer-island a:hover { text-decoration: underline; }
 
         /* RESPONSIVE MOBILE */
         @media (max-width: 900px) {
-            .hero-grid { grid-template-columns: 1fr; }
             .grid-3 { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.2rem; }
+            .hero-title { font-size: 2.5rem; }
             .nav-links { display: none; }
             .lead-form { grid-template-columns: 1fr; }
             .gdpr-check { grid-column: span 1; }
-            .island-box { padding: 1.75rem; }
-            .slider-frame { height: 260px; }
+            .island-box { padding: 2rem; }
+            .card-img { height: 220px; }
         }
     </style>
 </head>
 <body>
 
+    <div class="fullscreen-bg">
+        <img src="2.jpg" alt="Fintech Social">
+        <img src="3.jpg" alt="Fintech Social">
+        <img src="4.jpg" alt="Fintech Social">
+        <img src="5.jpg" alt="Fintech Social">
+        <img src="webp.webp" alt="Fintech Social">
+    </div>
+    
+    <div class="bg-overlay"></div>
+
     <div class="nav-wrapper">
         <nav class="navbar">
             <a href="#" class="brand">
-                evo<span class="pos">POS</span><span class="dot">.it</span>
+                <img src="evoPOS white.jpg" alt="evoPOS Logo" class="logo">
             </a>
             <ul class="nav-links">
                 <li><a href="#chi-siamo">Chi Siamo</a></li>
@@ -399,43 +370,33 @@
 
     <main class="page-container">
 
-        <section class="island-box theme-blue-tint">
-            <div class="hero-grid">
-                <div>
-                    <span style="color: var(--accent-blue); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">Next-Gen Fintech Advisory</span>
-                    <h1 class="hero-title">L'Evoluzione dei Pagamenti e della <span class="highlight">Gestione Energetica.</span></h1>
-                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">
-                        Soluzioni trasparenti per incassi aziendali, terminali POS smart di nuova generazione e consulenza strategica per l'efficientamento dei costi d'impresa.
-                    </p>
-                    <a href="#contatti" class="btn-primary">Richiedi una Consulenza Gratuita</a>
-                </div>
-
-                <div class="slider-frame">
-                    <div class="slider-wrapper">
-                        <img src="2.jpg" alt="evoPOS Social 1">
-                        <img src="3.jpg" alt="evoPOS Social 2">
-                        <img src="4.jpg" alt="evoPOS Social 3">
-                        <img src="5.jpg" alt="evoPOS Social 4">
-                        <img src="webp.webp" alt="evoPOS Social 5">
-                    </div>
-                </div>
-            </div>
+        <section class="island-box hero-island">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 1rem;">Next-Gen Fintech Advisory</span>
+            <h1 class="hero-title">L'Evoluzione dei Pagamenti e della <span class="highlight">Gestione Energetica.</span></h1>
+            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem auto;">
+                Soluzioni trasparenti per incassi aziendali, terminali POS smart di nuova generazione e consulenza strategica per l'efficientamento dei costi d'impresa.
+            </p>
+            <a href="#contatti" class="btn-primary">Richiedi una Consulenza Gratuita</a>
         </section>
 
-        <section class="island-box theme-white pace-block">
+        <section class="island-box pace-block">
             <p class="pace-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
-            <p class="pace-author">● Vitantonio Di Zanni — Energy & Fintech Advisor</p>
+            <p style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-top: 1.5rem;">
+                ● Vitantonio Di Zanni — Energy & Fintech Advisor
+            </p>
         </section>
 
-        <section id="servizi" class="island-box theme-white">
+        <section id="servizi" class="island-box">
             <div style="margin-bottom: 2.5rem;">
-                <span style="color: var(--accent-blue); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">Aeline Design Grid</span>
-                <h2 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.8px; margin-top: 0.2rem;">Servizi Integrati per il Business</h2>
+                <h2 style="font-size: 2.2rem; font-weight: 800; letter-spacing: -0.8px;">Servizi Integrati per il Business</h2>
+                <p style="color: var(--text-muted);">Soluzioni progettate per abbattere i costi e snellire l'operatività.</p>
             </div>
             
             <div class="grid-3">
+                
                 <div class="grid-3-card">
-                    <div>
+                    <img src="mypos-industry-beauty-and-wellness@2x.jpg" alt="Soluzioni POS per il commercio" class="card-img">
+                    <div class="card-content">
                         <span class="grid-number">01 // FINTECH</span>
                         <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Terminali POS Smart</h3>
                         <p style="color: var(--text-muted); font-size: 0.95rem;">Incassi contactless, e-wallet e carte con accreditamento veloce. Trasparenza totale su canoni e transazioni senza sorprese bancarie.</p>
@@ -443,66 +404,37 @@
                 </div>
 
                 <div class="grid-3-card">
-                    <div>
-                        <span class="grid-number">02 // ENERGIA</span>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Audit Energetico</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Analisi approfondita delle forniture elettriche e gas aziendali. Eliminazione delle penali e ottimizzazione sartoriale dei costi.</p>
+                    <img src="mypos-industry-professional-services@2x.webp" alt="Servizi Finanziari per Professionisti" class="card-img">
+                    <div class="card-content">
+                        <span class="grid-number">02 // SERVIZI PRO</span>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Pagamenti in Mobilità</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Perfetto per chi lavora fuori sede. Accetta pagamenti ovunque ti trovi con i nostri terminali portatili di ultima generazione.</p>
                     </div>
                 </div>
 
                 <div class="grid-3-card">
-                    <div>
-                        <span class="grid-number">03 // TLC</span>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Reti & Connettività</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Consolidamento delle infrastrutture di telefonia e dati. Connessioni stabili e veloci pensate per garantire la continuità operativa.</p>
+                    <img src="Progetto senza titolo (1).jpg" alt="Consulenza Energetica" class="card-img">
+                    <div class="card-content">
+                        <span class="grid-number">03 // ENERGIA & TLC</span>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Audit Operativo</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">Analisi approfondita delle forniture aziendali. Eliminazione delle penali, consolidamento delle reti e ottimizzazione sartoriale dei costi.</p>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section id="chi-siamo" class="island-box theme-subtle-gray">
-            <span style="color: var(--accent-blue); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">Advisory & Coordinamento</span>
+        <section id="chi-siamo" class="island-box">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">Advisory & Coordinamento</span>
             <h2 style="font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin: 0.5rem 0 1rem 0;">Vitantonio Di Zanni</h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 880px; line-height: 1.7;">
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 880px; line-height: 1.7;">
                 Oltre 19 anni di esperienza consolidata nei ruoli di General Contractor, CEO e Business Developer. Specializzato nella supervisione di reti di vendita, ottimizzazione dei processi organizzativi ed efficientamento strategico del workflow aziendale.
             </p>
         </section>
 
-        <section class="island-box theme-lime-tint pace-block" style="border-left-color: var(--accent-lime);">
-            <p class="pace-quote">"Zero burocrazia. 100% indipendenza commerciale e soluzioni su misura."</p>
-            <p class="pace-author">● Assistenza Diretta & Trattamento Dati a norma GDPR</p>
-        </section>
-
-        <section id="vantaggi" class="island-box theme-white">
-            <div style="margin-bottom: 2.5rem;">
-                <span style="color: var(--accent-blue); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">Il Metodo evoPOS</span>
-                <h2 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.8px; margin-top: 0.2rem;">Perché Scegliere la Nostra Consulenza</h2>
-            </div>
-
-            <div class="grid-3">
-                <div class="grid-3-card">
-                    <span class="grid-number">01 // ANALISI</span>
-                    <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Profili Personalizzati</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Ogni impresa ha volumi differenti: analizziamo gli incassi reali prima di proporre la soluzione POS o energetica ideale.</p>
-                </div>
-
-                <div class="grid-3-card">
-                    <span class="grid-number">02 // PRIVACY</span>
-                    <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Piena Conformità GDPR</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Massima tutela dei dati aziendali e riservatezza. Sito nativamente privo di cookie di tracciamento invasivi.</p>
-                </div>
-
-                <div class="grid-3-card">
-                    <span class="grid-number">03 // SUPPORTO</span>
-                    <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Presenza Continua</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Dalla fase di richiesta all'installazione dei terminali, un unico referente dedicato per la tua tranquillità.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contatti" class="island-box theme-blue-tint">
-            <h2 style="font-size: 2rem; font-weight: 800; letter-spacing: -0.8px;">Richiedi una Consulenza Gratuita</h2>
-            <p style="color: var(--text-muted); font-size: 1rem; margin-top: 0.25rem;">Compila il form o usa i canali di contatto diretto per parlare subito con noi.</p>
+        <section id="contatti" class="island-box" style="background: rgba(238, 246, 255, 0.9);">
+            <h2 style="font-size: 2.2rem; font-weight: 800; letter-spacing: -0.8px;">Richiedi una Consulenza Gratuita</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 0.25rem;">Compila il form o usa i canali di contatto diretto per parlare subito con noi.</p>
 
             <div class="contact-badges">
                 <a href="tel:+393737600797" class="badge-item">
