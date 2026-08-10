@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>evoPOS.it | Next-Gen Fintech & Energy Advisory</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         :root {
-            /* Palette Light Fintech */
+            --bg-main: #f8fafc;
             --text-main: #0f172a;        
             --text-muted: #475569;       
             --accent-blue: #0071f3;      
-            --accent-lime: #16a34a;      
-            
-            /* Stile Vetro Satinato (Frosted Glass Light) */
-            --glass-bg: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(255, 255, 255, 0.6);
-            --glass-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08);
-            
-            --nav-glass: rgba(255, 255, 255, 0.9);
-            --box-radius: 20px;          /* Angoli stondati a 20px */
-            --island-gap: 35px;          /* Oltre 30px di distanza tra le isole */
-            --font-main: 'Plus Jakarta Sans', 'Manrope', sans-serif;
+            --accent-lime: #d6fd70;      
+            --business-black: #181818;
+            --nav-glass: rgba(255, 255, 255, 0.95);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,46 +26,94 @@
         body {
             color: var(--text-main);
             font-family: var(--font-main);
-            line-height: 1.6;
-            padding-bottom: 5rem;
-            min-height: 100vh;
+            background: var(--bg-main);
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* ANIMAZIONE BACKGROUND A TUTTO SCHERMO */
-        .fullscreen-bg {
+        /* NAVBAR */
+        header {
             position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
+            top: 0; left: 0; width: 100%;
+            background: var(--nav-glass);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 9999;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-container img { height: 40px; border-radius: 6px; }
+
+        .main-nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover { color: var(--accent-blue); }
+
+        .btn-nav {
+            background: var(--text-main);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
+
+        /* HERO SECTION */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
             background: #fff;
         }
 
-        .fullscreen-bg img {
+        .hero-bg img {
             position: absolute;
             width: 100%; height: 100%;
             object-fit: cover;
             opacity: 0;
-            animation: kenburns 25s infinite ease-in-out;
+            animation: fadeSlider 25s infinite ease-in-out;
         }
+        
+        .hero-bg img:nth-child(1) { animation-delay: 0s; }
+        .hero-bg img:nth-child(2) { animation-delay: 5s; }
+        .hero-bg img:nth-child(3) { animation-delay: 10s; }
+        .hero-bg img:nth-child(4) { animation-delay: 15s; }
+        .hero-bg img:nth-child(5) { animation-delay: 20s; }
 
-        /* Overlay sfumato di bianco per garantire il look Fintech Light */
-        .bg-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1;
-            background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(248,250,252,0.95) 100%);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-        }
-
-        .fullscreen-bg img:nth-child(1) { animation-delay: 0s; }
-        .fullscreen-bg img:nth-child(2) { animation-delay: 5s; }
-        .fullscreen-bg img:nth-child(3) { animation-delay: 10s; }
-        .fullscreen-bg img:nth-child(4) { animation-delay: 15s; }
-        .fullscreen-bg img:nth-child(5) { animation-delay: 20s; }
-
-        @keyframes kenburns {
+        @keyframes fadeSlider {
             0% { opacity: 0; transform: scale(1); }
             10% { opacity: 1; }
             20% { opacity: 1; }
@@ -76,405 +121,522 @@
             100% { opacity: 0; }
         }
 
-        /* 1. NAVBAR AD ISOLA FLOATING CON LOGO UFFICIALE */
-        .nav-wrapper {
-            position: sticky;
-            top: 1.5rem;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            padding: 0 1rem;
-            margin-bottom: var(--island-gap);
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(248,250,252,1) 100%);
+            backdrop-filter: blur(10px);
+            z-index: -1;
         }
 
-        .navbar {
-            background: var(--nav-glass);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            padding: 0.6rem 2rem;
-            border-radius: 9999px;
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
-        }
-
-        .navbar img.logo {
-            height: 38px;
-            border-radius: 8px; /* Smussa leggermente i bordi del logo */
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.75rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--accent-blue); }
-
-        /* CONTENITORE ISOLE PRINCIPALE */
-        .page-container {
-            max-width: 1160px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: var(--island-gap);
-        }
-
-        /* STILE BASE ISOLA (BOX VETRO SATINATO) */
-        .island-box {
-            background: var(--glass-bg);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--box-radius);
-            padding: 3.5rem;
-            box-shadow: var(--glass-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .island-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
-        }
-
-        /* EROE / HERO SECTION (A tutto schermo col vetro) */
-        .hero-island {
+        .hero-content {
             text-align: center;
-            padding: 5rem 3rem;
-            background: rgba(255, 255, 255, 0.7);
+            max-width: 900px;
+            z-index: 1;
         }
 
         .hero-title {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
             line-height: 1.1;
-            letter-spacing: -1.5px;
-            color: var(--text-main);
-            margin-bottom: 1.25rem;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
         }
 
-        .hero-title .highlight {
-            background: linear-gradient(120deg, var(--accent-blue), #2563eb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero-title span { color: var(--accent-blue); }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-inline: auto;
         }
 
-        /* GRIGLIA A 3 SEZIONI CON IMMAGINI UFFICIALI */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .grid-3-card {
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid #e2e8f0;
-            border-radius: var(--box-radius);
-            overflow: hidden; /* Taglia le immagini per farle stare nel raggio di 20px */
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-
-        .grid-3-card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px rgba(0, 113, 243, 0.1);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .card-content {
-            padding: 2rem;
-        }
-
-        .grid-number {
-            font-size: 0.8rem;
-            font-weight: 800;
-            color: var(--accent-blue);
-            letter-spacing: 1.5px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        /* BLOCCO DI PACE / EDITORIAL QUOTE */
-        .pace-block {
-            text-align: center;
-            padding: 4rem 2rem;
-            border-left: 4px solid var(--accent-blue);
-            background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 100%);
-        }
-
-        .pace-quote {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--text-main);
-            max-width: 800px;
-            margin: 0 auto;
-            letter-spacing: -0.5px;
-            line-height: 1.4;
-        }
-
-        /* BOTTONI E BADGES LIGHT */
-        .btn-primary {
+        /* BOTTONI CON HOVER #d6fd70 */
+        .btn-custom {
             display: inline-block;
-            background: var(--accent-blue);
-            color: #ffffff;
-            padding: 1rem 2.5rem;
+            background: var(--text-main);
+            color: white;
+            padding: 0.9rem 2.2rem;
             border-radius: 12px;
-            font-weight: 800;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 15px rgba(0, 113, 243, 0.25);
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            margin-top: 1rem;
         }
 
-        .btn-primary:hover {
-            background: #005cd6;
-            box-shadow: 0 8px 25px rgba(0, 113, 243, 0.35);
+        .btn-custom:hover {
+            background: var(--accent-lime) !important;
+            color: #0f172a !important;
+            box-shadow: 0 0 20px rgba(214, 253, 112, 0.4);
             transform: translateY(-2px);
         }
 
-        .contact-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.25rem;
-            margin-top: 1.5rem;
+        /* SEZIONE BUSINESS NERA (#181818) */
+        .business-section {
+            background-color: var(--business-black);
+            color: white;
+            padding: 6rem 5%;
+            margin: 4rem 0;
         }
 
-        .badge-item {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 0.85rem 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            transition: border-color 0.2s, transform 0.2s;
+        .business-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem auto;
+            text-align: left;
         }
 
-        .badge-item:hover {
+        /* EFFETTO BORDO MULTICOLORE "GEMINI AI" */
+        .gemini-card-wrapper {
+            position: relative;
+            border-radius: 26px;
+            padding: 3px; /* Spessore del bordo laser */
+            background: linear-gradient(60deg, #0071f3, #d6fd70, #ff007f, #00f0ff, #0071f3);
+            background-size: 300% 300%;
+            animation: geminiBorderAnim 6s ease infinite;
+        }
+
+        @keyframes geminiBorderAnim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 3 BOX INTERNI CON VETRO SATINATO (BLUR) */
+        .glass-box {
+            background: rgba(25, 30, 40, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 3rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: white;
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* SEZIONE QUOTE LIME (#d6fd70) */
+        .quote-lime-section {
+            background-color: var(--accent-lime);
+            color: #0f172a;
+            padding: 4rem 5%;
+            text-align: center;
+            font-weight: 800;
+            font-size: 2rem;
+            letter-spacing: -1px;
+            box-shadow: 0 15px 35px rgba(214, 253, 112, 0.2);
+        }
+
+        /* BENTO GRID PER I VANTAGGI MYPOS (9 PUNTI) */
+        .features-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
             border-color: var(--accent-blue);
-            transform: translateY(-2px);
         }
 
-        /* FORM LEAD GENERATION LIGHT */
-        .lead-form {
+        /* TABELLA COMMISSIONI A CARATTERI CUBITALI */
+        .pricing-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.25rem;
-            margin-top: 2rem;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .form-input {
-            width: 100%;
-            padding: 1.1rem;
-            background: #ffffff;
-            border: 1px solid #cbd5e1;
-            border-radius: 12px;
-            color: var(--text-main);
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(0, 113, 243, 0.1);
-        }
-
-        .gdpr-check {
-            grid-column: span 2;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        /* FOOTER LIGHT NORMATIVO ITALIANO */
-        .footer-island {
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
             text-align: center;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            line-height: 1.8;
-            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .footer-island strong { color: var(--text-main); }
-        .footer-island a { color: var(--accent-blue); text-decoration: none; font-weight: 700; }
-        .footer-island a:hover { text-decoration: underline; }
+        .pricing-card.featured {
+            border-color: var(--accent-blue);
+            background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+        }
 
-        /* RESPONSIVE MOBILE */
-        @media (max-width: 900px) {
-            .grid-3 { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .lead-form { grid-template-columns: 1fr; }
-            .gdpr-check { grid-column: span 1; }
-            .island-box { padding: 2rem; }
-            .card-img { height: 220px; }
+        .big-percentage {
+            font-size: clamp(4rem, 7vw, 6rem);
+            font-weight: 800;
+            color: var(--accent-blue);
+            line-height: 1;
+            margin: 1.5rem 0;
+            letter-spacing: -2px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0a0f1c;
+            color: white;
+            padding: 6rem 5% 2rem 5%;
+            margin-top: 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 4rem;
+        }
+
+        .footer-links h4 { color: var(--accent-blue); margin-bottom: 1.5rem; }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+
+        .footer-legal {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            color: #64748b;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 1024px) {
+            .business-grid, .features-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
+            .main-nav { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <div class="fullscreen-bg">
-        <img src="2.jpg" alt="Fintech Social">
-        <img src="3.jpg" alt="Fintech Social">
-        <img src="4.jpg" alt="Fintech Social">
-        <img src="5.jpg" alt="Fintech Social">
-        <img src="webp.webp" alt="Fintech Social">
-    </div>
-    
-    <div class="bg-overlay"></div>
+    <header data-aos="fade-down" data-aos-duration="1000">
+        <div class="logo-container">
+            <img src="evoPOS white.jpg" alt="evoPOS Logo">
+            <span style="font-weight: 800; font-size: 1.2rem;">evoPOS.it</span>
+        </div>
+        <ul class="main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#servizi">Servizi & POS</a></li>
+            <li><a href="#vantaggi">I Vantaggi</a></li>
+            <li><a href="#commissioni">Listino & Tariffe</a></li>
+            <li><a href="#contatti" class="btn-nav">Contattaci</a></li>
+        </ul>
+    </header>
 
-    <div class="nav-wrapper">
-        <nav class="navbar">
-            <a href="#" class="brand">
-                <img src="evoPOS white.jpg" alt="evoPOS Logo" class="logo">
-            </a>
-            <ul class="nav-links">
-                <li><a href="#chi-siamo">Chi Siamo</a></li>
-                <li><a href="#servizi">Servizi & POS</a></li>
-                <li><a href="#vantaggi">Vantaggi</a></li>
-                <li><a href="#contatti">Contatti</a></li>
-            </ul>
-        </nav>
-    </div>
+    <section class="hero-section">
+        <div class="hero-bg">
+            <img src="2.jpg" alt="Fintech bg">
+            <img src="3.jpg" alt="Fintech bg">
+            <img src="4.jpg" alt="Fintech bg">
+            <img src="5.jpg" alt="Fintech bg">
+            <img src="webp.webp" alt="Fintech bg">
+        </div>
+        <div class="hero-overlay"></div>
 
-    <main class="page-container">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--accent-blue); font-weight: 700; margin-bottom: 1rem;">Oltre 23 anni di esperienza sul campo dal 2003</p>
+            <h1 class="hero-title">Infrastrutture d'incasso e gestione energetica <span>senza attrito.</span></h1>
+            <p class="hero-subtitle">Consulenza indipendente di alto livello per aziende e professionisti. Ottimizziamo il tuo workflow, abbattiamo i costi, azzeriamo la burocrazia.</p>
+            <a href="#contatti" class="btn-custom">Scopri di più</a>
+        </div>
+    </section>
 
-        <section class="island-box hero-island">
-            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; display: block; margin-bottom: 1rem;">Next-Gen Fintech Advisory</span>
-            <h1 class="hero-title">L'Evoluzione dei Pagamenti e della <span class="highlight">Gestione Energetica.</span></h1>
-            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem auto;">
-                Soluzioni trasparenti per incassi aziendali, terminali POS smart di nuova generazione e consulenza strategica per l'efficientamento dei costi d'impresa.
-            </p>
-            <a href="#contatti" class="btn-primary">Richiedi una Consulenza Gratuita</a>
-        </section>
+    <section class="quote-lime-section" data-aos="fade-in">
+        <p>"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
+    </section>
 
-        <section class="island-box pace-block">
-            <p class="pace-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
-            <p style="font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); margin-top: 1.5rem;">
-                ● Vitantonio Di Zanni — Energy & Fintech Advisor
-            </p>
-        </section>
+    <section id="servizi" class="business-section">
+        <div class="business-header" data-aos="fade-right">
+            <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Core Business Solutions</span>
+            <h2 style="font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Servizi Integrati per il Business</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem; margin-top: 0.5rem;">Soluzioni di pagamento e consulenza di altissimo livello per far volare la tua impresa.</p>
+        </div>
 
-        <section id="servizi" class="island-box">
-            <div style="margin-bottom: 2.5rem;">
-                <h2 style="font-size: 2.2rem; font-weight: 800; letter-spacing: -0.8px;">Servizi Integrati per il Business</h2>
-                <p style="color: var(--text-muted);">Soluzioni progettate per abbattere i costi e snellire l'operatività.</p>
-            </div>
+        <div class="business-grid">
             
-            <div class="grid-3">
-                
-                <div class="grid-3-card">
-                    <img src="mypos-industry-beauty-and-wellness@2x.jpg" alt="Soluzioni POS per il commercio" class="card-img">
-                    <div class="card-content">
-                        <span class="grid-number">01 // FINTECH</span>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Terminali POS Smart</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Incassi contactless, e-wallet e carte con accreditamento veloce. Trasparenza totale su canoni e transazioni senza sorprese bancarie.</p>
+            <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="glass-box">
+                    <div>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">01 // FINTECH</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Terminali POS Smart</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem;">Accedi a pagamenti contactless, e-wallet e carte con accredito immediato e condizioni trasparenti.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
                     </div>
                 </div>
-
-                <div class="grid-3-card">
-                    <img src="mypos-industry-professional-services@2x.webp" alt="Servizi Finanziari per Professionisti" class="card-img">
-                    <div class="card-content">
-                        <span class="grid-number">02 // SERVIZI PRO</span>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Pagamenti in Mobilità</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Perfetto per chi lavora fuori sede. Accetta pagamenti ovunque ti trovi con i nostri terminali portatili di ultima generazione.</p>
-                    </div>
-                </div>
-
-                <div class="grid-3-card">
-                    <img src="Progetto senza titolo (1).jpg" alt="Consulenza Energetica" class="card-img">
-                    <div class="card-content">
-                        <span class="grid-number">03 // ENERGIA & TLC</span>
-                        <h3 style="font-size: 1.3rem; margin-bottom: 0.75rem;">Audit Operativo</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Analisi approfondita delle forniture aziendali. Eliminazione delle penali, consolidamento delle reti e ottimizzazione sartoriale dei costi.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="chi-siamo" class="island-box">
-            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px;">Advisory & Coordinamento</span>
-            <h2 style="font-size: 2.2rem; font-weight: 800; letter-spacing: -1px; margin: 0.5rem 0 1rem 0;">Vitantonio Di Zanni</h2>
-            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 880px; line-height: 1.7;">
-                Oltre 23 anni di esperienza consolidata nei ruoli di General Contractor, CEO e Business Developer. Specializzato nella supervisione di reti di vendita, ottimizzazione dei processi organizzativi ed efficientamento strategico del workflow aziendale.
-            </p>
-        </section>
-
-        <section id="contatti" class="island-box" style="background: rgba(238, 246, 255, 0.9);">
-            <h2 style="font-size: 2.2rem; font-weight: 800; letter-spacing: -0.8px;">Richiedi una Consulenza Gratuita</h2>
-            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 0.25rem;">Compila il form o usa i canali di contatto diretto per parlare subito con noi.</p>
-
-            <div class="contact-badges">
-                <a href="tel:+393737600797" class="badge-item">
-                    <span>📞 Tel: (+39) 373 7600797</span>
-                </a>
-                <a href="mailto:info@evopos.it" class="badge-item">
-                    <span>✉️ Email: info@evopos.it</span>
-                </a>
             </div>
 
-            <form class="lead-form" action="https://formspree.io/f/tuocodice" method="POST">
-                <input type="text" name="name" class="form-input" placeholder="Nome / Ragione Sociale" required>
-                <input type="email" name="email" class="form-input" placeholder="Email Aziendale" required>
-                <input type="tel" name="phone" class="form-input" placeholder="Telefono (+39)" required>
+            <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <div class="glass-box">
+                    <div>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">02 // ENERGIA & TLC</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Audit Energetico</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem;">Analisi sartoriale dei contratti di fornitura luce, gas e TLC aziendali per eliminare sprechi e penali nascoste.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="300">
+                <div class="glass-box">
+                    <div>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">03 // E-COMMERCE</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Gateway di Pagamento</h3>
+                        <p style="color: #cbd5e1; font-size: 0.95rem;">Integra un gateway di pagamento semplice e sicuro o un plugin carrello per un checkout online fluido.</p>
+                    </div>
+                    <div style="margin-top: 2rem;">
+                        <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="commissioni" class="pricing-section">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 3rem auto;" data-aos="fade-up">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Trasparenza Assoluta</span>
+            <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Scegli la formula ideale per la tua azienda</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 0.5rem;">Condizioni economiche chiare pensate su misura per il tuo volume d'affari mensile.</p>
+        </div>
+
+        <div class="pricing-grid">
+            
+            <div class="pricing-card" data-aos="fade-right">
+                <div>
+                    <span style="background: #e2e8f0; color: #0f172a; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">PICCOLE IMPRESE & ATTIVITÀ</span>
+                    <h3 style="font-size: 2rem; margin-top: 1.5rem;">Acquisto del Terminale</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Ideale per chi transa <strong>fino a 5.000€ al mese</strong>.</p>
+                    
+                    <div class="big-percentage">1%</div>
+                    <p style="font-weight: 700; color: var(--text-main); font-size: 1.1rem;">Commissioni a partire da sul transato</p>
+                </div>
+                <div style="margin-top: 2.5rem;">
+                    <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                </div>
+            </div>
+
+            <div class="pricing-card featured" data-aos="fade-left">
+                <div>
+                    <span style="background: var(--accent-blue); color: white; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">BUSINESS & HIGH-VOLUME</span>
+                    <h3 style="font-size: 2rem; margin-top: 1.5rem;">Noleggio del POS</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">Dedicato alle imprese che transano <strong>da 5.000€ al mese in su</strong>.</p>
+                    
+                    <div class="big-percentage" style="color: var(--accent-blue);">0,50%</div>
+                    <p style="font-weight: 700; color: var(--text-main); font-size: 1.1rem;">Commissioni a partire da sul transato</p>
+                </div>
+                <div style="margin-top: 2.5rem;">
+                    <a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="vantaggi" class="features-section">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Il Vantaggio Competitivo</span>
+            <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Perché scegliere myPOS con evoPOS</h2>
+        </div>
+
+        <div class="features-grid">
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">01 // LIQUIDITÀ</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Accredito Immediato</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Disponibilità istantanea delle somme incassate sul tuo conto, senza attese bancarie.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">02 // CONTO ZERO SPESE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Conto Business Gratuito</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Inclusi IBAN dedicato e carta aziendale senza costi di gestione o canoni nascosti.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">03 // ATTIVAZIONE LAMPO</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Operativo in 8 Minuti</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Registrazione semplice e rapida: in soli 8 minuti sei già operativo per incassare.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">04 // CASSA & COMPLIANT</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">MyOrder & Registratore</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">myPOS Ultra diventa registratore di cassa 100% compliant secondo le ultime normative italiane.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">05 // CONNETTIVITÀ TOTALE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">SIM Multioperatore Gratuita</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Terminali sempre connessi in ogni angolo d'Europa con traffico dati incluso a costo zero.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">06 // MYPOS GLASS</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Smartphone come POS</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Trasforma il tuo smartphone in un terminale di pagamento sicuro e sempre a portata di mano.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">07 // GESTIONE MOBILE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">App Mobile Dedicata</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Tieni sotto controllo transazioni, report e attività ovunque tu sia direttamente dal telefono.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">08 // E-COMMERCE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Gateway & Checkout Web</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Hai già un sito? Integra facilmente i nostri plugin di pagamento per un'esperienza d'acquisto fluida.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="900">
+                <div>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">09 // SUPPORTO H24</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Assistenza 24/7</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Un team di professionisti sempre operativo e pronto ad aiutarti a qualsiasi ora.</p>
+                </div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; margin: 4rem 5%;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
+            <p style="color: var(--text-muted); text-align: center; margin-top: 0.5rem; margin-bottom: 2.5rem;">Compila il form per attivare le tue soluzioni POS o richiedere un audit energetico.</p>
+
+            <form action="https://formspree.io/f/tuocodice" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                <input type="text" name="name" placeholder="Nome / Ragione Sociale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
+                <input type="email" name="email" placeholder="Email Aziendale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
+                <input type="tel" name="phone" placeholder="Telefono (+39)" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
                 
-                <select name="servizio" class="form-input" required>
-                    <option value="pos">Soluzioni POS & Fintech</option>
-                    <option value="energia">Consulenza Energetica</option>
-                    <option value="tlc">Telecomunicazioni Aziendali</option>
+                <select name="servizio" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white;">
+                    <option value="pos">Soluzioni POS & Fintech (Acquisto / Noleggio)</option>
+                    <option value="energia">Audit Energetico & TLC</option>
+                    <option value="ecommerce">Gateway E-commerce</option>
                 </select>
 
-                <div class="gdpr-check">
-                    <input type="checkbox" id="privacy" required>
+                <div style="grid-column: span 2; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
+                    <input type="checkbox" id="privacy" required style="accent-color: var(--accent-blue);">
                     <label for="privacy">Dichiaro di aver letto e accetto l'Informativa sulla Privacy (Art. 13 GDPR).</label>
                 </div>
 
-                <button type="submit" class="btn-primary" style="grid-column: span 2; width: 100%;">Invia Richiesta di Contatto</button>
+                <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%; text-align: center;">Invia Richiesta</button>
             </form>
-        </section>
+        </div>
+    </section>
 
-        <footer class="island-box footer-island">
-            <p><strong>evoPOS.it</strong> è un marchio di <strong>Vitantonio Di Zanni</strong> | Consulente Energetico Indipendente & Fintech Advisor</p>
-            <p>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA), Italia</p>
-            <p>P.IVA: <strong>09104160727</strong> | Email: <a href="mailto:info@evopos.it">info@evopos.it</a> | Tel: <a href="tel:+393737600797">(+39) 373 7600797</a></p>
-            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: #94a3b8;">
-                Sito libero da cookie di tracciamento di terze parti (100% GDPR Compliant by Design).
-            </p>
-        </footer>
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <img src="evoPOS white.jpg" alt="evoPOS" style="height: 40px; border-radius: 6px; margin-bottom: 1.5rem;">
+                <p style="color: #94a3b8; max-width: 300px; font-size: 1.1rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Menu</h4>
+                <ul>
+                    <li><a href="#servizi">Servizi Business</a></li>
+                    <li><a href="#commissioni">Listino & Tariffe</a></li>
+                    <li><a href="#vantaggi">Vantaggi MyPOS</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contatti Diretti</h4>
+                <ul>
+                    <li><a href="mailto:info@evopos.it">info@evopos.it</a></li>
+                    <li><a href="tel:+393737600797">(+39) 373 7600797</a></li>
+                    <li style="color: #94a3b8;">C.so Garibaldi 9, Corato (BA)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-legal">
+            <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: 09104160727</div>
+            <div>
+                <a href="#" style="color: #64748b; text-decoration: none; margin-right: 15px;">Privacy Policy</a>
+                <a href="#" style="color: #64748b; text-decoration: none;">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
 
-    </main>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
