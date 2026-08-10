@@ -377,6 +377,74 @@
             letter-spacing: -2px;
         }
 
+        /* SEZIONE FAQ SEO ACCORDION */
+        .faq-section {
+            padding: 6rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item.active {
+            border-color: var(--accent-blue);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem 2rem;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .faq-question span {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 250px; /* Altezza massima stimata della risposta */
+        }
+
         /* FOOTER */
         footer {
             background: #0a0f1c;
@@ -840,6 +908,58 @@
         </div>
     </section>
 
+    <!-- SEZIONE FAQ INTERATTIVA SEO (PRIMA DEL FOOTER) -->
+    <section class="faq-section" data-aos="fade-up">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Domande Frequenti</span>
+            <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Tutto quello che c'è da sapere sui nostri servizi</h2>
+            <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem;">Risposte chiare e trasparenti sui POS myPOS, i costi di gestione e i nostri audit energetici e TLC.</p>
+        </div>
+
+        <div class="faq-container">
+            
+            <div class="faq-item">
+                <button class="faq-question">Come funziona l'accredito immediato con i terminali myPOS? <span>+</span></button>
+                <div class="faq-answer">
+                    Con myPOS i fondi derivanti da ogni singola transazione (carta, contactless o e-wallet) vengono accreditati istantaneamente sul tuo conto business gratuito, consentendoti di disporre della liquidità 7 giorni su 7 senza alcuna attesa bancaria.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Qual è la differenza tra l'acquisto del terminale e il noleggio? <span>+</span></button>
+                <div class="faq-answer">
+                    L'acquisto del terminale è la soluzione ideale per piccole imprese e attività con volumi fino a 5.000€ al mese e una tariffa molto più vantaggiosa rispetto alla concorrenza (che siano le banche tradizionali o gli altri servizi POS "fintech"), con commissioni trasparenti a partire dall'1%. 
+                    Il noleggio è invece pensato per le attività con volumi di transato da 5.000€ mensili in su, offrendo condizioni e commissioni ridotte fino allo 0,50%.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">In quanto tempo si attiva un POS myPOS con evoPOS? <span>+</span></button>
+                <div class="faq-answer">
+                    L'attivazione è incredibilmente rapida: bastano appena 8 minuti per completare la registrazione online, verificare l'account ed essere già operativi. 
+                    Riceverai il terminale pronto all'uso con SIM multioperatore e traffico dati incluso a costo zero in 2 giorni lavorativi. 
+                    Nel frattempo potrai già immediatamente operarare attraverso myPOS Glass scaricando l'app sul tuo smartphone e permetterti di essere operativo al 100%. Semplice, veloce, sicuro.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">In cosa consiste l'audit energetico e TLC per le aziende? <span>+</span></button>
+                <div class="faq-answer">
+                    Effettuiamo un'analisi accurata e "tailor made" delle tue forniture di luce, gas e dei contratti di telecomunicazione aziendale per scovare eventuali sprechi, penali nascoste o inefficienze, aiutandoti a tagliare drasticamente i costi mensili, garantendoti le migliori tecnologie.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">I terminali myPOS sono conformi come registratore di cassa? <span>+</span></button>
+                <div class="faq-answer">
+                    Sì, assolutamente. Modelli evoluti come myPOS Ultra, grazie all'integrazione dell'app MyOrder, ti permettono di gestire i pagamenti e gli adempimenti fiscali direttamente dal terminale, senza bisogno di un registratore di cassa tradizionale.
+                    Il sistema garantisce la memorizzazione e la trasmissione telematica dei corrispettivi all’Agenzia delle Entrate in piena conformità con le normative italiane. In questo modo elimini apparecchiature ingombranti, riduci i costi fissi e hai una cosa in meno a cui pensare, ovunque tu scelga di lavorare.
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
@@ -894,10 +1014,10 @@
                 <button class="close-modal" onclick="closeCookieModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
+                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni.pec.it</em> | Email: <em>info@evopos.it</em></p>
                 <p><strong>2. Tipologia di Cookie Utilizzati:</strong><br>Il portale utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong> necessari al corretto funzionamento della struttura web, all'invio dei form di contatto e al salvataggio delle impostazioni di riservatezza dell'utente.</p>
                 <p><strong>3. Cookie di Profilazione:</strong><br>Il sito <u>non utilizza in alcun modo</u> cookie di tracciamento o profilazione pubblicitaria di terze parti.</p>
-                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em> o email ordinaria.</p>
+                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni.pec.it</em> o email ordinaria.</p>
             </div>
             <div style="margin-top: 1.5rem; text-align: right;">
                 <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
@@ -913,16 +1033,33 @@
         </svg>
     </a>
 
-    <!-- JS ANIMAZIONI AOS E GESTIONE COOKIE -->
+    <!-- JS ANIMAZIONI AOS, COOKIE E FAQ ACCORDION -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 100 });
 
         document.addEventListener("DOMContentLoaded", function() {
+            // Gestione Cookie Banner
             var consent = localStorage.getItem("evopos_cookie_consent");
             if (consent) {
                 document.getElementById("cookie-banner").classList.add("hidden");
             }
+
+            // Gestione FAQ Accordion interattivo
+            const faqItems = document.querySelectorAll(".faq-item");
+            faqItems.forEach(item => {
+                const questionBtn = item.querySelector(".faq-question");
+                questionBtn.addEventListener("click", () => {
+                    // Chiude gli altri attivi se si vuole un comportamento esclusivo (opzionale)
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove("active");
+                        }
+                    });
+                    // Toggle dello stato corrente
+                    item.classList.toggle("active");
+                });
+            });
         });
 
         function acceptCookies(type) {
