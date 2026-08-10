@@ -118,7 +118,7 @@
 
         .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
 
-        /* HERO SECTION CON SFONDO TECH AURORA (SOLO COLORI BRAND) */
+        /* HERO SECTION CON SFONDO TECH AURORA (PIÙ LUMINOSO E VISIBILE) */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -133,43 +133,43 @@
         .tech-aurora-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2;
-            background: radial-gradient(circle at 20% 30%, rgba(0, 113, 243, 0.4) 0%, transparent 45%),
-                        radial-gradient(circle at 80% 70%, rgba(214, 253, 112, 0.12) 0%, transparent 45%),
-                        radial-gradient(circle at 50% 50%, var(--business-black) 100%);
-            filter: blur(70px);
-            animation: auroraMove 14s ease infinite alternate;
+            z-index: 0;
+            background: radial-gradient(circle at 15% 20%, rgba(0, 113, 243, 0.85) 0%, transparent 50%),
+                        radial-gradient(circle at 85% 80%, rgba(214, 253, 112, 0.35) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, rgba(0, 113, 243, 0.4) 0%, var(--business-black) 90%);
+            filter: blur(50px);
+            animation: auroraMove 12s ease infinite alternate;
         }
 
         @keyframes auroraMove {
             0% { transform: scale(1) translate(0px, 0px); }
-            50% { transform: scale(1.08) translate(-25px, 15px); }
-            100% { transform: scale(1) translate(25px, -15px); }
+            50% { transform: scale(1.12) translate(-35px, 25px); }
+            100% { transform: scale(1) translate(35px, -25px); }
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(24, 24, 24, 0.55);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            z-index: -1;
+            background: rgba(24, 24, 24, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            z-index: 1;
         }
 
         .hero-content {
             text-align: center;
             max-width: 920px;
-            z-index: 1;
+            z-index: 2;
         }
 
         .claim-badge {
             display: inline-block;
-            background: rgba(0, 113, 243, 0.12);
-            border: 1px solid rgba(0, 113, 243, 0.3);
+            background: rgba(0, 113, 243, 0.25);
+            border: 1px solid rgba(0, 113, 243, 0.6);
             padding: 0.6rem 1.8rem;
             border-radius: 99px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 113, 243, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 113, 243, 0.3);
         }
 
         .claim-badge span {
@@ -187,16 +187,18 @@
             letter-spacing: -2px;
             margin-bottom: 1.5rem;
             color: #ffffff;
+            text-shadow: 0 4px 25px rgba(0,0,0,0.5);
         }
 
         .hero-title span { color: var(--accent-lime); }
 
         .hero-subtitle {
             font-size: 1.25rem;
-            color: #cbd5e1;
+            color: #e2e8f0;
             margin-bottom: 2.5rem;
             max-width: 720px;
             margin-inline: auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
         /* BOTTONI CON HOVER #d6fd70 */
@@ -217,7 +219,7 @@
         .btn-custom:hover {
             background: var(--accent-lime) !important;
             color: #0f172a !important;
-            box-shadow: 0 0 20px rgba(214, 253, 112, 0.4);
+            box-shadow: 0 0 25px rgba(214, 253, 112, 0.6);
             transform: translateY(-2px);
         }
 
@@ -251,7 +253,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* BOX INTERNI PULITI NERI (SENZA COLORI ESTRANEI) */
+        /* BOX INTERNI PULITI NERI */
         .glass-box {
             background: #141414;
             border-radius: 23px;
@@ -838,7 +840,7 @@
                 <h4>Contatti Diretti & Legali</h4>
                 <ul>
                     <li><a href="mailto:info@evopos.it">✉️ Email: info@evopos.it</a></li>
-                    <li><a href="mailto:vitantonio.dizanni@pec.it">📜 PEC: vitantonio.dizanni@pec.it</a></li>
+                    <li><a href="mailto:vitantonio.dizanni.pec.it">📜 PEC: vitantonio.dizanni.pec.it</a></li>
                     <li><a href="tel:+393737600797">📞 Tel: (+39) 373 7600797</a></li>
                     <li style="color: #94a3b8; margin-top: 0.5rem;">📍 C.so Garibaldi 9, 70033 Corato (BA)</li>
                 </ul>
@@ -870,10 +872,10 @@
                 <button class="close-modal" onclick="closeCookieModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
+                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni.pec.it</em> | Email: <em>info@evopos.it</em></p>
                 <p><strong>2. Tipologia di Cookie Utilizzati:</strong><br>Il portale utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong> necessari al corretto funzionamento della struttura web, all'invio dei form di contatto e al salvataggio delle impostazioni di riservatezza dell'utente.</p>
                 <p><strong>3. Cookie di Profilazione:</strong><br>Il sito <u>non utilizza in alcun modo</u> cookie di tracciamento o profilazione pubblicitaria di terze parti.</p>
-                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em> o email ordinaria.</p>
+                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni.pec.it</em> o email ordinaria.</p>
             </div>
             <div style="margin-top: 1.5rem; text-align: right;">
                 <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
