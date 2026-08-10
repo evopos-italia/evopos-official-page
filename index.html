@@ -3,166 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>evoPOS.it | Immediato. Semplice. Trasparente.</title>
-    
-    <!-- Font Premium -->
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <title>Vitantonio Di Zanni | Consulente Energetico & Fintech</title>
     <style>
+        /* 1. VARIABILI CSS - Gestione Tema Chiaro/Scuro e Colori Brand */
         :root {
-            --bg-main: #f8fafc;
-            --text-main: #0f172a;        
-            --text-muted: #475569;       
-            --accent-blue: #0071f3;      
-            --accent-lime: #d6fd70;      
-            --business-black: #181818;
-            --nav-glass: rgba(255, 255, 255, 0.95);
-            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --bg-color: #f9f9f9;
+            --text-color: #181818; /* Sfondo Charcoal per testi nel tema chiaro */
+            --accent-green: #d6fd70; /* Verde Lime myPOS/evoPOS */
+            --accent-blue: #0071f3; /* Blu myPOS/evoPOS */
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #181818; /* Sfondo Charcoal */
+                --text-color: #f9f9f9; /* Testo chiaro */
+            }
+        }
 
-        body { color: var(--text-main); font-family: var(--font-main); background: var(--bg-main); overflow-x: hidden; line-height: 1.6; }
+        /* 2. RESET E STILE GLOBALE (Minimalista/Brutalista) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        /* LOGO */
-        .brand-text { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; font-weight: 400; letter-spacing: -0.5px; text-decoration: none; color: var(--text-main); display: flex; align-items: center; }
-        .brand-text .pos-part { font-weight: 600; color: var(--accent-blue); }
-        .brand-text .it-part { font-weight: 400; color: var(--text-main); }
-        .brand-text-footer { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.4rem; font-weight: 400; letter-spacing: -0.5px; text-decoration: none; color: #ffffff; display: inline-block; margin-bottom: 1rem; }
-        .brand-text-footer .pos-part { font-weight: 600; color: var(--accent-blue); }
-        .brand-text-footer .it-part { font-weight: 400; color: #ffffff; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-        /* NAVBAR */
-        header { position: fixed; top: 0; left: 0; width: 100%; background: var(--nav-glass); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 9999; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
-        .main-nav { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-        .main-nav a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
-        .main-nav a:hover { color: var(--accent-blue); }
-        .btn-nav { background: var(--text-main); color: white !important; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 700; transition: all 0.3s ease; }
-        .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
+        main {
+            max-width: 800px;
+            width: 100%;
+        }
 
-        /* HERO SECTION */
-        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; padding: 120px 5% 100px 5%; overflow: hidden; }
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: #fff; }
-        .hero-bg img { position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: fadeSlider 25s infinite ease-in-out; }
-        .hero-bg img:nth-child(1) { animation-delay: 0s; }
-        .hero-bg img:nth-child(2) { animation-delay: 5s; }
-        .hero-bg img:nth-child(3) { animation-delay: 10s; }
-        .hero-bg img:nth-child(4) { animation-delay: 15s; }
-        .hero-bg img:nth-child(5) { animation-delay: 20s; }
-        @keyframes fadeSlider { 0% { opacity: 0; transform: scale(1); } 10% { opacity: 1; } 20% { opacity: 1; } 30% { opacity: 0; transform: scale(1.05); } 100% { opacity: 0; } }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(248,250,252,1) 100%); backdrop-filter: blur(10px); z-index: -1; }
-        .hero-content { text-align: center; max-width: 920px; z-index: 1; }
-        .claim-badge { display: inline-block; background: rgba(0, 113, 243, 0.08); border: 1px solid rgba(0, 113, 243, 0.25); padding: 0.6rem 1.8rem; border-radius: 99px; margin-bottom: 1.5rem; }
-        .claim-badge span { text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-blue); font-weight: 800; font-size: 1rem; }
-        .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 1.5rem; }
-        .hero-title span { color: var(--accent-blue); }
-        .hero-subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 720px; margin-inline: auto; }
-        .btn-custom { display: inline-block; background: var(--text-main); color: white; padding: 0.9rem 2.2rem; border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; }
-        .btn-custom:hover { background: var(--accent-lime) !important; color: #0f172a !important; transform: translateY(-2px); }
+        /* 3. HEADER E NAVIGAZIONE */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--text-color);
+            margin-bottom: 3rem;
+        }
 
-        /* BUSINESS & FEATURES */
-        .business-section { background-color: var(--business-black); color: white; padding: 6rem 5%; }
-        .business-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto; }
-        .glass-box { background: rgba(255,255,255,0.05); backdrop-filter: blur(16px); border-radius: 22px; padding: 3rem; }
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1400px; margin: 3rem auto; }
-        .feature-card { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: var(--text-color);
+        }
 
-        /* FOOTER & MODALI */
-        footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto; }
-        .footer-links h4 { color: var(--accent-blue); margin-bottom: 1rem; }
-        .footer-links a { color: #94a3b8; text-decoration: none; }
-        .cookie-banner { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); width: calc(100% - 48px); max-width: 1000px; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(20px); border-radius: 20px; padding: 1.5rem; color: white; z-index: 10000; display: flex; align-items: center; justify-content: space-between; }
-        .modal-overlay { position: fixed; top:0; left:0; width:100vw; height:100vh; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 20000; display: flex; align-items: center; justify-content: center; opacity:0; pointer-events: none; transition: 0.3s; }
-        .modal-overlay.active { opacity:1; pointer-events: auto; }
-        .modal-card { background: white; color: black; max-width: 680px; padding: 2.5rem; border-radius: 24px; overflow-y: auto; max-height: 85vh; }
-        @media (max-width: 1024px) { .business-grid, .features-grid, .footer-grid { grid-template-columns: 1fr; } .main-nav { display: none; } }
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* 4. HERO SECTION */
+        .hero {
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        /* Evidenziatore con il verde lime */
+        .hero h1 span.highlight {
+            background-color: var(--accent-green);
+            color: #181818; /* Rimane scuro per contrasto */
+            padding: 0 0.5rem;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Animazione cursore lampeggiante in puro CSS */
+        .cursor {
+            display: inline-block;
+            width: 12px;
+            height: 1.1em;
+            background-color: var(--text-color);
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* 5. SEZIONI E GRIGLIA SERVIZI */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--text-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 600px) {
+            .service-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .service-card {
+            border: 2px solid var(--text-color);
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            background-color: transparent;
+        }
+
+        /* Hover effect sfalsato in stile brutalista */
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 6px 6px 0 var(--accent-blue);
+        }
+
+        .service-card.energy:hover {
+            box-shadow: 6px 6px 0 var(--accent-green);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* 6. CALL TO ACTION (CTA) E FOOTER */
+        .cta {
+            background-color: var(--accent-blue);
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 4px;
+            margin-bottom: 4rem;
+        }
+
+        .cta h2 {
+            border-bottom: none;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta a {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background-color: #181818;
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border: 2px solid #181818;
+            transition: all 0.2s;
+        }
+
+        .cta a:hover {
+            background-color: transparent;
+            color: #181818;
+            border-color: #181818;
+        }
+
+        footer {
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--text-color);
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="brand-text">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
-        <ul class="main-nav">
-            <li><a href="#servizi">Servizi</a></li>
-            <li><a href="#vantaggi">Vantaggi</a></li>
-            <li><a href="#contatti" class="btn-nav">Contattaci</a></li>
-        </ul>
-    </header>
+    <main>
+        <header>
+            <a href="#" class="logo">evo<span>POS</span>.it</a>
+            <nav>
+                <a href="#servizi">Servizi</a>
+                <a href="#chi-sono">Chi Sono</a>
+                <a href="#contatti">Contatti</a>
+            </nav>
+        </header>
 
-    <section class="hero-section">
-        <div class="hero-bg">
-            <img src="2.jpg" alt="bg">
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content" data-aos="fade-up">
-            <div class="claim-badge"><span>Immediato. Semplice. Trasparente.</span></div>
-            <h1 class="hero-title">Incassi immediati. Massimo controllo. <br><span>Scegli gli strumenti giusti per la tua attività.</span></h1>
-            <p class="hero-subtitle">Ottieni accesso istantaneo ai tuoi fondi con ogni pagamento che ricevi. Taglia le spese inutili in bolletta e dota la tua azienda delle migliori infrastrutture di connessione Telco. Offerte esclusive e soluzioni create su misura per te, con un unico referente.</p>
-            <a href="#contatti" class="btn-custom">Richiedi una Consulenza Gratuita</a>
-        </div>
-    </section>
+        <section class="hero">
+            <h1>Vitantonio Di Zanni<br><span class="highlight">Energia & Fintech</span><br>per il tuo business<span class="cursor"></span></h1>
+            <p>La supervisione che accende il risparmio. Ottimizza i costi aziendali con soluzioni all'avanguardia per l'efficientamento energetico e terminali di pagamento next-gen.</p>
+        </section>
 
-    <section id="contatti" class="pricing-section" style="background: #f1f5f9; padding: 6rem 5%; border-radius: 32px; margin: 4rem 5%;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h2 style="font-size: 2.5rem; font-weight: 800; text-align: center; margin-bottom: 2.5rem;">Richiedi una Consulenza Gratuita</h2>
-            <form action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
-                <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
-                <input type="hidden" name="subject" value="Nuovo Contatto da evoPOS.it">
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none !important;">
-                <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-                <input type="text" name="cognome_o_ragione_sociale" placeholder="Cognome o Ragione Sociale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-                <input type="tel" name="telefono" placeholder="Telefono (+39)" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-                <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-                <div style="grid-column: span 2; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem;">
-                    <input type="checkbox" id="privacy" required style="accent-color: var(--accent-blue);">
-                    <label for="privacy">Accetto l'Informativa sulla Privacy (Art. 13 GDPR).</label>
+        <section id="servizi">
+            <h2>Cosa faccio</h2>
+            <div class="service-grid">
+                <div class="service-card energy">
+                    <h3>⚡ Consulenza Energetica</h3>
+                    <p>Riduzione dei costi in bolletta, strategie di efficientamento e soluzioni IoT per monitorare e ottimizzare i consumi della tua azienda. Diamo VITA alla tua energia.</p>
                 </div>
-                <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%;">Invia Richiesta</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
+                <div class="service-card fintech">
+                    <h3>💳 Servizi Fintech & POS</h3>
+                    <p>Terminali POS smart, sicuri e all'avanguardia. L'evoluzione dei pagamenti digitali per far crescere la tua impresa, con consulenza su misura.</p>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Contatti</h4>
-                <ul>
-                    <li>Email: info@evopos.it</li>
-                    <li>PEC: vitantonio.dizanni@pec.it</li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>Sede</h4>
-                <ul><li>C.so Garibaldi 9, Corato (BA)</li></ul>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <div id="cookie-banner" class="cookie-banner">
-        <p>Utilizziamo solo cookie tecnici. <a href="javascript:void(0)" onclick="openModal()">Cookie Policy</a></p>
-        <button onclick="accept()" class="btn-custom" style="padding: 0.5rem 1rem;">Accetta</button>
-    </div>
+        <section id="chi-sono">
+            <h2>Chi Sono</h2>
+            <p>Professionista con oltre 19 anni di esperienza nei ruoli di General Contractor, Business Developer e Manager. La mia forza è l'ottimizzazione dei processi aziendali: ti offro una consulenza indipendente e strategica per migliorare l'efficienza organizzativa della tua attività e ridurre i costi operativi.</p>
+        </section>
 
-    <div id="cookie-modal" class="modal-overlay">
-        <div class="modal-card">
-            <h3>Privacy & Cookie</h3>
-            <p>Titolare: Vitantonio Di Zanni. P.IVA: 09104160727. PEC: vitantonio.dizanni@pec.it. Nessun cookie di profilazione utilizzato.</p>
-            <button onclick="closeModal()" style="margin-top: 1rem;">Chiudi</button>
-        </div>
-    </div>
+        <section id="contatti" class="cta">
+            <h2>Pronto a dare nuova energia ai tuoi incassi?</h2>
+            <p>Richiedi una consulenza e scopri quanto puoi ottimizzare.</p>
+            <a href="mailto:info@evopos.it">Contattami ora</a>
+        </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-        function accept() { localStorage.setItem("consent", "true"); document.getElementById("cookie-banner").style.display = "none"; }
-        function openModal() { document.getElementById("cookie-modal").classList.add("active"); }
-        function closeModal() { document.getElementById("cookie-modal").classList.remove("active"); }
-        document.addEventListener("DOMContentLoaded", () => { if(localStorage.getItem("consent")) document.getElementById("cookie-banner").style.display = "none"; });
-    </script>
+        <footer>
+            &copy; 2026 Vitantonio Di Zanni - evoPOS.it. Tutti i diritti riservati.<br>
+            Design minimalista interamente in HTML5 e CSS puro.
+        </footer>
+    </main>
+
 </body>
 </html>
