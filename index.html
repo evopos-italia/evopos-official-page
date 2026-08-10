@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>evoPOS.it | Immediato. Semplice. Trasparente.</title>
     
-    <!-- Font Premium Google -->
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Libreria Animazioni (AOS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -21,9 +19,12 @@
             --business-black: #181818;
             --nav-glass: rgba(255, 255, 255, 0.95);
             --font-main: 'Plus Jakarta Sans', sans-serif;
+            --whatsapp-green: #25D366; /* Verde originale WhatsApp */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
 
         body {
             color: var(--text-main);
@@ -120,7 +121,7 @@
 
         .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
 
-        /* HERO SECTION CON SFONDO TECH ANIMATO AURORA */
+        /* HERO SECTION CON SFONDO TECH ANIMATO AURORA POTENZIATO */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -134,27 +135,29 @@
 
         .tech-aurora-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: -50%; left: -50%; width: 200%; height: 200%;
             z-index: 0;
-            background: radial-gradient(circle at 15% 20%, rgba(0, 113, 243, 0.85) 0%, transparent 50%),
-                        radial-gradient(circle at 85% 80%, rgba(214, 253, 112, 0.35) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 50%, rgba(0, 113, 243, 0.4) 0%, var(--business-black) 90%);
-            filter: blur(50px);
-            animation: auroraMove 12s ease infinite alternate;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 113, 243, 0.8) 0%, transparent 45%),
+                        radial-gradient(circle at 80% 70%, rgba(214, 253, 112, 0.45) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 50%, rgba(0, 113, 243, 0.4) 0%, var(--business-black) 85%);
+            filter: blur(60px);
+            animation: auroraMove 10s ease-in-out infinite alternate;
+            will-change: transform;
+            pointer-events: none;
         }
 
         @keyframes auroraMove {
-            0% { transform: scale(1) translate(0px, 0px); }
-            50% { transform: scale(1.12) translate(-35px, 25px); }
-            100% { transform: scale(1) translate(35px, -25px); }
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-40px, 35px) scale(1.1); }
+            100% { transform: translate(40px, -35px) scale(1); }
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(24, 24, 24, 0.3);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(24, 24, 24, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             z-index: 1;
         }
 
@@ -377,7 +380,7 @@
             letter-spacing: -2px;
         }
 
-        /* SEZIONE FAQ SEO ACCORDION */
+        /* SEZIONE FAQ ACCORDION */
         .faq-section {
             padding: 6rem 5%;
             max-width: 1000px;
@@ -442,7 +445,7 @@
 
         .faq-item.active .faq-answer {
             padding-bottom: 1.5rem;
-            max-height: 250px; /* Altezza massima stimata della risposta */
+            max-height: 250px;
         }
 
         /* FOOTER */
@@ -616,34 +619,36 @@
             line-height: 1.6;
         }
 
-        /* 🟢 WHATSAPP FLOATING BUTTON */
+        /* 🟢 PULSANTE WHATSAPP FLOATING 🟢 */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: clamp(50px, 8vw, 65px);
-            height: clamp(50px, 8vw, 65px);
-            background-color: #25D366;
+            width: 65px; /* Dimensione fissa per il cerchio */
+            height: 65px; /* Dimensione fissa per il cerchio */
+            background-color: var(--whatsapp-green);
             color: white;
-            border-radius: 50%;
+            border-radius: 50%; /* Cerchio perfetto */
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
             z-index: 9990;
             transition: all 0.3s ease;
             text-decoration: none;
+            border: 2px solid white; /* Bordo sottile per definirlo */
         }
 
         .whatsapp-float:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.7);
         }
 
+        /* Icona bianca centrate all'interno */
         .whatsapp-float svg {
-            width: 55%;
-            height: 55%;
-            fill: currentColor;
+            width: 60%; /* Icona al 60% della dimensione del pulsante */
+            height: 60%;
+            fill: white; /* Icona bianca */
         }
 
         @media (max-width: 1024px) {
@@ -651,13 +656,12 @@
             .main-nav { display: none; }
             .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
             .cookie-buttons { width: 100%; justify-content: flex-end; }
-            .whatsapp-float { bottom: 20px; right: 20px; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header data-aos="fade-down" data-aos-duration="1000">
         <div class="logo-container">
             <a href="index.html" class="brand-text">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
@@ -671,7 +675,6 @@
         </ul>
     </header>
 
-    <!-- HERO SECTION CON SFONDO TECH ANIMATO AURORA -->
     <section class="hero-section">
         <div class="tech-aurora-bg"></div>
         <div class="hero-overlay"></div>
@@ -689,13 +692,11 @@
         </div>
     </section>
 
-    <!-- SEZIONE QUOTE LIME -->
     <section class="quote-lime-section" data-aos="fade-in">
         <h2 class="main-claim">Immediato. Semplice. Trasparente.</h2>
         <p class="sub-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
     </section>
 
-    <!-- SEZIONE BUSINESS NERA CON CORNICI IA ANIMATE -->
     <section id="servizi" class="business-section">
         <div class="business-header" data-aos="fade-right">
             <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Core Business Solutions</span>
@@ -705,7 +706,6 @@
 
         <div class="business-grid">
             
-            <!-- Box 1 -->
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="100">
                 <div class="glass-box">
                     <div>
@@ -719,7 +719,6 @@
                 </div>
             </div>
 
-            <!-- Box 2 -->
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <div class="glass-box">
                     <div>
@@ -733,7 +732,6 @@
                 </div>
             </div>
 
-            <!-- Box 3 -->
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="300">
                 <div class="glass-box">
                     <div>
@@ -750,7 +748,6 @@
         </div>
     </section>
 
-    <!-- SEZIONE LISTINO E TARIFFE -->
     <section id="commissioni" class="pricing-section">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
             <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Trasparenza Assoluta</span>
@@ -760,7 +757,6 @@
 
         <div class="pricing-grid">
             
-            <!-- ACQUISTO TERMINALE -->
             <div class="pricing-card" data-aos="fade-right">
                 <div>
                     <span style="background: #e2e8f0; color: #0f172a; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">PICCOLE IMPRESE & ATTIVITÀ</span>
@@ -775,7 +771,6 @@
                 </div>
             </div>
 
-            <!-- NOLEGGIO POS -->
             <div class="pricing-card featured" data-aos="fade-left">
                 <div>
                     <span style="background: var(--accent-blue); color: white; padding: 0.4rem 1rem; border-radius: 99px; font-weight: 700; font-size: 0.85rem;">BUSINESS & HIGH-VOLUME</span>
@@ -793,10 +788,8 @@
         </div>
     </section>
 
-    <!-- VANTAGGI STRATEGICI MYPOS CON OCCHIELLO BLU ESPLICITO -->
     <section id="vantaggi" class="features-section">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
-            <!-- Occhiello Blu in evidenza -->
             <span style="color: var(--accent-blue); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 10px;">Tariffe su misura, esclusive e più competitive per ogni tua reale esigenza.</span>
             
             <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Il Vantaggio Competitivo</span>
@@ -823,7 +816,7 @@
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">03 // ATTIVAZIONE SEMPLICE E VELOCE</span>
+                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">03 // ATTIVAZIONE LAMPO</span>
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Operativo in 8 Minuti</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Registrazione semplice e rapida: in soli 8 minuti sei già operativo per incassare.</p>
                 </div>
@@ -880,10 +873,9 @@
         </div>
     </section>
 
-    <!-- SEZIONE FAQ INTERATTIVA SEO (PRIMA DEL FOOTER) -->
-    <section class="faq-section" data-aos="fade-up">
+    <section id="faq" class="faq-section" data-aos="fade-up">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">FAQ - Domande Frequenti</span>
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Domande Frequenti</span>
             <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Tutto quello che c'è da sapere sui nostri servizi</h2>
             <p style="color: var(--text-muted); font-size: 1.05rem; margin-top: 0.5rem;">Risposte chiare e trasparenti sui POS myPOS, i costi di gestione e i nostri audit energetici e TLC.</p>
         </div>
@@ -900,39 +892,34 @@
             <div class="faq-item">
                 <button class="faq-question">Qual è la differenza tra l'acquisto del terminale e il noleggio? <span>+</span></button>
                 <div class="faq-answer">
-                    L'acquisto del terminale è la soluzione ideale per piccole imprese e attività con volumi fino a 5.000€ al mese e una tariffa molto più vantaggiosa rispetto alla concorrenza (che siano le banche tradizionali o gli altri servizi POS "fintech"), con commissioni trasparenti a partire dall'1%. 
-                    Il noleggio è invece pensato per le attività con volumi di transato da 5.000€ mensili in su, offrendo condizioni e commissioni ridotte fino allo 0,50%.
+                    L'acquisto del terminale è la soluzione ideale per piccole imprese e attività con volumi fino a 5.000€ al mese, con commissioni trasparenti a partire dall'1%. Il noleggio è invece pensato per le attività ad alto volume (da 5.000€ mensili in su), offrendo commissioni ridotte allo 0,50%.
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">In quanto tempo si attiva un POS myPOS con evoPOS? <span>+</span></button>
                 <div class="faq-answer">
-                    L'attivazione è incredibilmente rapida: bastano appena 8 minuti per completare la registrazione online, verificare l'account ed essere già operativi. 
-                    Riceverai il terminale pronto all'uso con SIM multioperatore e traffico dati incluso a costo zero in 2 giorni lavorativi. 
-                    Nel frattempo potrai già immediatamente operarare attraverso myPOS Glass scaricando l'app sul tuo smartphone e permetterti di essere operativo al 100%. Semplice, veloce, sicuro.
+                    L'attivazione è incredibilmente rapida: bastano appena 8 minuti per completare la registrazione online, verificare l'account e ricevere il terminale pronto all'uso con SIM multioperatore e traffico dati incluso a costo zero.
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">In cosa consiste l'audit energetico e TLC per le aziende? <span>+</span></button>
                 <div class="faq-answer">
-                    Effettuiamo un'analisi accurata e "tailor made" delle tue forniture di luce, gas e dei contratti di telecomunicazione aziendale per scovare eventuali sprechi, penali nascoste o inefficienze, aiutandoti a tagliare drasticamente i costi mensili, garantendoti le migliori tecnologie.
+                    Effettuiamo un'analisi sartoriale e gratuita delle tue bollette di luce, gas e dei contratti di telecomunicazione aziendale per scovare eventuali sprechi, penali nascoste o inefficienze, aiutandoti a tagliare drasticamente i costi fissi mensili.
                 </div>
             </div>
 
             <div class="faq-item">
                 <button class="faq-question">I terminali myPOS sono conformi come registratore di cassa? <span>+</span></button>
                 <div class="faq-answer">
-                    Sì, assolutamente. Modelli evoluti come myPOS Ultra, grazie all'integrazione dell'app MyOrder, ti permettono di gestire i pagamenti e gli adempimenti fiscali direttamente dal terminale, senza bisogno di un registratore di cassa tradizionale.
-                    Il sistema garantisce la memorizzazione e la trasmissione telematica dei corrispettivi all’Agenzia delle Entrate in piena conformità con le normative italiane. In questo modo elimini apparecchiature ingombranti, riduci i costi fissi e hai una cosa in meno a cui pensare, ovunque tu scelga di lavorare.
+                    Sì, modelli evoluti come myPOS Ultra integrano funzioni avanzate e l'applicazione MyOrder che permette di adempiere agli obblighi di memorizzazione e trasmissione telematica dei corrispettivi in piena conformità con le normative italiane.
                 </div>
             </div>
 
         </div>
     </section>
 
-     <!-- SEZIONE CONTATTI / FORM LEAD GENERATION -->
     <section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; margin: 4rem 5%;">
         <div style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
@@ -960,7 +947,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-grid">
             <div>
@@ -973,6 +959,7 @@
                     <li><a href="#servizi">Servizi Business</a></li>
                     <li><a href="#commissioni">Listino & Tariffe</a></li>
                     <li><a href="#vantaggi">Vantaggi MyPOS</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contatti">Contatti</a></li>
                 </ul>
             </div>
@@ -995,7 +982,6 @@
         </div>
     </footer>
 
-    <!-- COOKIE BANNER FLOATING -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-text">
             <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. Zero cookie di profilazione terze parti. <a href="javascript:void(0)" onclick="openCookieModal()">Leggi la Cookie Policy</a>.
@@ -1006,7 +992,6 @@
         </div>
     </div>
 
-    <!-- MODAL POPUP COOKIE POLICY -->
     <div id="cookie-modal" class="modal-overlay">
         <div class="modal-card">
             <div class="modal-header">
@@ -1025,7 +1010,6 @@
         </div>
     </div>
 
-    <!-- 🟢 PULSANTE WHATSAPP FLOATING 🟢 -->
     <a href="https://wa.me/393737600797" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.05 2.05A13.9 13.9 0 002.1 15.95c0 2.45.65 4.8 1.85 6.9L2 29.9l7.25-1.9c2 .1 4.3.75 6.8.75A13.9 13.9 0 0029.95 15.95 13.9 13.9 0 0016.05 2.05zM16.05 27.55c-2.05 0-4.05-.55-5.85-1.55l-.4-.25-4.35 1.15 1.15-4.25-.3-.45A11.65 11.65 0 014.35 15.95 11.75 11.75 0 0116.05 4.3a11.75 11.75 0 0111.7 11.65 11.75 11.75 0 01-11.7 11.6z"/>
@@ -1033,7 +1017,6 @@
         </svg>
     </a>
 
-    <!-- JS ANIMAZIONI AOS, COOKIE E FAQ ACCORDION -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true, offset: 100 });
@@ -1050,13 +1033,11 @@
             faqItems.forEach(item => {
                 const questionBtn = item.querySelector(".faq-question");
                 questionBtn.addEventListener("click", () => {
-                    // Chiude gli altri attivi se si vuole un comportamento esclusivo (opzionale)
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             otherItem.classList.remove("active");
                         }
                     });
-                    // Toggle dello stato corrente
                     item.classList.toggle("active");
                 });
             });
