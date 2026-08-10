@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>evoPOS.it | Next-Gen Fintech & Energy Advisory</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -31,6 +31,45 @@
             line-height: 1.6;
         }
 
+        /* LOGO TIPOGRAFICO FORMOTTATO */
+        .brand-text {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 400; /* Normale */
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+        }
+        .brand-text .pos-part {
+            font-weight: 600; /* Semi-grassetto */
+            color: var(--accent-blue);
+        }
+        .brand-text .it-part {
+            font-weight: 400; /* Normale */
+            color: var(--text-main);
+        }
+
+        .brand-text-footer {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            color: #ffffff;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .brand-text-footer .pos-part {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        .brand-text-footer .it-part {
+            font-weight: 400;
+            color: #ffffff;
+        }
+
         /* NAVBAR */
         header {
             position: fixed;
@@ -50,8 +89,6 @@
             align-items: center;
             gap: 10px;
         }
-
-        .logo-container img { height: 40px; border-radius: 6px; }
 
         .main-nav {
             display: flex;
@@ -189,10 +226,10 @@
             text-align: left;
         }
 
-        /* EFFETTO BORDO MULTICOLORE "GEMINI AI" */
+        /* CORNICE MULTICOLORE "GEMINI AI" (SOLO BORDO) */
         .gemini-card-wrapper {
             position: relative;
-            border-radius: 26px;
+            border-radius: 25px;
             padding: 3px; /* Spessore del bordo laser */
             background: linear-gradient(60deg, #0071f3, #d6fd70, #ff007f, #00f0ff, #0071f3);
             background-size: 300% 300%;
@@ -205,12 +242,12 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* 3 BOX INTERNI CON VETRO SATINATO (BLUR) */
+        /* 3 BOX INTERNI CON VETRO SATINATO NERO (BLUR) E SFONDO INTERNO SOLIDO/TRASLUCIDO NERO */
         .glass-box {
-            background: rgba(25, 30, 40, 0.75);
+            background: rgba(15, 20, 28, 0.82); /* Vetro satinato nero */
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-radius: 24px;
+            border-radius: 22px; /* Adattato al padding del wrapper */
             padding: 3rem;
             height: 100%;
             display: flex;
@@ -355,8 +392,7 @@
 
     <header data-aos="fade-down" data-aos-duration="1000">
         <div class="logo-container">
-            <img src="evoPOS white.jpg" alt="evoPOS Logo">
-            <span style="font-weight: 800; font-size: 1.2rem;">evoPOS.it</span>
+            <a href="index.html" class="brand-text">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
         </div>
         <ul class="main-nav">
             <li><a href="index.html">Home</a></li>
@@ -494,7 +530,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Accredito Immediato</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Disponibilità istantanea delle somme incassate sul tuo conto, senza attese bancarie.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
@@ -503,7 +539,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Conto Business Gratuito</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Inclusi IBAN dedicato e carta aziendale senza costi di gestione o canoni nascosti.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
@@ -512,7 +548,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Operativo in 8 Minuti</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Registrazione semplice e rapida: in soli 8 minuti sei già operativo per incassare.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
@@ -521,7 +557,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">MyOrder & Registratore</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">myPOS Ultra diventa registratore di cassa 100% compliant secondo le ultime normative italiane.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
@@ -530,7 +566,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">SIM Multioperatore Gratuita</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Terminali sempre connessi in ogni angolo d'Europa con traffico dati incluso a costo zero.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
@@ -539,7 +575,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Smartphone come POS</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Trasforma il tuo smartphone in un terminale di pagamento sicuro e sempre a portata di mano.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
@@ -548,7 +584,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">App Mobile Dedicata</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Tieni sotto controllo transazioni, report e attività ovunque tu sia direttamente dal telefono.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
@@ -557,7 +593,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Gateway & Checkout Web</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Hai già un sito? Integra facilmente i nostri plugin di pagamento per un'esperienza d'acquisto fluida.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="900">
@@ -566,7 +602,7 @@
                     <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Assistenza 24/7</h4>
                     <p style="color: var(--text-muted); font-size: 0.95rem;">Un team di professionisti sempre operativo e pronto ad aiutarti a qualsiasi ora.</p>
                 </div>
-                <div style="margin-top: 1.5rem;"><a href="#contatti" style="color: var(--accent-blue); font-weight: 700; text-decoration: none;">Scopri di più &rarr;</a></div>
+                <div style="margin-top: 1.5rem;"><a href="#contatti" class="btn-custom" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Scopri di più</a></div>
             </div>
 
         </div>
@@ -601,7 +637,7 @@
     <footer>
         <div class="footer-grid">
             <div>
-                <img src="evoPOS white.jpg" alt="evoPOS" style="height: 40px; border-radius: 6px; margin-bottom: 1.5rem;">
+                <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
                 <p style="color: #94a3b8; max-width: 300px; font-size: 1.1rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
             </div>
             <div class="footer-links">
