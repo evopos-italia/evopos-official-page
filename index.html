@@ -128,7 +128,7 @@
         .pricing-card.featured { border-color: var(--accent-blue); background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%); }
         .big-percentage { font-size: clamp(4rem, 7vw, 6rem); font-weight: 800; color: var(--accent-blue); line-height: 1; margin: 1.5rem 0; letter-spacing: -2px; }
 
-        /* VECCHIO FOOTER COMPLETO & SOCIAL */
+        /* FOOTER & SOCIAL */
         footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; margin-top: 5rem; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
         .social-links { display: flex; gap: 12px; margin-top: 1.5rem; }
@@ -347,14 +347,15 @@
             <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: <strong>09104160727</strong></div>
             <div>
                 <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Cookie Policy</a>
-                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline;">Privacy Policy (Art. 13 GDPR)</a>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Privacy Policy</a>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline;">Termini e Condizioni</a>
             </div>
         </div>
     </footer>
 
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-text">
-            <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. Zero cookie di profilazione terze parti. <a href="javascript:void(0)" onclick="openCookieModal()">Leggi la Cookie Policy</a>.
+            <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. <a href="javascript:void(0)" onclick="openCookieModal()">Leggi la Cookie Policy</a>.
         </div>
         <div class="cookie-buttons">
             <button onclick="acceptCookies('necessary')" class="btn-cookie-sec">Solo Tecnici</button>
@@ -365,23 +366,23 @@
     <div id="cookie-modal" class="modal-overlay">
         <div class="modal-card">
             <div class="modal-header">
-                <h3 style="font-size: 1.4rem; font-weight: 800;">Informativa Cookie & Privacy Policy</h3>
+                <h3 style="font-size: 1.4rem; font-weight: 800;">Note Legali, Cookie & Privacy Policy</h3>
                 <button class="close-modal" onclick="closeCookieModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>1. Titolare del Trattamento:</strong><br>
+                <p><strong>1. Titolare del Trattamento & Termini:</strong><br>
                 Vitantonio Di Zanni - evoPOS.it<br>
                 Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>
                 P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
                 
-                <p><strong>2. Tipologia di Cookie Utilizzati:</strong><br>
+                <p><strong>2. Condizioni Generali di Servizio:</strong><br>
+                L'utilizzo del sito e dei servizi di consulenza implica l'accettazione dei termini di trasparenza commerciale e correttezza stabiliti dal Titolare per i servizi Fintech, Energia e TLC.</p>
+
+                <p><strong>3. Tipologia di Cookie Utilizzati:</strong><br>
                 Il portale utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong> necessari al corretto funzionamento della struttura web, all'invio dei form di contatto e al salvataggio delle impostazioni di riservatezza dell'utente.</p>
                 
-                <p><strong>3. Cookie di Profilazione:</strong><br>
-                Il sito <u>non utilizza in alcun modo</u> cookie di tracciamento o profilazione pubblicitaria di terze parti.</p>
-                
                 <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>
-                L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em> o email ordinaria.</p>
+                L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em>.</p>
             </div>
             <div style="margin-top: 1.5rem; text-align: right;">
                 <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
@@ -402,17 +403,6 @@
             if (consent) {
                 document.getElementById("cookie-banner").classList.add("hidden");
             }
-
-            const faqItems = document.querySelectorAll(".faq-item");
-            faqItems.forEach(item => {
-                const questionBtn = item.querySelector(".faq-question");
-                if(questionBtn) {
-                    questionBtn.addEventListener("click", () => {
-                        faqItems.forEach(other => { if (other !== item) other.classList.remove("active"); });
-                        item.classList.toggle("active");
-                    });
-                }
-            });
         });
 
         function acceptCookies(type) {
