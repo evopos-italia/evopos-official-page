@@ -5,6 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>evoPOS.it | Immediato. Semplice. Trasparente.</title>
     
+    <meta name="description" content="Soluzioni di pagamento POS smart con accredito immediato, audit energetico e telecomunicazioni per aziende e professionisti.">
+    <meta name="keywords" content="POS, myPOS, consulenza energetica, fintech, terminali di pagamento, Corato, Bari">
+    <meta name="author" content="Vitantonio Di Zanni">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.evopos.it/">
+    <meta property="og:title" content="evoPOS.it | Immediato. Semplice. Trasparente.">
+    <meta property="og:description" content="Terminali POS di nuova generazione, accredito istantaneo e consulenza energetica e TLC su misura per il tuo business.">
+    <meta property="og:image" content="https://www.evopos.it/favicon.svg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "evoPOS.it",
+      "image": "https://www.evopos.it/favicon.svg",
+      "@id": "https://www.evopos.it",
+      "url": "https://www.evopos.it",
+      "telephone": "+393737600797",
+      "email": "info@evopos.it",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Corso Garibaldi 9",
+        "addressLocality": "Corato",
+        "addressRegion": "BA",
+        "postalCode": "70033",
+        "addressCountry": "IT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.1442,
+        "longitude": 16.4132
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "priceRange": "€€"
+    }
+    </script>
+    
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -36,7 +81,7 @@
 
         /* LOGO TIPOGRAFICO */
         .brand-text {
-            font-family: var(--font-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.35rem;
             font-weight: 400;
             letter-spacing: -0.5px;
@@ -45,11 +90,17 @@
             display: flex;
             align-items: center;
         }
-        .brand-text .pos-part { font-weight: 600; color: var(--accent-blue); }
-        .brand-text .it-part { font-weight: 400; color: var(--text-main); }
+        .brand-text .pos-part {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        .brand-text .it-part {
+            font-weight: 400;
+            color: var(--text-main);
+        }
 
         .brand-text-footer {
-            font-family: var(--font-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.4rem;
             font-weight: 400;
             letter-spacing: -0.5px;
@@ -58,8 +109,14 @@
             display: inline-block;
             margin-bottom: 1rem;
         }
-        .brand-text-footer .pos-part { font-weight: 600; color: var(--accent-blue); }
-        .brand-text-footer .it-part { font-weight: 400; color: #ffffff; }
+        .brand-text-footer .pos-part {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        .brand-text-footer .it-part {
+            font-weight: 400;
+            color: #ffffff;
+        }
 
         /* NAVBAR */
         header {
@@ -75,10 +132,27 @@
             align-items: center;
         }
 
-        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        .main-nav { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-        .main-nav a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
+        .main-nav {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
         .main-nav a:hover { color: var(--accent-blue); }
 
         .btn-nav {
@@ -89,6 +163,7 @@
             font-weight: 700;
             transition: all 0.3s ease;
         }
+
         .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
 
         /* HERO SECTION */
@@ -112,6 +187,7 @@
                         radial-gradient(circle at 50% 50%, rgba(0, 113, 243, 0.4) 0%, var(--business-black) 85%);
             filter: blur(60px);
             animation: auroraMove 10s ease-in-out infinite alternate;
+            will-change: transform;
             pointer-events: none;
         }
 
@@ -122,14 +198,19 @@
         }
 
         .hero-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(24, 24, 24, 0.25);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 1;
         }
 
-        .hero-content { text-align: center; max-width: 920px; z-index: 2; }
+        .hero-content {
+            text-align: center;
+            max-width: 920px;
+            z-index: 2;
+        }
 
         .claim-badge {
             display: inline-block;
@@ -140,6 +221,7 @@
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 20px rgba(0, 113, 243, 0.3);
         }
+
         .claim-badge span {
             text-transform: uppercase;
             letter-spacing: 2.5px;
@@ -157,6 +239,7 @@
             color: #ffffff;
             text-shadow: 0 4px 25px rgba(0,0,0,0.5);
         }
+
         .hero-title span { color: var(--accent-lime); }
 
         .hero-subtitle {
@@ -180,8 +263,8 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
-            font-family: inherit;
         }
+
         .btn-custom:hover {
             background: var(--accent-lime) !important;
             color: #0f172a !important;
@@ -189,14 +272,19 @@
             transform: translateY(-2px);
         }
 
-        /* SEZIONE BUSINESS NERA */
+        /* SEZIONE BUSINESS NERA (#181818) */
         .business-section {
             background-color: var(--business-black);
             color: white;
             padding: 6rem 5%;
+            margin: 0;
         }
 
-        .business-header { max-width: 1400px; margin: 0 auto 4rem auto; text-align: left; }
+        .business-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem auto;
+            text-align: left;
+        }
 
         .gemini-card-wrapper {
             position: relative;
@@ -216,12 +304,14 @@
         .glass-box {
             background: rgba(15, 20, 28, 0.85);
             backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-radius: 22px;
             padding: 3rem;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            color: white;
         }
 
         .business-grid {
@@ -232,153 +322,415 @@
             margin: 0 auto;
         }
 
-        /* SEZIONE QUOTE LIME */
+        /* SEZIONE QUOTE LIME (#d6fd70) */
         .quote-lime-section {
             background-color: var(--accent-lime);
             color: #0f172a;
             padding: 4.5rem 5%;
             text-align: center;
+            box-shadow: 0 15px 35px rgba(214, 253, 112, 0.2);
         }
-        .quote-lime-section .main-claim { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1.5px; text-transform: uppercase; line-height: 1.1; margin-bottom: 0.8rem; }
-        .quote-lime-section .sub-quote { font-size: 1.25rem; font-weight: 600; opacity: 0.85; max-width: 800px; margin: 0 auto; }
 
-        /* VANTAGGI E LISTINO */
-        .features-section, .pricing-section { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
-        
-        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 3rem; }
-        .feature-card {
-            background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); transition: transform 0.3s ease;
+        .quote-lime-section .main-claim {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
         }
-        .feature-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
 
-        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
-        .pricing-card {
-            background: white; border-radius: 24px; padding: 4rem 3rem; border: 2px solid #e2e8f0;
-            text-align: center; display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .pricing-card.featured { border-color: var(--accent-blue); background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%); }
-        .big-percentage { font-size: clamp(4rem, 7vw, 6rem); font-weight: 800; color: var(--accent-blue); line-height: 1; margin: 1.5rem 0; letter-spacing: -2px; }
-
-        /* FAQ */
-        .faq-section { padding: 6rem 5%; max-width: 1000px; margin: 0 auto; }
-        .faq-container { margin-top: 3rem; display: flex; flex-direction: column; gap: 1rem; }
-        .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; transition: border-color 0.3s ease; }
-        .faq-item.active { border-color: var(--accent-blue); }
-        .faq-question {
-            width: 100%; background: none; border: none; padding: 1.5rem 2rem; text-align: left;
-            font-size: 1.1rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; font-family: inherit;
-        }
-        .faq-question span { font-size: 1.4rem; color: var(--accent-blue); transition: transform 0.3s ease; }
-        .faq-item.active .faq-question span { transform: rotate(45deg); }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; padding: 0 2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-        .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 300px; }
-
-        /* FORM DI CONTATTO CORRETTO */
-        .contact-section-wrapper {
-            background: #f1f5f9;
-            border-radius: 32px;
-            padding: 4rem 2rem;
+        .quote-lime-section .sub-quote {
+            font-size: 1.25rem;
+            font-weight: 600;
+            opacity: 0.85;
             max-width: 800px;
-            margin: 4rem auto; /* Centratura su PC */
-            width: 92%; /* Sicurezza mobile */
+            margin: 0 auto;
         }
-        .contact-form {
+
+        /* VANTAGGI MYPOS */
+        .features-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 colonne su PC */
-            gap: 1.25rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 3rem;
         }
-        .contact-form .full-width {
-            grid-column: span 2;
-        }
-        .contact-input {
-            width: 100%;
-            padding: 1rem;
-            border-radius: 12px;
-            border: 1px solid #cbd5e1;
+
+        .feature-card {
             background: white;
-            font-family: inherit;
-            font-size: 0.95rem;
-            outline: none;
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        /* LISTINO TARIFFE */
+        .pricing-section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent-blue);
+            background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+        }
+
+        .big-percentage {
+            font-size: clamp(4rem, 7vw, 6rem);
+            font-weight: 800;
+            color: var(--accent-blue);
+            line-height: 1;
+            margin: 1.5rem 0;
+            letter-spacing: -2px;
+        }
+
+        /* FAQ ACCORDION */
+        .faq-section {
+            padding: 6rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .faq-container {
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             transition: border-color 0.3s ease;
         }
-        .contact-input:focus { border-color: var(--accent-blue); }
 
-        /* FOOTER */
-        footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; margin-top: 5rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
+        .faq-item.active {
+            border-color: var(--accent-blue);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.5rem 2rem;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+        }
+
+        .faq-question span {
+            font-size: 1.4rem;
+            color: var(--accent-blue);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 2rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+            max-height: 250px;
+        }
+
+        /* FOOTER & SOCIAL LINKS */
+        footer {
+            background: #0a0f1c;
+            color: white;
+            padding: 6rem 5% 2rem 5%;
+            margin-top: 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 4rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .social-icon:hover {
+            background: var(--accent-blue);
+            color: #ffffff;
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+        }
+
         .footer-links h4 { color: var(--accent-blue); margin-bottom: 1.5rem; }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 0.8rem; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; cursor: pointer; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
         .footer-links a:hover { color: white; }
-        .footer-legal { max-width: 1400px; margin: 2rem auto 0; color: #64748b; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 
-        /* WHATSAPP FLOAT CORRETTO E SOLIDO */
-        .whatsapp-btn-fixed {
+        .footer-legal {
+            max-width: 1400px;
+            margin: 2rem auto 0;
+            color: #64748b;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* COOKIE BANNER & MODAL */
+        .cookie-banner {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1000px;
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            color: #ffffff;
+            z-index: 10000;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .cookie-banner.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: translate(-50%, 50px);
+        }
+
+        .cookie-text {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        .cookie-text a {
+            color: var(--accent-lime);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .btn-cookie-sec {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .btn-cookie-sec:hover { background: rgba(255,255,255,0.2); }
+
+        .btn-cookie-main {
+            background: var(--accent-lime);
+            color: #0f172a;
+            border: none;
+            padding: 0.6rem 1.4rem;
+            border-radius: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .btn-cookie-main:hover {
+            background: #c3f248;
+            transform: translateY(-1px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 20000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-card {
+            background: #ffffff;
+            color: var(--text-main);
+            width: calc(100% - 40px);
+            max-width: 680px;
+            max-height: 85vh;
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-body p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* PULSANTE WHATSAPP */
+        .whatsapp-float {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 60px;
             height: 60px;
             background-color: var(--whatsapp-green);
-            border-radius: 50%; 
+            color: #ffffff;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 999999; /* Livello altissimo per essere sempre sopra */
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            z-index: 99999;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid white;
+            border: 2px solid #ffffff;
+            flex-shrink: 0;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            box-sizing: border-box;
         }
-        .whatsapp-btn-fixed svg {
+
+        .whatsapp-float:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+        }
+
+        .whatsapp-float svg {
             width: 32px;
             height: 32px;
             fill: #ffffff;
-        }
-        .whatsapp-btn-fixed:hover {
-            transform: scale(1.12) translateY(-3px);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+            display: block;
+            margin: auto;
         }
 
-        /* BANNER COOKIE */
-        .cookie-banner { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); width: calc(100% - 48px); max-width: 1000px; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border-radius: 20px; padding: 1.5rem 2rem; color: white; z-index: 10000; box-shadow: 0 20px 50px rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: space-between; gap: 2rem; transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.15); }
-        .cookie-banner.hidden { opacity: 0; pointer-events: none; transform: translate(-50%, 50px); }
-        .cookie-text { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
-        .cookie-text a { color: var(--accent-lime); font-weight: 600; text-decoration: underline; cursor: pointer; }
-        .cookie-buttons { display: flex; gap: 10px; flex-shrink: 0; }
-        .btn-cookie-sec { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.6rem 1.2rem; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
-        .btn-cookie-sec:hover { background: rgba(255,255,255,0.2); }
-        .btn-cookie-main { background: var(--accent-lime); color: #0f172a; border: none; padding: 0.6rem 1.4rem; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
-        .btn-cookie-main:hover { background: #c3f248; transform: translateY(-1px); }
-
-        /* RECUPERO STILI MODALE PRIVACY */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 20000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-card { background: #ffffff; color: var(--text-main); width: calc(100% - 40px); max-width: 680px; max-height: 85vh; border-radius: 24px; padding: 2.5rem; box-shadow: 0 25px 60px rgba(0,0,0,0.3); overflow-y: auto; position: relative; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; }
-        .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); }
-        .modal-body p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6; }
-
-        /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
             .business-grid, .features-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
             .main-nav { display: none; }
-            .cookie-banner { flex-direction: column; align-items: flex-start; }
+            .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
             .cookie-buttons { width: 100%; justify-content: flex-end; }
-        }
-
-        @media (max-width: 768px) {
-            /* Correzione Form 1 colonna */
-            .contact-form { grid-template-columns: 1fr; }
-            .contact-form .full-width { grid-column: span 1; }
-            .contact-section-wrapper { padding: 3rem 1.5rem; margin: 2rem auto; width: 90%; }
-            
-            /* Correzione WhatsApp Mobile */
-            .whatsapp-btn-fixed { width: 55px; height: 55px; bottom: 20px; right: 20px; }
-            .whatsapp-btn-fixed svg { width: 30px; height: 30px; }
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; }
+            .whatsapp-float svg { width: 28px; height: 28px; }
         }
     </style>
 </head>
@@ -642,29 +994,29 @@
         </div>
     </section>
 
-    <section id="contatti">
-        <div class="contact-section-wrapper" data-aos="fade-up">
+    <section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; margin: 4rem 5%;">
+        <div style="max-width: 800px; margin: 0 auto;">
             <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
-            <p style="color: var(--text-muted); text-align: center; margin-top: 0.5rem;">Compila il form con i tuoi dati. Ti ricontatteremo nel più breve tempo possibile.</p>
+            <p style="color: var(--text-muted); text-align: center; margin-top: 0.5rem; margin-bottom: 2.5rem;">Compila il form con i tuoi dati. Ti ricontatteremo nel più breve tempo possibile.</p>
 
-            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
                 
                 <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
                 <input type="hidden" name="subject" value="Nuovo Contatto da evoPOS.it">
                 <input type="hidden" name="from_name" value="evoPOS.it Website">
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none !important;">
 
-                <input type="text" name="nome" placeholder="Nome" required class="contact-input">
-                <input type="text" name="cognome_o_ragione_sociale" placeholder="Cognome o Ragione Sociale" required class="contact-input">
-                <input type="tel" name="telefono" placeholder="Telefono (+39)" required class="contact-input">
-                <input type="email" name="email" placeholder="Email" required class="contact-input">
+                <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                <input type="text" name="cognome_o_ragione_sociale" placeholder="Cognome o Ragione Sociale" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                <input type="tel" name="telefono" placeholder="Telefono (+39)" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
+                <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; background: white; font-family: inherit; font-size: 0.95rem;">
 
-                <div class="full-width" style="font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 0.5rem;">
-                    <input type="checkbox" id="privacy" required style="accent-color: var(--accent-blue); width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px;">
-                    <label for="privacy" style="line-height: 1.4;">Dichiaro di aver letto e accetto l'Informativa sulla Privacy (Art. 13 GDPR).</label>
+                <div style="grid-column: span 2; font-size: 0.85rem; color: var(--text-muted); display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+                    <input type="checkbox" id="privacy" required style="accent-color: var(--accent-blue); width: 18px; height: 18px;">
+                    <label for="privacy">Dichiaro di aver letto e accetto l'Informativa sulla Privacy (Art. 13 GDPR).</label>
                 </div>
 
-                <button type="submit" class="btn-custom full-width" style="border: none; font-family: inherit; font-size: 1rem; cursor: pointer; text-align: center;">Invia Richiesta</button>
+                <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%; text-align: center; margin-top: 0.5rem;">Invia Richiesta</button>
             </form>
         </div>
     </section>
@@ -674,7 +1026,20 @@
             <div>
                 <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
                 <p style="color: #94a3b8; max-width: 320px; font-size: 1.05rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/evoposIT" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/evopos.it/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://x.com/evoPOSit" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
             </div>
+            
             <div class="footer-links">
                 <h4>Menu</h4>
                 <ul>
@@ -698,85 +1063,12 @@
         <div class="footer-legal">
             <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: <strong>09104160727</strong></div>
             <div>
-                <a onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px; cursor: pointer;">Cookie Policy</a>
-                <a onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; cursor: pointer;">Privacy Policy (Art. 13 GDPR)</a>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline;">Privacy Policy (Art. 13 GDPR)</a>
             </div>
         </div>
     </footer>
 
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-text">
-            <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. Zero cookie di profilazione terze parti. <a onclick="openCookieModal()">Leggi la Cookie Policy</a>.
-        </div>
-        <div class="cookie-buttons">
-            <button onclick="acceptCookies('necessary')" class="btn-cookie-sec">Solo Tecnici</button>
-            <button onclick="acceptCookies('all')" class="btn-cookie-main">Accetta Tutti</button>
-        </div>
-    </div>
-
-    <div id="cookie-modal" class="modal-overlay">
-        <div class="modal-card">
-            <div class="modal-header">
-                <h3 style="font-size: 1.4rem; font-weight: 800;">Informativa Cookie & Privacy Policy</h3>
-                <button class="close-modal" onclick="closeCookieModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>1. Titolare del Trattamento:</strong><br>Vitantonio Di Zanni - evoPOS.it<br>Sede Legale: Corso Garibaldi 9, 70033 Corato (BA)<br>P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
-                <p><strong>2. Tipologia di Cookie Utilizzati:</strong><br>Il portale utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong> necessari al corretto funzionamento della struttura web, all'invio dei form di contatto e al salvataggio delle impostazioni di riservatezza dell'utente.</p>
-                <p><strong>3. Cookie di Profilazione:</strong><br>Il sito <u>non utilizza in alcun modo</u> cookie di tracciamento o profilazione pubblicitaria di terze parti.</p>
-                <p><strong>4. Diritti dell'Interessato (GDPR 2016/679):</strong><br>L'utente ha il diritto di chiedere in qualsiasi momento l'accesso, la modifica o la cancellazione dei propri dati inviando una comunicazione formale via PEC a <em>vitantonio.dizanni@pec.it</em> o email ordinaria.</p>
-            </div>
-            <div style="margin-top: 1.5rem; text-align: right;">
-                <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
-            </div>
-        </div>
-    </div>
-
-    <a href="https://wa.me/393737600797" class="whatsapp-btn-fixed" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
-        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-        </svg>
-    </a>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ once: true, offset: 100 });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            // FAQ Script
-            const faqItems = document.querySelectorAll(".faq-item");
-            faqItems.forEach(item => {
-                const questionBtn = item.querySelector(".faq-question");
-                questionBtn.addEventListener("click", () => {
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove("active");
-                        }
-                    });
-                    item.classList.toggle("active");
-                });
-            });
-
-            // Gestione del Banner Cookie al caricamento
-            var consent = localStorage.getItem("evopos_cookie_consent");
-            if (consent) {
-                document.getElementById("cookie-banner").classList.add("hidden");
-            }
-        });
-
-        // Funzioni Cookie e Modale
-        function acceptCookies(type) {
-            localStorage.setItem("evopos_cookie_consent", type);
-            document.getElementById("cookie-banner").classList.add("hidden");
-        }
-
-        function openCookieModal() {
-            document.getElementById("cookie-modal").classList.add("active");
-        }
-
-        function closeCookieModal() {
-            document.getElementById("cookie-modal").classList.remove("active");
-        }
-    </script>
-</body>
-</html>
+            <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. Zero cookie di profilazione ter
