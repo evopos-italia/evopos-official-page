@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminali myPOS e Listino Tariffe | evoPOS.it</title>
-    <meta name="description" content="Scopri i terminali myPOS Go 2, Flex, Ultra e Go Combo. Accredito immediato, zero canoni e commissioni trasparenti a partire dallo 0,50%.">
+    <title>Terminali myPOS, Tariffe e FAQ | evoPOS.it</title>
+    <meta name="description" content="Scopri i terminali myPOS Go 2, Flex, Ultra e Go Combo. Accredito immediato, zero canoni, listino trasparente e FAQ complete per professionisti e imprese.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -17,6 +17,7 @@
             --nav-glass: rgba(255, 255, 255, 0.95); --font-main: 'Inter', sans-serif; --whatsapp-green: #25D366;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body { color: var(--text-main); font-family: var(--font-main); background: var(--bg-main); line-height: 1.6; }
 
         .brand-text { font-size: 1.35rem; font-weight: 400; text-decoration: none; color: var(--text-main); display: flex; align-items: center; }
@@ -39,11 +40,25 @@
         .terminal-card {
             background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 2rem;
             display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s;
         }
+        .terminal-card:hover { transform: translateY(-5px); border-color: var(--accent-blue); }
         .terminal-tag { display: inline-block; background: #e0f2fe; color: #0284c7; padding: 0.3rem 0.8rem; border-radius: 99px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; margin-bottom: 1rem; }
         .terminal-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
         .terminal-specs { list-style: none; margin: 1.5rem 0; font-size: 0.85rem; }
-        .terminal-specs li { margin-bottom: 0.5rem; }
+        .terminal-specs li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
+        .terminal-specs li::before { content: "✓"; color: var(--accent-blue); font-weight: 800; }
+
+        /* FAQ SECTION */
+        .faq-section { padding: 5rem 5%; max-width: 900px; margin: 0 auto; }
+        .faq-container { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+        .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; transition: border-color 0.3s; }
+        .faq-item.active { border-color: var(--accent-blue); }
+        .faq-question { width: 100%; background: none; border: none; padding: 1.5rem 2rem; text-align: left; font-size: 1.05rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-question span { font-size: 1.3rem; color: var(--accent-blue); transition: transform 0.3s; }
+        .faq-item.active .faq-question span { transform: rotate(45deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; padding: 0 2rem; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        .faq-item.active .faq-answer { padding-bottom: 1.5rem; max-height: 300px; }
 
         .btn-custom {
             display: inline-block; background: var(--accent-blue); color: white; padding: 0.9rem 2.2rem;
@@ -86,8 +101,8 @@
                     <h3>myPOS Go 2</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem;">Ultraleggero, con SIM 4G gratuita e zero canoni fissi.</p>
                     <ul class="terminal-specs">
-                        <li>✓ SIM 4G multioperatore inclusa</li>
-                        <li>✓ Accredito fondi immediato</li>
+                        <li>SIM 4G multioperatore inclusa</li>
+                        <li>Accredito fondi immediato</li>
                     </ul>
                 </div>
                 <a href="#contatti" class="btn-custom" style="font-size: 0.85rem; padding: 0.7rem;">Richiedi</a>
@@ -98,8 +113,8 @@
                     <h3>myPOS Flex</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem;">Touchscreen e tastiera fisica ergonomica.</p>
                     <ul class="terminal-specs">
-                        <li>✓ Wi-Fi, 4G e Bluetooth</li>
-                        <li>✓ Accredito fondi immediato</li>
+                        <li>Wi-Fi, 4G e Bluetooth</li>
+                        <li>Accredito fondi immediato</li>
                     </ul>
                 </div>
                 <a href="#contatti" class="btn-custom" style="font-size: 0.85rem; padding: 0.7rem;">Richiedi</a>
@@ -110,8 +125,8 @@
                     <h3>myPOS Ultra</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem;">Potente Android POS con stampante termica integrata.</p>
                     <ul class="terminal-specs">
-                        <li>✓ Cassa fiscalizzata MyOrder</li>
-                        <li>✓ Accredito fondi immediato</li>
+                        <li>Cassa fiscalizzata MyOrder</li>
+                        <li>Accredito fondi immediato</li>
                     </ul>
                 </div>
                 <a href="#contatti" class="btn-custom" style="font-size: 0.85rem; padding: 0.7rem;">Richiedi</a>
@@ -122,11 +137,48 @@
                     <h3>myPOS Go Combo</h3>
                     <p style="color: var(--text-muted); font-size: 0.9rem;">Lettore portatile unito alla base stampante scontrini.</p>
                     <ul class="terminal-specs">
-                        <li>✓ Base stampa rapida</li>
-                        <li>✓ Accredito fondi immediato</li>
+                        <li>Base stampa rapida</li>
+                        <li>Accredito fondi immediato</li>
                     </ul>
                 </div>
                 <a href="#contatti" class="btn-custom" style="font-size: 0.85rem; padding: 0.7rem;">Richiedi</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div style="text-align: center;">
+            <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Domande Frequenti</span>
+            <h2 style="font-size: 2.2rem; font-weight: 800; margin-top: 0.5rem;">Tutto sui POS myPOS e la consulenza</h2>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">Come funziona l'accredito immediato con i terminali myPOS? <span>+</span></button>
+                <div class="faq-answer">
+                    Con myPOS i fondi derivanti da ogni singola transazione (carta, contactless o e-wallet) vengono accreditati istantaneamente sul tuo conto business gratuito, consentendoti di disporre della liquidità 7 giorni su 7 senza alcuna attesa bancaria.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">In quanto tempo si attiva un POS myPOS con evoPOS? <span>+</span></button>
+                <div class="faq-answer">
+                    L'attivazione è incredibilmente rapida: bastano appena 8 minuti per completare la registrazione online, verificare l'account e ricevere il terminale pronto all'uso con SIM multioperatore e traffico dati incluso a costo zero.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Quali sono i vantaggi di affidarsi a un consulente myPOS rispetto al web? <span>+</span></button>
+                <div class="faq-answer">
+                    A differenza di un acquisto impersonale online, con evoPOS.it hai un referente umano e dedicato. Con sede a Corato (Bari), ti affianchiamo nella scelta del terminale ideale, ti riserviamo condizioni e scontistiche esclusive, e restiamo il tuo punto di riferimento costante.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Operate solo in Puglia o in tutta Italia? <span>+</span></button>
+                <div class="faq-answer">
+                    Operiamo su tutto il territorio nazionale! La nostra sede principale è a Corato (BA), ma grazie a una gestione digitale snella e al supporto telefonico/WhatsApp dedicato, affianchiamo professionisti e imprese da Milano a Palermo senza alcuna barriera geografica.
+                </div>
             </div>
         </div>
     </section>
@@ -151,5 +203,16 @@
     <a href="https://wa.me/393737600797" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
+
+    <script>
+        const faqItems = document.querySelectorAll(".faq-item");
+        faqItems.forEach(item => {
+            const questionBtn = item.querySelector(".faq-question");
+            questionBtn.addEventListener("click", () => {
+                faqItems.forEach(otherItem => { if (otherItem !== item) { otherItem.classList.remove("active"); } });
+                item.classList.toggle("active");
+            });
+        });
+    </script>
 </body>
 </html>
