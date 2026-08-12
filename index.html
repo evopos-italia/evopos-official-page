@@ -1129,6 +1129,7 @@
         <div class="footer-legal">
             <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: <strong>09104160727</strong></div>
             <div>
+                <a href="javascript:void(0)" onclick="openTermsModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Termini e Condizioni</a>
                 <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Cookie Policy</a>
                 <a href="javascript:void(0)" onclick="openCookieModal()" style="color: #94a3b8; text-decoration: underline;">Privacy Policy (Art. 13 GDPR)</a>
             </div>
@@ -1159,6 +1160,25 @@
             </div>
             <div style="margin-top: 1.5rem; text-align: right;">
                 <button onclick="closeCookieModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="terms-modal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 style="font-size: 1.4rem; font-weight: 800;">Termini e Condizioni di Utilizzo</h3>
+                <button class="close-modal" onclick="closeTermsModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>1. Oggetto e Finalità del Sito:</strong><br>Il sito web <strong>evoPOS.it</strong> ha natura puramente informativa e promozionale. Presenta l'attività di consulenza professionale nel settore energetico e fintech (inclusi i servizi legati ai terminali POS e soluzioni di pagamento in qualità di partner/consulente autorizzato).</p>
+                <p><strong>2. Esclusione di Offerta Vincolante:</strong><br>Le informazioni, le stime, i preventivi o le descrizioni dei servizi presenti sul sito non costituiscono in alcun modo un'offerta al pubblico vincolante né un contratto di fornitura diretto perfezionabile online. Ciascun accordo commerciale o contrattuale viene definito e sottoscritto separatamente tramite i canali ufficiali e i partner accreditati di riferimento.</p>
+                <p><strong>3. Proprietà Intellettuale e Marchi:</strong><br>Tutti i contenuti testuali, le grafiche, i loghi (incluso il marchio <strong>evoPOS</strong> e i riferimenti ai partner autorizzati come <em>myPOS</em>) presenti su questo sito appartengono ai rispettivi legittimi proprietari o sono utilizzati nel rispetto dei mandati commerciali. È vietata la riproduzione non autorizzata.</p>
+                <p><strong>4. Limitazione di Responsabilità:</strong><br>Il Titolare del sito compie ogni sforzo per mantenere i contenuti aggiornati e accurati, ma non si assume alcuna responsabilità per eventuali errori, omissioni, interruzioni del servizio o per danni derivanti dall'affidamento riposto nelle informazioni qui pubblicate.</p>
+                <p><strong>5. Legge Applicabile e Foro Competente:</strong><br>I presenti Termini e Condizioni sono regolati dalle leggi della Repubblica Italiana. Per qualsiasi controversia dovesse insorgere in relazione all'utilizzo del sito, il foro competente sarà quello stabilito dalla normativa vigente.</p>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: right;">
+                <button onclick="closeTermsModal()" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi</button>
             </div>
         </div>
     </div>
@@ -1204,6 +1224,14 @@
 
         function closeCookieModal() {
             document.getElementById("cookie-modal").classList.remove("active");
+        }
+
+        function openTermsModal() {
+            document.getElementById("terms-modal").classList.add("active");
+        }
+
+        function closeTermsModal() {
+            document.getElementById("terms-modal").classList.remove("active");
         }
     </script>
 </body>
