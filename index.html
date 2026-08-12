@@ -398,35 +398,87 @@
             margin: 0 auto;
         }
 
-        /* VANTAGGI MYPOS */
+        /* VANTAGGI MYPOS CON APPLE LIQUID GLASS E SFONDO DARK IMMERSIVO */
         .features-section {
-            padding: 6rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 7rem 5%;
+            background: linear-gradient(135deg, #0b101d 0%, #111827 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Effetti luce di sfondo per esaltare il liquid glass */
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 113, 243, 0.2) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .features-section::after {
+            content: '';
+            position: absolute;
+            bottom: 10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(214, 253, 112, 0.1) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-top: 3rem;
+            max-width: 1400px;
+            margin: 3rem auto 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .feature-card {
-            background: white;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 24px;
             padding: 2.5rem;
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: transform 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Riflesso luminoso stile Apple Liquid Glass */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: 0.5s;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-blue);
+            transform: translateY(-6px) scale(1.01);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(0, 113, 243, 0.4);
+            box-shadow: 0 30px 60px rgba(0, 113, 243, 0.2);
         }
 
         /* LISTINO TARIFFE */
@@ -929,84 +981,84 @@
     </section>
 
     <section id="vantaggi" class="features-section">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
-            <span style="color: var(--accent-blue); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 10px;">Tariffe su misura, esclusive e più competitive per ogni tua reale esigenza.</span>
+        <div style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2;" data-aos="fade-up">
+            <span style="color: var(--accent-lime); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1.5px; display: block; margin-bottom: 10px;">Tariffe su misura, esclusive e più competitive per ogni tua reale esigenza.</span>
             
             <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Il Vantaggio Competitivo</span>
-            <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Perché scegliere myPOS con evoPOS</h2>
+            <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem; color: #ffffff;">Perché scegliere myPOS con evoPOS</h2>
         </div>
 
         <div class="features-grid">
             
             <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">01 // LIQUIDITÀ</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Accredito Immediato</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Disponibilità istantanea delle somme incassate sul tuo conto, senza attese bancarie.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">01 // LIQUIDITÀ</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">Accredito Immediato</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Disponibilità istantanea delle somme incassate sul tuo conto, senza attese bancarie.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">02 // CONTO ZERO SPESE</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Conto Business Gratuito</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Inclusi IBAN dedicato e carta aziendale senza costi di gestione o canoni nascosti.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">02 // CONTO ZERO SPESE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">Conto Business Gratuito</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Inclusi IBAN dedicato e carta aziendale senza costi di gestione o canoni nascosti.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">03 // ATTIVAZIONE LAMPO</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Operativo in 8 Minuti</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Registrazione semplice e rapida: in soli 8 minuti sei già operativo per incassare.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">03 // ATTIVAZIONE LAMPO</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">Operativo in 8 Minuti</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Registrazione semplice e rapida: in soli 8 minuti sei già operativo per incassare.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">04 // CASSA & COMPLIANT</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">MyOrder & Registratore</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">myPOS Ultra diventa registratore di cassa 100% compliant secondo le ultime normative italiane.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">04 // CASSA & COMPLIANT</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">MyOrder & Registratore</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">myPOS Ultra diventa registratore di cassa 100% compliant secondo le ultime normative italiane.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">05 // CONNETTIVITÀ TOTALE</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">SIM Multioperatore Gratuita</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Terminali sempre connessi in ogni angolo d'Europa con traffico dati incluso a costo zero.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">05 // CONNETTIVITÀ TOTALE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">SIM Multioperatore Gratuita</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Terminali sempre connessi in ogni angolo d'Europa con traffico dati incluso a costo zero.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">06 // MYPOS GLASS</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Smartphone come POS</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Trasforma il tuo smartphone in un terminale di pagamento sicuro e sempre a portata di mano.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">06 // MYPOS GLASS</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">Smartphone come POS</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Trasforma il tuo smartphone in un terminale di pagamento sicuro e sempre a portata di mano.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="700">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">07 // GESTIONE MOBILE</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">App Mobile Dedicata</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Tieni sotto controllo transazioni, report e attività ovunque tu sia direttamente dal telefono.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">07 // GESTIONE MOBILE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">App Mobile Dedicata</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Tieni sotto controllo transazioni, report e attività ovunque tu sia direttamente dal telefono.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="800">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">08 // E-COMMERCE</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Gateway & Checkout Web</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Hai già un sito? Integra facilmente i nostri plugin di pagamento per un'esperienza d'acquisto fluida.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">08 // E-COMMERCE</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">Gateway & Checkout Web</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Hai già un sito? Integra facilmente i nostri plugin di pagamento per un'esperienza d'acquisto fluida.</p>
                 </div>
             </div>
 
             <div class="feature-card" data-aos="fade-up" data-aos-delay="900">
                 <div>
-                    <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.85rem;">09 // SUPPORTO H24</span>
-                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0;">Assistenza 24/7</h4>
-                    <p style="color: var(--text-muted); font-size: 0.95rem;">Un team di professionisti sempre operativo e pronto ad aiutarti a qualsiasi ora.</p>
+                    <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.85rem;">09 // SUPPORTO H24</span>
+                    <h4 style="font-size: 1.25rem; margin: 0.75rem 0; color: #ffffff;">Assistenza 24/7</h4>
+                    <p style="color: #cbd5e1; font-size: 0.95rem;">Un team di professionisti sempre operativo e pronto ad aiutarti a qualsiasi ora.</p>
                 </div>
             </div>
 
