@@ -272,6 +272,47 @@
             transform: translateY(-2px);
         }
 
+        /* BLOCCO DI MARKETING AGGIUNTIVO SUBITO DOPO LA HERO */
+        .marketing-banner {
+            padding: 4rem 5%;
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .marketing-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .marketing-item {
+            background: var(--bg-main);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .marketing-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+        }
+
+        .marketing-item h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
+        }
+
+        .marketing-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
         /* SEZIONE BUSINESS NERA (#181818) */
         .business-section {
             background-color: var(--business-black);
@@ -725,7 +766,7 @@
         }
 
         @media (max-width: 1024px) {
-            .business-grid, .features-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
+            .business-grid, .features-grid, .pricing-grid, .footer-grid, .marketing-container { grid-template-columns: 1fr; }
             .main-nav { display: none; }
             .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
             .cookie-buttons { width: 100%; justify-content: flex-end; }
@@ -763,6 +804,23 @@
             <p class="hero-subtitle">Ottieni accesso istantaneo ai tuoi fondi con ogni pagamento che ricevi. Taglia le spese inutili in bolletta e dota la tua azienda delle migliori infrastrutture di connessione Telco.</p>
             
             <a href="#contatti" class="btn-custom">Richiedi una Consulenza Gratuita</a>
+        </div>
+    </section>
+
+    <section class="marketing-banner" data-aos="fade-up">
+        <div class="marketing-container">
+            <div class="marketing-item">
+                <h4>⚡ Accredito Immediato</h4>
+                <p>Disponibilità immediata delle somme incassate sul conto dedicato, 7 giorni su 7, senza attese superflue.</p>
+            </div>
+            <div class="marketing-item">
+                <h4>🔒 Massima Sicurezza</h4>
+                <p>Tecnologia all'avanguardia conforme ai più alti standard di sicurezza bancaria e crittografia end-to-end.</p>
+            </div>
+            <div class="marketing-item">
+                <h4>💼 Zero Vincoli Nascosti</h4>
+                <p>Trasparenza totale sui costi di gestione, senza canoni oppressivi e con assistenza dedicata continuativa.</p>
+            </div>
         </div>
     </section>
 
