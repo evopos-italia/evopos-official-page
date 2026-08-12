@@ -148,12 +148,28 @@
         }
         .btn-custom:hover { background: var(--accent-lime) !important; color: #0f172a !important; box-shadow: 0 0 25px rgba(214, 253, 112, 0.6); transform: translateY(-2px); }
 
-        .marketing-banner { padding: 4rem 5%; background: #ffffff; border-bottom: 1px solid #e2e8f0; }
-        .marketing-container { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-        .marketing-item { background: var(--bg-main); border: 1px solid #e2e8f0; border-radius: 16px; padding: 2rem; transition: transform 0.3s ease, border-color 0.3s ease; }
-        .marketing-item:hover { transform: translateY(-3px); border-color: var(--accent-blue); }
-        .marketing-item h4 { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.6rem; color: var(--text-main); }
-        .marketing-item p { font-size: 0.95rem; color: var(--text-muted); margin: 0; }
+        /* Stile pulito per il banner a pieno formato (senza box o stondature) */
+        .banner-section {
+            width: 100%;
+            background-color: var(--business-black);
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .banner-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 5%;
+        }
+        .full-width-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            border-radius: 0;
+            box-shadow: none;
+        }
 
         .business-section { background-color: var(--business-black); color: white; padding: 6rem 5%; margin: 0; }
         .business-header { max-width: 1400px; margin: 0 auto 4rem auto; text-align: left; }
@@ -225,7 +241,7 @@
         .whatsapp-float svg { width: 32px; height: 32px; fill: #ffffff; display: block; margin: auto; }
 
         @media (max-width: 1024px) {
-            .business-grid, .features-grid, .pricing-grid, .footer-grid, .marketing-container { grid-template-columns: 1fr; }
+            .business-grid, .features-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
             .main-nav { display: none; }
             .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
             .cookie-buttons { width: 100%; justify-content: flex-end; }
@@ -267,20 +283,9 @@
         </div>
     </section>
 
-    <section class="marketing-banner" data-aos="fade-up">
-        <div class="marketing-container">
-            <div class="marketing-item">
-                <h4>⚡ Accredito Immediato</h4>
-                <p>Disponibilità immediata delle somme incassate sul conto dedicato, 7 giorni su 7, senza attese superflue.</p>
-            </div>
-            <div class="marketing-item">
-                <h4>🔒 Massima Sicurezza</h4>
-                <p>Tecnologia all'avanguardia conforme ai più alti standard di sicurezza bancaria e crittografia end-to-end.</p>
-            </div>
-            <div class="marketing-item">
-                <h4>💼 Zero Vincoli Nascosti</h4>
-                <p>Trasparenza totale sui costi di gestione, senza canoni oppressivi e con assistenza dedicata continuativa.</p>
-            </div>
+    <section class="banner-section" data-aos="fade-up">
+        <div class="banner-container">
+            <img src="copertina-evopos.png" alt="evoPOS - Più di un semplice POS" class="full-width-banner">
         </div>
     </section>
 
