@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>evoPOS.it | Immediato. Semplice. Trasparente.</title>
-    <meta name="description" content="Soluzioni di pagamento POS smart con accredito immediato, audit energetico e telecomunicazioni per aziende e professionisti.">
     
+    <meta name="description" content="Soluzioni di pagamento POS smart con accredito immediato, audit energetico e telecomunicazioni per aziende e professionisti.">
+    <meta name="keywords" content="POS, myPOS, consulenza energetica, fintech, terminali di pagamento, Corato, Bari">
+    <meta name="author" content="Vitantonio Di Zanni">
+
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -14,97 +17,134 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
         :root {
-            --bg-main: #f8fafc; --text-main: #0f172a; --text-muted: #475569;
-            --accent-blue: #0071f3; --accent-lime: #d6fd70; --business-black: #181818;
+            --bg-main: #f8fafc;
+            --text-main: #0f172a;        
+            --text-muted: #475569;       
+            --accent-blue: #0071f3;      
+            --accent-lime: #d6fd70;      
+            --business-black: #181818;
             --nav-glass: rgba(255, 255, 255, 0.95);
-            --font-main: 'Inter', sans-serif; --whatsapp-green: #25D366;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --whatsapp-green: #25D366;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { color: var(--text-main); font-family: var(--font-main); background: var(--bg-main); overflow-x: hidden; line-height: 1.6; }
 
-        /* BRAND & NAVBAR */
-        .brand-text { font-size: 1.35rem; font-weight: 400; letter-spacing: -0.5px; text-decoration: none; color: var(--text-main); display: flex; align-items: center; }
+        body {
+            color: var(--text-main);
+            font-family: var(--font-main);
+            background: var(--bg-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .brand-text {
+            font-size: 1.35rem; font-weight: 400; letter-spacing: -0.5px;
+            text-decoration: none; color: var(--text-main); display: flex; align-items: center;
+        }
         .brand-text .pos-part { font-weight: 600; color: var(--accent-blue); }
         .brand-text .it-part { font-weight: 400; color: var(--text-main); }
-        .brand-text-footer { font-size: 1.4rem; font-weight: 400; letter-spacing: -0.5px; text-decoration: none; color: #ffffff; display: inline-block; margin-bottom: 1rem; }
+
+        .brand-text-footer {
+            font-size: 1.4rem; font-weight: 400; letter-spacing: -0.5px;
+            text-decoration: none; color: #ffffff; display: inline-block; margin-bottom: 1rem;
+        }
         .brand-text-footer .pos-part { font-weight: 600; color: var(--accent-blue); }
         .brand-text-footer .it-part { font-weight: 400; color: #ffffff; }
 
-        header { position: fixed; top: 0; left: 0; width: 100%; background: var(--nav-glass); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 9999; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; }
+        header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: var(--nav-glass); backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 9999;
+            padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+        }
         .logo-container { display: flex; align-items: center; gap: 10px; }
-        .main-nav { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .main-nav { display: flex; gap: 2rem; list-style: none; align-items: center; }
         .main-nav a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
         .main-nav a:hover { color: var(--accent-blue); }
-        .btn-nav { background: var(--text-main); color: white !important; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 700; transition: all 0.3s ease; }
+        .btn-nav {
+            background: var(--text-main); color: white !important; padding: 0.6rem 1.5rem;
+            border-radius: 8px; font-weight: 700; transition: all 0.3s ease;
+        }
         .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
 
-        /* HERO */
-        .hero-section { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 120px 5% 100px 5%; overflow: hidden; background-color: var(--business-black); }
-        .tech-aurora-bg { position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; z-index: 0; background: radial-gradient(circle at 20% 30%, rgba(0, 113, 243, 0.8) 0%, transparent 45%), radial-gradient(circle at 80% 70%, rgba(214, 253, 112, 0.45) 0%, transparent 45%), radial-gradient(circle at 50% 50%, rgba(0, 113, 243, 0.4) 0%, var(--business-black) 85%); filter: blur(60px); animation: auroraMove 10s ease-in-out infinite alternate; pointer-events: none; }
-        @keyframes auroraMove { 0% { transform: translate(0px, 0px) scale(1); } 50% { transform: translate(-40px, 35px) scale(1.1); } 100% { transform: translate(40px, -35px) scale(1); } }
+        .hero-section {
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            justify-content: center; padding: 120px 5% 100px 5%; overflow: hidden; background-color: var(--business-black);
+        }
+        .tech-aurora-bg {
+            position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; z-index: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(0, 113, 243, 0.8) 0%, transparent 45%),
+                        radial-gradient(circle at 80% 70%, rgba(214, 253, 112, 0.45) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 50%, rgba(0, 113, 243, 0.4) 0%, var(--business-black) 85%);
+            filter: blur(60px); animation: auroraMove 10s ease-in-out infinite alternate; pointer-events: none;
+        }
+        @keyframes auroraMove {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(-40px, 35px) scale(1.1); }
+            100% { transform: translate(40px, -35px) scale(1); }
+        }
         .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(24, 24, 24, 0.25); backdrop-filter: blur(12px); z-index: 1; }
         .hero-content { text-align: center; max-width: 920px; z-index: 2; }
-        .claim-badge { display: inline-block; background: rgba(0, 113, 243, 0.25); border: 1px solid rgba(0, 113, 243, 0.6); padding: 0.6rem 1.8rem; border-radius: 99px; margin-bottom: 1.5rem; }
+        .claim-badge { display: inline-block; background: rgba(0, 113, 243, 0.25); border: 1px solid rgba(0, 113, 243, 0.6); padding: 0.6rem 1.8rem; border-radius: 99px; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0, 113, 243, 0.3); }
         .claim-badge span { text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-lime); font-weight: 800; font-size: 1rem; }
         .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 1.5rem; color: #ffffff; }
         .hero-title span { color: var(--accent-lime); }
         .hero-subtitle { font-size: 1.25rem; color: #e2e8f0; margin-bottom: 2.5rem; max-width: 720px; margin-inline: auto; }
-        .btn-custom { display: inline-block; background: var(--accent-blue); color: white; padding: 0.9rem 2.2rem; border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem; }
-        .btn-custom:hover { background: var(--accent-lime) !important; color: #0f172a !important; transform: translateY(-2px); }
 
-        /* BANNER */
+        .btn-custom {
+            display: inline-block; background: var(--accent-blue); color: white; padding: 0.9rem 2.2rem;
+            border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem;
+        }
+        .btn-custom:hover { background: var(--accent-lime) !important; color: #0f172a !important; box-shadow: 0 0 25px rgba(214, 253, 112, 0.6); transform: translateY(-2px); }
+
         .banner-section { width: 100%; background-color: transparent; padding: 0; margin: 0; display: block; }
         .banner-container { width: 100%; max-width: 100%; padding: 0; margin: 0; line-height: 0; }
         .full-width-banner { width: 100%; height: auto; display: block; margin: 0; padding: 0; border: none; }
 
-        /* SECTIONS */
         .business-section { background-color: var(--business-black); color: white; padding: 6rem 5%; margin: 0; }
         .business-header { max-width: 1400px; margin: 0 auto 4rem auto; text-align: left; }
         .gemini-card-wrapper { position: relative; border-radius: 25px; padding: 3px; background: linear-gradient(60deg, #0071f3, #d6fd70, #ff007f, #00f0ff, #0071f3); background-size: 300% 300%; animation: geminiBorderAnim 6s ease infinite; }
         @keyframes geminiBorderAnim { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
         .glass-box { background: rgba(15, 20, 28, 0.85); backdrop-filter: blur(16px); border-radius: 22px; padding: 3rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between; color: white; }
         .business-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto; }
-        .quote-lime-section { background-color: var(--accent-lime); color: #0f172a; padding: 4.5rem 5%; text-align: center; }
-        .quote-lime-section .main-claim { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 0.8rem; }
-        
+
+        .quote-lime-section { background-color: var(--accent-lime); color: #0f172a; padding: 4.5rem 5%; text-align: center; box-shadow: 0 15px 35px rgba(214, 253, 112, 0.2); }
+        .quote-lime-section .main-claim { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 0.8rem; color: #0f172a; }
+        .quote-lime-section .sub-quote { font-size: 1.25rem; font-weight: 600; opacity: 0.85; max-width: 800px; margin: 0 auto; }
+
         .pricing-section { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
         .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
         .pricing-card { background: white; border-radius: 24px; padding: 4rem 3rem; border: 2px solid #e2e8f0; box-shadow: 0 15px 40px rgba(0,0,0,0.04); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
         .pricing-card.featured { border-color: var(--accent-blue); background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%); }
         .big-percentage { font-size: clamp(4rem, 7vw, 6rem); font-weight: 800; color: var(--accent-blue); line-height: 1; margin: 1.5rem 0; letter-spacing: -2px; }
 
-        /* FOOTER & MODALS */
+        /* FOOTER COMPLETO E DEFINITIVO CON TUTTE LE NOTE LEGALI E PEC */
         footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; margin-top: 5rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
         .social-links { display: flex; gap: 12px; margin-top: 1.5rem; }
         .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #ffffff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15); }
-        .social-icon:hover { background: var(--accent-blue); transform: translateY(-3px); }
-        .footer-links h4 { color: var(--accent-blue); margin-bottom: 1.5rem; }
+        .social-icon:hover { background: var(--accent-blue); transform: translateY(-3px); border-color: var(--accent-blue); }
+        .footer-links h4 { color: var(--accent-blue); margin-bottom: 1.5rem; font-size: 1.05rem; }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 0.8rem; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; font-size: 0.95rem; }
         .footer-links a:hover { color: white; }
-        .footer-legal { max-width: 1400px; margin: 2rem auto 0; color: #64748b; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .footer-legal { max-width: 1400px; margin: 2rem auto 0; color: #64748b; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; align-items: center; }
 
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 20000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-        .modal-overlay.active { opacity: 1; pointer-events: auto; }
-        .modal-card { background: #ffffff; color: var(--text-main); width: calc(100% - 40px); max-width: 680px; max-height: 85vh; border-radius: 24px; padding: 2.5rem; overflow-y: auto; position: relative; }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; }
-        .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); }
-        
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: var(--whatsapp-green); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 99999; transition: transform 0.3s ease; border: 2px solid #ffffff; }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: var(--whatsapp-green); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 99999; transition: transform 0.3s ease; text-decoration: none; border: 2px solid #ffffff; }
         .whatsapp-float:hover { transform: translateY(-4px) scale(1.08); }
         .whatsapp-float svg { width: 32px; height: 32px; fill: #ffffff; }
 
         @media (max-width: 1024px) {
             .business-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
-            .main-nav { display: none; } /* Qui potrai inserire in futuro un menu hamburger */
+            .main-nav { display: none; }
         }
     </style>
 </head>
@@ -146,49 +186,40 @@
         <p class="sub-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
     </section>
 
-    <section class="business-section">
+    <section id="servizi" class="business-section">
         <div class="business-header" data-aos="fade-right">
             <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Core Business Solutions</span>
             <h2 style="font-size: 3rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem; color: #ffffff;">Servizi Integrati per il Business</h2>
         </div>
-
         <div class="business-grid">
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="100">
                 <div class="glass-box">
                     <div>
-                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">01 // FINTECH</span>
-                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Terminali POS Smart</h3>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem;">01 // FINTECH</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0;">Terminali POS Smart</h3>
                         <p style="color: #cbd5e1; font-size: 0.95rem;">Accedi a pagamenti contactless, e-wallet e carte con accredito immediato e condizioni trasparenti.</p>
                     </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="servizi-pos.html" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
-                    </div>
+                    <div style="margin-top: 2rem;"><a href="servizi-pos.html" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a></div>
                 </div>
             </div>
-
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <div class="glass-box">
                     <div>
-                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">02 // ENERGIA & TLC</span>
-                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Audit Energetico</h3>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem;">02 // ENERGIA & TLC</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0;">Audit Energetico</h3>
                         <p style="color: #cbd5e1; font-size: 0.95rem;">Analisi sartoriale dei contratti di fornitura luce, gas e TLC aziendali per eliminare sprechi e penali nascoste.</p>
                     </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="audit-energetico.html" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
-                    </div>
+                    <div style="margin-top: 2rem;"><a href="audit-energetico.html" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a></div>
                 </div>
             </div>
-
             <div class="gemini-card-wrapper" data-aos="fade-up" data-aos-delay="300">
                 <div class="glass-box">
                     <div>
-                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem; letter-spacing: 1.5px;">03 // E-COMMERCE</span>
-                        <h3 style="font-size: 1.8rem; margin: 1rem 0; letter-spacing: -0.5px;">Gateway di Pagamento</h3>
+                        <span style="color: var(--accent-lime); font-weight: 800; font-size: 0.8rem;">03 // E-COMMERCE</span>
+                        <h3 style="font-size: 1.8rem; margin: 1rem 0;">Gateway di Pagamento</h3>
                         <p style="color: #cbd5e1; font-size: 0.95rem;">Integra un gateway di pagamento semplice e sicuro o un plugin carrello per un checkout online fluido.</p>
                     </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="servizi-pos.html" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a>
-                    </div>
+                    <div style="margin-top: 2rem;"><a href="servizi-pos.html" class="btn-custom" style="width: 100%; text-align: center;">Scopri di più</a></div>
                 </div>
             </div>
         </div>
@@ -240,31 +271,56 @@
             <div>
                 <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
                 <p style="color: #94a3b8; max-width: 320px; font-size: 1.05rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/evoposIT" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/evopos.it/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
             </div>
             <div class="footer-links">
-                <h4>Menu</h4>
+                <h4>Menu Rapido</h4>
                 <ul>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="chi-siamo.html">Chi Siamo</a></li>
                     <li><a href="servizi-pos.html">Servizi POS</a></li>
                     <li><a href="audit-energetico.html">Audit Energetico</a></li>
                     <li><a href="index.html#commissioni">Listino & Tariffe</a></li>
-                    <li><a href="index.html#contatti">Contatti</a></li>
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Contatti</h4>
+                <h4>Area Legale</h4>
                 <ul>
-                    <li><a href="mailto:info@evopos.it">Email: info@evopos.it</a></li>
-                    <li><a href="tel:+393737600797">Tel: (+39) 373 7600797</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="cookie-policy.html">Cookie Policy</a></li>
+                    <li><a href="termini-condizioni.html">Termini e Condizioni</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contatti & PEC</h4>
+                <ul>
+                    <li><a href="mailto:info@evopos.it">✉️ Email: info@evopos.it</a></li>
+                    <li><a href="mailto:evopos@pec.it">🛡️ PEC: vitantonio.dizanni@pec.it</a></li>
+                    <li><a href="tel:+393737600797">📞 Tel: (+39) 373 7600797</a></li>
+                    <li style="color: #94a3b8; margin-top: 0.5rem;">📍 C.so Garibaldi 9, Corato (BA)</li>
                 </ul>
             </div>
         </div>
         <div class="footer-legal">
-            <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: 09104160727</div>
+            <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: <strong>09104160727</strong></div>
+            <div style="color: #94a3b8; font-size: 0.8rem;">Tutti i diritti riservati. Partner Autorizzato myPOS.</div>
         </div>
     </footer>
 
+    <a href="https://wa.me/393737600797" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+    </a>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init({ once: true, offset: 100 });</script>
+    <script>
+        AOS.init({ once: true, offset: 100 });
+    </script>
 </body>
 </html>
