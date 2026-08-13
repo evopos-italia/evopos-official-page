@@ -69,9 +69,11 @@
         border-radius: 8px; font-weight: 700; transition: all 0.3s ease;
     }
     .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
+    
+    /* HERO SECTION A 2 COLONNE ZERO BORDI */
     .hero-section {
         position: relative; min-height: 100vh; display: flex; align-items: center;
-        justify-content: center; padding: 120px 5% 100px 5%; overflow: hidden; background-color: var(--business-black);
+        justify-content: center; padding: 140px 5% 80px 5%; overflow: hidden; background-color: var(--business-black);
     }
     .tech-aurora-bg {
         position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; z-index: 0;
@@ -86,12 +88,35 @@
         100% { transform: translate(40px, -35px) scale(1); }
     }
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(24, 24, 24, 0.25); backdrop-filter: blur(12px); z-index: 1; }
-    .hero-content { text-align: center; max-width: 920px; z-index: 2; }
+    
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        max-width: 1400px;
+        width: 100%;
+        z-index: 2;
+    }
+    .hero-content { text-align: left; max-width: 100%; }
     .claim-badge { display: inline-block; background: rgba(0, 113, 243, 0.25); border: 1px solid rgba(0, 113, 243, 0.6); padding: 0.6rem 1.8rem; border-radius: 99px; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0, 113, 243, 0.3); }
     .claim-badge span { text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-lime); font-weight: 800; font-size: 1rem; }
-    .hero-title { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 0 4px 25px rgba(0,0,0,0.5); }
+    .hero-title { font-size: clamp(2.3rem, 5vw, 4rem); font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 1.5rem; color: #ffffff; text-shadow: 0 4px 25px rgba(0,0,0,0.5); }
     .hero-title span { color: var(--accent-lime); }
-    .hero-subtitle { font-size: 1.25rem; color: #e2e8f0; margin-bottom: 2.5rem; max-width: 720px; margin-inline: auto; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .hero-subtitle { font-size: 1.2rem; color: #e2e8f0; margin-bottom: 2.5rem; max-width: 650px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    
+    .hero-image-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .hero-image-box img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    }
+
     .btn-custom {
         display: inline-block; background: var(--accent-blue); color: white; padding: 0.9rem 2.2rem;
         border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem;
@@ -115,7 +140,7 @@
     .pricing-card.featured { border-color: var(--accent-blue); background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%); }
     .big-percentage { font-size: clamp(4rem, 7vw, 6rem); font-weight: 800; color: var(--accent-blue); line-height: 1; margin: 1.5rem 0; letter-spacing: -2px; }
 
-    /* STILI AGGIUNTI PER LE FAQ ACCORDION */
+    /* FAQ ACCORDION */
     .faq-section { padding: 4rem 5% 2rem 5%; max-width: 900px; margin: 0 auto; }
     .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
     .faq-question { width: 100%; text-align: left; padding: 1.5rem 2rem; background: transparent; border: none; font-size: 1.15rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-main); transition: color 0.2s; }
@@ -138,6 +163,7 @@
     .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
     .footer-links a:hover { color: white; }
     .footer-legal { max-width: 1400px; margin: 2rem auto 0; color: #64748b; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    
     /* COOKIE BANNER & MODAL */
     .cookie-banner {
         position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
@@ -171,14 +197,55 @@
     .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; }
     .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); }
     .modal-body p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6; }
-    .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: var(--whatsapp-green); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 99999; transition: transform 0.3s ease; text-decoration: none; border: 2px solid #ffffff; }
+    
+    /* TASTO WHATSAPP MOBILE-FRIENDLY SICURO */
+    .whatsapp-float { 
+        position: fixed; 
+        bottom: 30px; 
+        right: 24px; 
+        width: 60px; 
+        height: 60px; 
+        background-color: var(--whatsapp-green); 
+        color: #ffffff; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); 
+        z-index: 99999; 
+        transition: transform 0.3s ease; 
+        text-decoration: none; 
+        border: 2px solid #ffffff; 
+    }
     .whatsapp-float:hover { transform: translateY(-4px) scale(1.08); }
     .whatsapp-float svg { width: 32px; height: 32px; fill: #ffffff; }
+
+    /* RESPONSIVE MEDIA QUERIES */
     @media (max-width: 1024px) {
+        .hero-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 2rem;
+        }
+        .hero-content {
+            text-align: center;
+        }
+        .hero-subtitle {
+            margin-inline: auto;
+        }
         .business-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
         .main-nav { display: none; }
         .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
         .cookie-buttons { width: 100%; justify-content: flex-end; }
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-float {
+            bottom: 20px;
+            right: 16px;
+            width: 55px;
+            height: 55px;
+        }
     }
 </style>
 </head>
@@ -201,11 +268,16 @@
 <section class="hero-section">
     <div class="tech-aurora-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-        <div class="claim-badge"><span>Immediato. Semplice. Trasparente.</span></div>
-        <h1 class="hero-title">Incassi immediati. Massimo controllo. <br><span>Scegli gli strumenti giusti per la tua attività.</span></h1>
-        <p class="hero-subtitle">Ottieni accesso istantaneo ai tuoi fondi con ogni pagamento che ricevi. Taglia le spese inutili in bolletta e dota la tua azienda delle migliori infrastrutture di connessione Telco.</p>
-        <a href="#contatti" class="btn-custom">Richiedi una Consulenza Gratuita</a>
+    <div class="hero-container">
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1200">
+            <div class="claim-badge"><span>Immediato. Semplice. Trasparente.</span></div>
+            <h1 class="hero-title">Incassi immediati. Massimo controllo. <br><span>Scegli gli strumenti giusti per la tua attività.</span></h1>
+            <p class="hero-subtitle">Ottieni accesso istantaneo ai tuoi fondi con ogni pagamento che ricevi. Taglia le spese inutili in bolletta e dota la tua azienda delle migliori infrastrutture di connessione Telco.</p>
+            <a href="#contatti" class="btn-custom">Richiedi una Consulenza Gratuita</a>
+        </div>
+        <div class="hero-image-box" data-aos="fade-left" data-aos-duration="1200">
+            <img src="hero 1.webp" alt="evoPOS Terminale POS Smart">
+        </div>
     </div>
 </section>
 
@@ -218,6 +290,12 @@
 <section class="quote-lime-section" data-aos="fade-in">
     <h2 class="main-claim">Immediato. Semplice. Trasparente.</h2>
     <p class="sub-quote">"Nel mondo Fintech l'innovazione parte dalla trasparenza e dalla semplicità d'uso."</p>
+</section>
+
+<section class="banner-section" data-aos="fade-up">
+    <div class="banner-container">
+        <img src="apri conto mypos.jpg" alt="Apri Conto myPOS" class="full-width-banner">
+    </div>
 </section>
 
 <section id="servizi" class="business-section">
@@ -321,16 +399,18 @@
     </div>
 </section>
 
-<section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; margin: 4rem 5%;">
-    <div style="max-width: 800px; margin: 0 auto;">
+<section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; max-width: 800px; margin: 4rem auto; padding: 4rem 3rem;" data-aos="fade-up">
+    <div style="max-width: 700px; margin: 0 auto;">
         <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
-        <form action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem;">
+        <p style="text-align: center; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 2rem;">Compila il form per essere ricontattato in tempi brevi.</p>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
             <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
-            <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-            <input type="text" name="azienda" placeholder="Cognome o Azienda" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-            <input type="tel" name="telefono" placeholder="Telefono" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-            <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1;">
-            <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%;">Invia Richiesta</button>
+            <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
+            <input type="text" name="azienda" placeholder="Cognome o Azienda" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
+            <input type="tel" name="telefono" placeholder="Telefono" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
+            <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
+            <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center;">Invia Richiesta</button>
         </form>
     </div>
 </section>
@@ -428,7 +508,7 @@
             <p><strong>3. Conservazione dei Dati:</strong><br>
             I dati saranno conservati solo per il tempo strettamente necessario a gestire la tua richiesta o per adempiere agli obblighi di legge previsti in materia fiscale e contrattuale.</p>
             <p><strong>4. Diritti dell'Interessato:</strong><br>
-            Ai sensi degli artt. 15-22 del GDPR, hai il diritto di richiedere in qualsiasi momento l'accesso, la rettifica, la cancellazione (diritto all'oblio) o la limitazione del trattamento dei tuoi dati, inviando una comunicazione formale via PEC o email al Titolare.</p>
+            Ai sensi degli artt. 15-22 del GDPR, hai il diritto di richiedere in qualsiasi momento l'accesso, la rettifica, la cancellazione (diritto all'oblio) o la limitazione del trattamento dei tuoi dati, inviando una comunicazione formalizzabile via PEC o email al Titolare.</p>
         </div>
         <div style="margin-top: 1.5rem; text-align: right;">
             <button onclick="closeModal('privacy-modal')" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
@@ -482,7 +562,7 @@
         document.getElementById(modalId).classList.remove("active");
     }
 
-    /* Script per la gestione dinamica delle FAQ a tendina (Accordion) */
+    /* Gestione FAQ Accordion */
     document.querySelectorAll('.faq-question').forEach(button => {
         button.addEventListener('click', () => {
             const faqItem = button.parentElement;
