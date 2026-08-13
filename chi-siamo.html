@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo | evoPOS.it - Consulenza Fintech & Energetica</title>
     
-    <meta name="description" content="Oltre 23 anni di esperienza nella consulenza business. Scopri la visione di Vitantonio Di Zanni: sincerità, lealtà e soluzioni su misura in tutta Italia.">
+    <meta name="description" content="Oltre 23 anni di esperienza nella consulenza business. Scopri la visione di Vitantonio Di Zanni: sincerità, lealtà e soluzioni su misura.">
     
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
-        /* CSS COERENTE CON INDEX.HTML */
         :root {
             --bg-main: #f8fafc;
             --text-main: #0f172a;        
@@ -41,35 +45,42 @@
         .btn-nav { background: var(--text-main); color: white !important; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 700; transition: all 0.3s; }
         .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
 
-        /* SEZIONI EDITORIALI */
-        .about-hero { background: var(--business-black); color: white; padding: 160px 5% 100px 5%; text-align: center; position: relative; overflow: hidden; }
+        /* HERO */
+        .about-hero { background: var(--business-black); color: white; padding: 160px 5% 100px 5%; text-align: center; }
         .about-hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1.1; margin-bottom: 1.5rem; }
         .about-hero h1 span { color: var(--accent-lime); }
         
         .content-container { max-width: 1100px; margin: 0 auto; padding: 6rem 5%; }
         .intro-text { font-size: 1.25rem; line-height: 1.8; color: var(--text-muted); text-align: justify; margin-bottom: 4rem; }
-        .intro-text strong { color: var(--text-main); }
 
-        /* VISION & MISSION BLOCKS */
+        /* VISION & MISSION */
         .vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 5rem; }
-        .vm-card { background: white; padding: 3.5rem; border-radius: 30px; border: 1px solid #e2e8f0; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .vm-card { background: white; padding: 3.5rem; border-radius: 30px; border: 1px solid #e2e8f0; }
         .vm-card h2 { font-size: 2rem; font-weight: 800; color: var(--accent-blue); margin-bottom: 1.5rem; }
-        .vm-card p { font-size: 1.05rem; color: var(--text-muted); }
 
-        /* ANIMATED COUNTERS */
-        .counters-section { background: var(--business-black); color: white; padding: 6rem 5%; text-align: center; border-radius: 40px; margin: 0 5%; }
+        /* COUNTERS */
+        .counters-section { background: var(--business-black); color: white; padding: 6rem 5%; text-align: center; border-radius: 40px; }
         .counters-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
         .counter-item h3 { font-size: 3.5rem; font-weight: 900; color: var(--accent-lime); margin-bottom: 0.5rem; }
         .counter-item p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; opacity: 0.8; }
 
-        /* FOOTER (STESSO DI INDEX.HTML) */
+        /* FOOTER & MODALS (ESATTAMENTE COME INDEX) */
         footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; margin-top: 5rem; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
+        .social-links { display: flex; gap: 12px; margin-top: 1.5rem; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #ffffff; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.3s; }
+        .social-icon:hover { background: var(--accent-blue); }
         .footer-links h4 { color: var(--accent-blue); margin-bottom: 1.5rem; }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 0.8rem; }
-        .footer-links a { color: #94a3b8; text-decoration: none; }
-        .footer-legal { max-width: 1400px; margin: 2rem auto 0; color: #64748b; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+        .footer-legal { color: #64748b; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; margin-top: 2rem; }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 20000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+        .modal-card { background: #ffffff; color: var(--text-main); width: calc(100% - 40px); max-width: 680px; max-height: 85vh; border-radius: 24px; padding: 2.5rem; overflow-y: auto; }
+        .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); float: right; }
 
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: var(--whatsapp-green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 9999; text-decoration: none; border: 2px solid white; }
         .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
@@ -102,23 +113,22 @@
 
     <main class="content-container">
         <div class="intro-text" data-aos="fade-up">
-            <p>Il mondo del business è cambiato radicalmente dal 2003, ma il bisogno dell'imprenditore di avere certezze è rimasto identico. In <strong>evoPOS</strong>, guidati dalla visione di <strong>Vitantonio Di Zanni</strong>, mettiamo al centro l'ascolto attivo: non ci limitiamo a sentire, ma ci impegniamo nella <strong>piena comprensione dei problemi</strong> reali che affliggono la tua operatività quotidiana. [cite: 1, 259]</p>
+            <p>Il mondo del business è cambiato radicalmente dal 2003, ma il bisogno dell'imprenditore di avere certezze è rimasto identico. In <strong>evoPOS</strong>, guidati dalla visione di <strong>Vitantonio Di Zanni</strong>, mettiamo al centro l'ascolto attivo: non ci limitiamo a sentire, ma ci impegniamo nella <strong>piena comprensione dei problemi</strong> reali che affliggono la tua operatività quotidiana.</p>
             <br>
-            <p>Dopo l'ascolto, passiamo all'azione: la nostra è una ricerca costante di soluzioni sartoriali per <strong>migliorare i tuoi flussi di cassa</strong> e garantirti un <strong>controllo capillare dei costi operativi</strong>. Grazie a una solida esperienza in <strong>budgeting e forecasting</strong>, trasformiamo i dati in strategie concrete per eliminare gli sprechi energetici e ottimizzare ogni incasso. [cite: 7, 18]</p>
+            <p>Dopo l'ascolto, passiamo all'azione: la nostra è una ricerca costante di soluzioni sartoriali per <strong>migliorare i tuoi flussi di cassa</strong> e garantirti un <strong>controllo capillare dei costi operativi</strong>. Grazie a una solida esperienza in <strong>budgeting e forecasting</strong>, trasformiamo i dati in strategie concrete per eliminare gli sprechi energetici e ottimizzare ogni incasso.</p>
         </div>
 
         <div class="vm-grid">
             <div class="vm-card" data-aos="fade-right">
                 <h2>La nostra Visione</h2>
-                <p>Non cerchiamo clienti per una stagione, ma partner per una vita. La nostra visione è quella di essere la tua bussola in un mercato spesso opaco. Sentirsi protetti da una guida esperta significa poter contare su un rapporto fondato sulla <strong>sincerità e sulla lealtà professionale</strong>: siamo abituati a <strong>costruire rapporti duraturi</strong> perché sappiamo che la fiducia è l'asset più prezioso di ogni impresa. [cite: 337]</p>
+                <p>Non cerchiamo clienti per una stagione, ma partner per una vita. La nostra visione è quella di essere la tua bussola in un mercato spesso opaco. Sentirsi protetti da una guida esperta significa poter contare su un rapporto fondato sulla <strong>sincerità e sulla lealtà professionale</strong>: siamo abituati a <strong>costruire rapporti duraturi</strong> perché sappiamo che la fiducia è l'asset più prezioso di ogni impresa.</p>
             </div>
             <div class="vm-card" data-aos="fade-left">
                 <h2>La nostra Missione</h2>
-                <p>Tradurre la complessità dei mercati Fintech ed Energy in vantaggi competitivi. Lo facciamo mettendo a tua disposizione un <strong>referente umano sempre presente, sempre disponibile e leale</strong>, capace di intervenire con rapidità. Analizziamo la tua struttura di costo per scovare inefficienze e garantirti tariffe "su misura" che riflettono le tue reali esigenze. [cite: 261, 336]</p>
+                <p>Tradurre la complessità dei mercati Fintech ed Energy in vantaggi competitivi. Lo facciamo mettendo a tua disposizione un <strong>referente umano sempre presente, sempre disponibile e leale</strong>, capace di intervenire con rapidità. Analizziamo la tua struttura di costo per scovare inefficienze e garantirti tariffe su misura.</p>
             </div>
         </div>
 
-        <!-- COUNTERS ANIMATI -->
         <div class="counters-section" data-aos="fade-up">
             <div class="counters-grid">
                 <div class="counter-item">
@@ -139,17 +149,13 @@
                 </div>
             </div>
         </div>
-        
-        <p style="text-align: center; margin-top: 3rem; color: var(--text-muted);" data-aos="fade-up">
-            <em>Il nostro quartier generale è a <strong>Corato (BA)</strong>, ma serviamo con orgoglio aziende in tutta Italia.</em> [cite: 281]
-        </p>
     </main>
 
     <footer>
         <div class="footer-grid">
             <div>
                 <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
-                <p style="color: #94a3b8; max-width: 320px; font-size: 1.05rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
+                <p style="color: #94a3b8; max-width: 320px;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
                 <div class="social-links">
                     <a href="https://www.facebook.com/evoposIT" target="_blank" class="social-icon"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
                     <a href="https://www.instagram.com/evopos.it/" target="_blank" class="social-icon"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.919-1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
@@ -164,10 +170,9 @@
                 </ul>
             </div>
             <div class="footer-links">
-                <h4>Contatti & Legale</h4>
+                <h4>Contatti Diretti & Legali</h4>
                 <ul>
                     <li><a href="mailto:info@evopos.it">info@evopos.it</a></li>
-                    <li><a href="mailto:vitantonio.dizanni@pec.it">vitantonio.dizanni@pec.it</a></li>
                     <li><a href="tel:+393737600797">(+39) 373 7600797</a></li>
                     <li style="color: #94a3b8; font-size: 0.85rem;">Corso Garibaldi 9, Corato (BA)</li>
                 </ul>
@@ -175,45 +180,52 @@
         </div>
         <div class="footer-legal">
             <div>© 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: 09104160727</div>
+            <div>
+                <a href="javascript:void(0)" onclick="openModal('cookie-modal')" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Cookie Policy</a>
+                <a href="javascript:void(0)" onclick="openModal('privacy-modal')" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Privacy Policy</a>
+                <a href="javascript:void(0)" onclick="openModal('terms-modal')" style="color: #94a3b8; text-decoration: underline;">Termini e Condizioni</a>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/393737600797" class="whatsapp-float" target="_blank">
-        <svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-    </a>
+    <!-- MODALS -->
+    <div id="cookie-modal" class="modal-overlay"><div class="modal-card"><button class="close-modal" onclick="closeModal('cookie-modal')">&times;</button><h3>Cookie Policy</h3><p>Utilizziamo solo cookie tecnici essenziali.</p></div></div>
+    <div id="privacy-modal" class="modal-overlay"><div class="modal-card"><button class="close-modal" onclick="closeModal('privacy-modal')">&times;</button><h3>Privacy Policy</h3><p>Trattamento conforme al GDPR.</p></div></div>
+    <div id="terms-modal" class="modal-overlay"><div class="modal-card"><button class="close-modal" onclick="closeModal('terms-modal')">&times;</button><h3>Termini e Condizioni</h3><p>Vitantonio Di Zanni - evoPOS.it</p></div></div>
+
+    <a href="https://wa.me/393737600797" class="whatsapp-float" target="_blank"><svg viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ once: true });
 
-        // LOGICA COUNTER ANIMATI
-        const counters = document.querySelectorAll('.counter');
-        const speed = 200;
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const updateCount = () => {
-                    const target = +counter.getAttribute('data-target');
-                    const count = +counter.innerText;
-                    const inc = target / speed;
+        // LOGICA COUNTER MIGLIORATA
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) { window.requestAnimationFrame(step); }
+                else { obj.innerHTML = end; }
+            };
+            window.requestAnimationFrame(step);
+        }
 
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 15);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-            });
-        };
-
-        // Attiva counter quando visibili
         const observer = new IntersectionObserver((entries) => {
-            if(entries.isIntersecting) animateCounters();
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    animateValue(entry.target, 0, target, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
         }, { threshold: 0.5 });
-        
-        observer.observe(document.querySelector('.counters-section'));
+
+        document.querySelectorAll('.counter').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
