@@ -1,3 +1,14 @@
+Hai fatto benissimo a segnalarmelo! Ci sono due motivi semplicissimi per questi errori, ed entrambi sono stati risolti nel codice che ti sto per dare.
+
+Ecco cosa è successo:
+
+L'immagine rotta: Nel codice precedente avevo ipotizzato che l'immagine fosse .jpg, ma tu l'hai giustamente caricata come .png! Inoltre, i server di GitHub odiano gli spazi nei nomi dei file. Per fargliela leggere correttamente senza rinominarla su Github, nel codice HTML gli spazi vanno convertiti in %20. Ho quindi corretto il link in apri%20conto%20mypos.png (ho fatto lo stesso anche per la foto hero%201.webp per sicurezza).
+
+Lo scroll e il tasto WhatsApp: Il colpevole dello scroll orizzontale non era il tasto WhatsApp, ma il Form dei Contatti! Avendo i campi affiancati in 2 colonne, sullo schermo stretto di uno smartphone allargava a dismisura la pagina creando quel fastidioso scroll orizzontale che di conseguenza sfasava e nascondeva l'icona di WhatsApp. Ho creato una regola CSS apposita (.contact-form-grid) che affianca i campi su PC, ma li incolonna verticalmente sugli smartphone, bloccando la pagina alla giusta larghezza e riportando il tasto WhatsApp esattamente al suo posto!
+
+Ecco l'intero file index.html blindato e corretto. Puoi copiare tutto e sovrascriverlo su GitHub.
+
+HTML
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -151,6 +162,21 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 2rem; color: var(--text-muted); line-height: 1.6; font-size: 1rem; }
     .faq-item.active .faq-answer { max-height: 500px; padding: 0 2rem 1.5rem 2rem; border-top: 1px solid #f1f5f9; margin-top: 0.5rem; }
 
+    /* SEZIONE FORM CONTATTI CENTRATO */
+    .contact-box {
+        background: #f1f5f9; 
+        border-radius: 32px; 
+        max-width: 800px; 
+        margin: 4rem auto; 
+        padding: 4rem 3rem;
+    }
+    .contact-form-grid {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 1.25rem; 
+        margin-top: 2rem;
+    }
+
     /* FOOTER & SOCIAL */
     footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; margin-top: 5rem; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
@@ -220,7 +246,7 @@
     .whatsapp-float:hover { transform: translateY(-4px) scale(1.08); }
     .whatsapp-float svg { width: 32px; height: 32px; fill: #ffffff; }
 
-    /* RESPONSIVE MEDIA QUERIES */
+    /* RESPONSIVE MEDIA QUERIES - GESTIONE MOBILE */
     @media (max-width: 1024px) {
         .hero-container {
             grid-template-columns: 1fr;
@@ -239,12 +265,23 @@
         .cookie-buttons { width: 100%; justify-content: flex-end; }
     }
 
+    /* CORREZIONE PER SMARTPHONE - EVITA SCROLL ORIZZONTALE */
     @media (max-width: 768px) {
         .whatsapp-float {
             bottom: 20px;
             right: 16px;
             width: 55px;
             height: 55px;
+        }
+        
+        .contact-box {
+            margin: 2rem 5%;
+            padding: 2.5rem 1.5rem;
+        }
+        
+        /* Incolonna i campi del form per non "rompere" lo schermo */
+        .contact-form-grid {
+            grid-template-columns: 1fr;
         }
     }
 </style>
@@ -276,7 +313,7 @@
             <a href="#contatti" class="btn-custom">Richiedi una Consulenza Gratuita</a>
         </div>
         <div class="hero-image-box" data-aos="fade-left" data-aos-duration="1200">
-            <img src="hero 1.webp" alt="evoPOS Terminale POS Smart">
+            <img src="hero%201.webp" alt="evoPOS Terminale POS Smart">
         </div>
     </div>
 </section>
@@ -294,7 +331,7 @@
 
 <section class="banner-section" data-aos="fade-up">
     <div class="banner-container">
-        <img src="apri conto mypos.jpg" alt="Apri Conto myPOS" class="full-width-banner">
+        <img src="apri%20conto%20mypos.png" alt="Apri Conto myPOS" class="full-width-banner">
     </div>
 </section>
 
@@ -399,18 +436,18 @@
     </div>
 </section>
 
-<section id="contatti" class="pricing-section" style="background: #f1f5f9; border-radius: 32px; max-width: 800px; margin: 4rem auto; padding: 4rem 3rem;" data-aos="fade-up">
+<section id="contatti" class="contact-box" data-aos="fade-up">
     <div style="max-width: 700px; margin: 0 auto;">
         <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
         <p style="text-align: center; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 2rem;">Compila il form per essere ricontattato in tempi brevi.</p>
         
-        <form action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form-grid">
             <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
             <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
             <input type="text" name="azienda" placeholder="Cognome o Azienda" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
             <input type="tel" name="telefono" placeholder="Telefono" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
             <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%;">
-            <button type="submit" class="btn-custom" style="grid-column: span 2; width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center;">Invia Richiesta</button>
+            <button type="submit" class="btn-custom" style="grid-column: 1 / -1; width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center;">Invia Richiesta</button>
         </form>
     </div>
 </section>
