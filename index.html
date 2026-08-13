@@ -1,14 +1,3 @@
-Hai fatto benissimo a segnalarmelo! Ci sono due motivi semplicissimi per questi errori, ed entrambi sono stati risolti nel codice che ti sto per dare.
-
-Ecco cosa è successo:
-
-L'immagine rotta: Nel codice precedente avevo ipotizzato che l'immagine fosse .jpg, ma tu l'hai giustamente caricata come .png! Inoltre, i server di GitHub odiano gli spazi nei nomi dei file. Per fargliela leggere correttamente senza rinominarla su Github, nel codice HTML gli spazi vanno convertiti in %20. Ho quindi corretto il link in apri%20conto%20mypos.png (ho fatto lo stesso anche per la foto hero%201.webp per sicurezza).
-
-Lo scroll e il tasto WhatsApp: Il colpevole dello scroll orizzontale non era il tasto WhatsApp, ma il Form dei Contatti! Avendo i campi affiancati in 2 colonne, sullo schermo stretto di uno smartphone allargava a dismisura la pagina creando quel fastidioso scroll orizzontale che di conseguenza sfasava e nascondeva l'icona di WhatsApp. Ho creato una regola CSS apposita (.contact-form-grid) che affianca i campi su PC, ma li incolonna verticalmente sugli smartphone, bloccando la pagina alla giusta larghezza e riportando il tasto WhatsApp esattamente al suo posto!
-
-Ecco l'intero file index.html blindato e corretto. Puoi copiare tutto e sovrascriverlo su GitHub.
-
-HTML
 <!DOCTYPE html>
 <html lang="it">
 <head>
