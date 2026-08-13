@@ -40,6 +40,8 @@
         overflow-x: hidden;
         line-height: 1.6;
     }
+    
+    /* BRAND E NAVBAR */
     .brand-text {
         font-family: var(--font-main);
         font-size: 1.35rem; font-weight: 400; letter-spacing: -0.5px;
@@ -56,12 +58,14 @@
     .brand-text-footer .it-part { font-weight: 400; color: #ffffff; }
     header {
         position: fixed; top: 0; left: 0; width: 100%;
-        background: var(--nav-glass); backdrop-filter: blur(20px);
+        background: var(--nav-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
         border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 9999;
         padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
     }
     .logo-container { display: flex; align-items: center; gap: 10px; }
-    .main-nav { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    
+    /* MENU NAVIGAZIONE */
+    .main-nav { display: flex; gap: 2rem; list-style: none; align-items: center; transition: all 0.3s ease; }
     .main-nav a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
     .main-nav a:hover { color: var(--accent-blue); }
     .btn-nav {
@@ -69,6 +73,17 @@
         border-radius: 8px; font-weight: 700; transition: all 0.3s ease;
     }
     .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; }
+    
+    /* TASTO HAMBURGER MENU (Nascosto su PC) */
+    .mobile-menu-toggle {
+        display: none;
+        background: transparent;
+        border: none;
+        color: var(--text-main);
+        cursor: pointer;
+        padding: 0.2rem;
+        z-index: 10001;
+    }
     
     /* HERO SECTION A 2 COLONNE ZERO BORDI */
     .hero-section {
@@ -90,13 +105,8 @@
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(24, 24, 24, 0.25); backdrop-filter: blur(12px); z-index: 1; }
     
     .hero-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-        align-items: center;
-        max-width: 1400px;
-        width: 100%;
-        z-index: 2;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+        max-width: 1400px; width: 100%; z-index: 2;
     }
     .hero-content { text-align: left; max-width: 100%; }
     .claim-badge { display: inline-block; background: rgba(0, 113, 243, 0.25); border: 1px solid rgba(0, 113, 243, 0.6); padding: 0.6rem 1.8rem; border-radius: 99px; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0, 113, 243, 0.3); }
@@ -105,23 +115,16 @@
     .hero-title span { color: var(--accent-lime); }
     .hero-subtitle { font-size: 1.2rem; color: #e2e8f0; margin-bottom: 2.5rem; max-width: 650px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
     
-    .hero-image-box {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .hero-image-box img {
-        max-width: 100%;
-        height: auto;
-        object-fit: contain;
-        filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
-    }
+    .hero-image-box { display: flex; justify-content: center; align-items: center; }
+    .hero-image-box img { max-width: 100%; height: auto; object-fit: contain; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); }
 
     .btn-custom {
         display: inline-block; background: var(--accent-blue); color: white; padding: 0.9rem 2.2rem;
         border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem;
     }
     .btn-custom:hover { background: var(--accent-lime) !important; color: #0f172a !important; box-shadow: 0 0 25px rgba(214, 253, 112, 0.6); transform: translateY(-2px); }
+    
+    /* SEZIONI E GRIGLIE */
     .banner-section { width: 100%; background-color: transparent; padding: 0; margin: 0; display: block; }
     .banner-container { width: 100%; max-width: 100%; padding: 0; margin: 0; line-height: 0; }
     .full-width-banner { width: 100%; height: auto; display: block; margin: 0; padding: 0; border: none; }
@@ -131,9 +134,11 @@
     @keyframes geminiBorderAnim { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     .glass-box { background: rgba(15, 20, 28, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 22px; padding: 3rem; height: 100%; display: flex; flex-direction: column; justify-content: space-between; color: white; }
     .business-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1400px; margin: 0 auto; }
+    
     .quote-lime-section { background-color: var(--accent-lime); color: #0f172a; padding: 4.5rem 5%; text-align: center; box-shadow: 0 15px 35px rgba(214, 253, 112, 0.2); }
     .quote-lime-section .main-claim { font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 0.8rem; color: #0f172a; }
     .quote-lime-section .sub-quote { font-size: 1.25rem; font-weight: 600; opacity: 0.85; max-width: 800px; margin: 0 auto; }
+    
     .pricing-section { padding: 6rem 5%; max-width: 1400px; margin: 0 auto; }
     .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
     .pricing-card { background: white; border-radius: 24px; padding: 4rem 3rem; border: 2px solid #e2e8f0; box-shadow: 0 15px 40px rgba(0,0,0,0.04); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
@@ -151,20 +156,9 @@
     .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 2rem; color: var(--text-muted); line-height: 1.6; font-size: 1rem; }
     .faq-item.active .faq-answer { max-height: 500px; padding: 0 2rem 1.5rem 2rem; border-top: 1px solid #f1f5f9; margin-top: 0.5rem; }
 
-    /* SEZIONE FORM CONTATTI CENTRATO */
-    .contact-box {
-        background: #f1f5f9; 
-        border-radius: 32px; 
-        max-width: 800px; 
-        margin: 4rem auto; 
-        padding: 4rem 3rem;
-    }
-    .contact-form-grid {
-        display: grid; 
-        grid-template-columns: 1fr 1fr; 
-        gap: 1.25rem; 
-        margin-top: 2rem;
-    }
+    /* SEZIONE FORM CONTATTI */
+    .contact-box { background: #f1f5f9; border-radius: 32px; max-width: 800px; margin: 4rem auto; padding: 4rem 3rem; }
+    .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
 
     /* FOOTER & SOCIAL */
     footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; margin-top: 5rem; }
@@ -185,10 +179,8 @@
         width: calc(100% - 48px); max-width: 1000px;
         background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px;
-        padding: 1.5rem 2rem; color: #ffffff; z-index: 10000;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
-        display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-        transition: all 0.4s ease;
+        padding: 1.5rem 2rem; color: #ffffff; z-index: 10000; box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        display: flex; align-items: center; justify-content: space-between; gap: 2rem; transition: all 0.4s ease;
     }
     .cookie-banner.hidden { opacity: 0; pointer-events: none; transform: translate(-50%, 50px); }
     .cookie-text { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
@@ -205,73 +197,70 @@
         opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
     .modal-overlay.active { opacity: 1; pointer-events: auto; }
-    .modal-card {
-        background: #ffffff; color: var(--text-main); width: calc(100% - 40px); max-width: 680px; max-height: 85vh;
-        border-radius: 24px; padding: 2.5rem; box-shadow: 0 25px 60px rgba(0,0,0,0.3); overflow-y: auto; position: relative;
-    }
+    .modal-card { background: #ffffff; color: var(--text-main); width: calc(100% - 40px); max-width: 680px; max-height: 85vh; border-radius: 24px; padding: 2.5rem; box-shadow: 0 25px 60px rgba(0,0,0,0.3); overflow-y: auto; position: relative; }
     .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; }
     .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); }
     .modal-body p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6; }
     
     /* TASTO WHATSAPP MOBILE-FRIENDLY SICURO */
     .whatsapp-float { 
-        position: fixed; 
-        bottom: 30px; 
-        right: 24px; 
-        width: 60px; 
-        height: 60px; 
-        background-color: var(--whatsapp-green); 
-        color: #ffffff; 
-        border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); 
-        z-index: 99999; 
-        transition: transform 0.3s ease; 
-        text-decoration: none; 
-        border: 2px solid #ffffff; 
+        position: fixed; bottom: 30px; right: 24px; width: 60px; height: 60px; 
+        background-color: var(--whatsapp-green); color: #ffffff; border-radius: 50%; 
+        display: flex; align-items: center; justify-content: center; 
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 99999; 
+        transition: transform 0.3s ease; text-decoration: none; border: 2px solid #ffffff; 
     }
     .whatsapp-float:hover { transform: translateY(-4px) scale(1.08); }
     .whatsapp-float svg { width: 32px; height: 32px; fill: #ffffff; }
 
-    /* RESPONSIVE MEDIA QUERIES - GESTIONE MOBILE */
+    /* RESPONSIVE MEDIA QUERIES (Gestione Tablet & Menu Hamburger) */
     @media (max-width: 1024px) {
-        .hero-container {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 2rem;
+        .mobile-menu-toggle { display: block; }
+        
+        /* Trasformiamo la Navbar Desktop in un Menu a tendina per il Mobile */
+        .main-nav {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--nav-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 2rem 5%;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            
+            /* Di default il menù è chiuso/invisibile */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
         }
-        .hero-content {
-            text-align: center;
+        
+        /* Classe "active" per quando viene cliccato l'hamburger menu */
+        .main-nav.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
-        .hero-subtitle {
-            margin-inline: auto;
-        }
+        
+        .main-nav li { width: 100%; text-align: center; padding: 0.8rem 0; }
+        .main-nav .btn-nav { display: inline-block; width: auto; margin-top: 1rem; }
+
+        .hero-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+        .hero-content { text-align: center; }
+        .hero-subtitle { margin-inline: auto; }
         .business-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
-        .main-nav { display: none; }
         .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
         .cookie-buttons { width: 100%; justify-content: flex-end; }
     }
 
-    /* CORREZIONE PER SMARTPHONE - EVITA SCROLL ORIZZONTALE */
+    /* CORREZIONE PER SMARTPHONE PICCOLI */
     @media (max-width: 768px) {
-        .whatsapp-float {
-            bottom: 20px;
-            right: 16px;
-            width: 55px;
-            height: 55px;
-        }
-        
-        .contact-box {
-            margin: 2rem 5%;
-            padding: 2.5rem 1.5rem;
-        }
-        
-        /* Incolonna i campi del form per non "rompere" lo schermo */
-        .contact-form-grid {
-            grid-template-columns: 1fr;
-        }
+        .whatsapp-float { bottom: 20px; right: 16px; width: 55px; height: 55px; }
+        .contact-box { margin: 2rem 5%; padding: 2.5rem 1.5rem; }
+        .contact-form-grid { grid-template-columns: 1fr; }
     }
 </style>
 </head>
@@ -281,6 +270,15 @@
     <div class="logo-container">
         <a href="index.html" class="brand-text">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
     </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Apri Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+
     <ul class="main-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="chi-siamo.html">Chi Siamo</a></li>
@@ -571,19 +569,23 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ once: true, offset: 100 });
+    
     document.addEventListener("DOMContentLoaded", function() {
         var consent = localStorage.getItem("evopos_cookie_consent");
         if (consent) {
             document.getElementById("cookie-banner").classList.add("hidden");
         }
     });
+    
     function acceptCookies(type) {
         localStorage.setItem("evopos_cookie_consent", type);
         document.getElementById("cookie-banner").classList.add("hidden");
     }
+    
     function openModal(modalId) {
         document.getElementById(modalId).classList.add("active");
     }
+    
     function closeModal(modalId) {
         document.getElementById(modalId).classList.remove("active");
     }
@@ -601,6 +603,32 @@
             if (!isActive) {
                 faqItem.classList.add('active');
             }
+        });
+    });
+
+    /* GESTIONE HAMBURGER MENU MOBILE */
+    const mobileMenuBtn = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    // Icone SVG per il tasto menu (Hamburger e Chiudi)
+    const hamburgerIcon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+    const closeIcon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        // Cambia l'icona in base allo stato del menu
+        if(mainNav.classList.contains('active')) {
+            mobileMenuBtn.innerHTML = closeIcon;
+        } else {
+            mobileMenuBtn.innerHTML = hamburgerIcon;
+        }
+    });
+
+    // Chiude automaticamente il menu quando si clicca su un link (ottimo per la UX mobile)
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenuBtn.innerHTML = hamburgerIcon;
         });
     });
 </script>
