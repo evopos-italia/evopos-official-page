@@ -1,159 +1,691 @@
-<section class="dark-section" style="background-color: #181818; color: #ffffff; padding: 5rem 5%;">
-    <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 3.5rem;">I Terminali POS per il tuo Business</h2>
-    <div class="grid-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servizi POS | evoPOS.it</title>
+
+<meta name="description" content="Scopri la gamma di terminali POS smart offerta da evoPOS.it. Accetta pagamenti ovunque, senza canone mensile e con accredito immediato.">
+<meta name="keywords" content="POS, myPOS, terminali di pagamento, POS senza canone, POS mobile, pagamenti smart">
+<meta name="author" content="Vitantonio Di Zanni">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+    :root {
+        --bg-main: #f8fafc;
+        --text-main: #0f172a;  
+        --text-muted: #475569;  
+        --accent-blue: #0071f3;  
+        --accent-lime: #d6fd70;  
+        --business-black: #181818;
+        --nav-glass: rgba(255, 255, 255, 0.95);
+        --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --whatsapp-green: #25D366;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        color: var(--text-main);
+        font-family: var(--font-main);
+        font-optical-sizing: auto;
+        background: var(--bg-main);
+        overflow-x: hidden;
+        line-height: 1.6;
+    }
+    
+    /* BRAND E NAVBAR */
+    .brand-text {
+        font-family: var(--font-main);
+        font-size: 1.35rem; font-weight: 400; letter-spacing: -0.5px;
+        text-decoration: none; color: var(--text-main); display: flex; align-items: center;
+    }
+    .brand-text .pos-part { font-weight: 600; color: var(--accent-blue); }
+    .brand-text .it-part { font-weight: 400; color: var(--text-main); }
+    .brand-text-footer {
+        font-family: var(--font-main);
+        font-size: 1.4rem; font-weight: 400; letter-spacing: -0.5px;
+        text-decoration: none; color: #ffffff; display: inline-block; margin-bottom: 1rem;
+    }
+    .brand-text-footer .pos-part { font-weight: 600; color: var(--accent-blue); }
+    .brand-text-footer .it-part { font-weight: 400; color: #ffffff; }
+    header {
+        position: fixed; top: 0; left: 0; width: 100%;
+        background: var(--nav-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 9999;
+        padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo-container { display: flex; align-items: center; gap: 10px; }
+    
+    /* MENU NAVIGAZIONE */
+    .main-nav { display: flex; gap: 2rem; list-style: none; align-items: center; transition: all 0.3s ease; }
+    .main-nav a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
+    .main-nav a:hover { color: var(--accent-blue); }
+    .btn-nav {
+        background: var(--accent-blue); color: white !important; padding: 0.6rem 1.5rem;
+        border-radius: 8px; font-weight: 700; transition: all 0.3s ease; border: none; cursor: pointer;
+    }
+    .btn-nav:hover { background: var(--accent-lime) !important; color: #0f172a !important; box-shadow: 0 4px 15px rgba(214, 253, 112, 0.4); }
+    
+    /* TASTO HAMBURGER MENU (Nascosto su PC) */
+    .mobile-menu-toggle {
+        display: none; background: transparent; border: none; color: var(--text-main); cursor: pointer; padding: 0.2rem; z-index: 10001;
+    }
+    
+    /* HERO SECTION */
+    .hero-section {
+        position: relative; min-height: 50vh; display: flex; align-items: center;
+        justify-content: center; padding: 140px 5% 60px 5%; overflow: hidden; background-color: var(--business-black);
+    }
+    .tech-aurora-bg {
+        position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; z-index: 0;
+        background: radial-gradient(circle at 20% 30%, rgba(0, 113, 243, 0.8) 0%, transparent 45%),
+                    radial-gradient(circle at 80% 70%, rgba(214, 253, 112, 0.45) 0%, transparent 45%),
+                    radial-gradient(circle at 50% 50%, rgba(0, 113, 243, 0.4) 0%, var(--business-black) 85%);
+        filter: blur(60px); animation: auroraMove 10s ease-in-out infinite alternate; will-change: transform; pointer-events: none;
+    }
+    @keyframes auroraMove {
+        0% { transform: translate(0px, 0px) scale(1); }
+        50% { transform: translate(-40px, 35px) scale(1.1); }
+        100% { transform: translate(40px, -35px) scale(1); }
+    }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(24, 24, 24, 0.25); backdrop-filter: blur(12px); z-index: 1; }
+    
+    .hero-container { position: relative; z-index: 2; text-align: center; max-width: 900px; width: 100%; margin: 0 auto; }
+    .claim-badge { display: inline-block; background: rgba(0, 113, 243, 0.25); border: 1px solid rgba(0, 113, 243, 0.6); padding: 0.6rem 1.8rem; border-radius: 99px; margin-bottom: 1.5rem; box-shadow: 0 4px 20px rgba(0, 113, 243, 0.3); }
+    .claim-badge span { text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-lime); font-weight: 800; font-size: 1rem; }
+    .hero-title { font-size: clamp(2.3rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; letter-spacing: -1.5px; margin-bottom: 1.2rem; color: #ffffff; text-shadow: 0 4px 25px rgba(0,0,0,0.5); }
+    .hero-title span { color: var(--accent-lime); }
+    .hero-subtitle { font-size: 1.15rem; color: #e2e8f0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+
+    .btn-custom {
+        display: inline-block; background: var(--accent-blue); color: white; padding: 0.9rem 2.2rem;
+        border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem;
+    }
+    .btn-custom:hover { background: var(--accent-lime) !important; color: #0f172a !important; box-shadow: 0 0 25px rgba(214, 253, 112, 0.6); transform: translateY(-2px); }
+    
+    /* VETRINA PRODOTTI myPOS */
+    .pricing-section { padding: 5rem 5%; max-width: 1400px; margin: 0 auto; }
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 2rem; }
+    .product-card { 
+        background: white; border-radius: 24px; padding: 2rem; border: 2px solid #e2e8f0; 
+        display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); 
+    }
+    .product-card:hover { border-color: var(--accent-blue); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 113, 243, 0.1); }
+    .product-img-box { height: 290px; display: flex; justify-content: center; align-items: center; margin-bottom: 1.2rem; }
+    .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); transform: scale(1.12); transition: transform 0.3s ease; }
+    .product-card:hover .product-img-box img { transform: scale(1.18); }
+    
+    .prod-title { font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.2rem; }
+    .prod-subtitle { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; min-height: 2.8rem; margin-bottom: 1rem; }
+    .prod-price { font-size: 2.4rem; font-weight: 900; color: var(--text-main); margin-bottom: 1.5rem; display: flex; align-items: baseline; gap: 5px; }
+    .prod-price span { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+    
+    .prod-features { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
+    .prod-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.9rem; line-height: 1.5; font-weight: 500; }
+    .prod-features svg { flex-shrink: 0; width: 22px; height: 22px; stroke: var(--accent-blue); margin-top: 2px; }
+
+    /* FAQ ACCORDION */
+    .faq-section { padding: 4rem 5% 4rem 5%; max-width: 900px; margin: 0 auto; }
+    .faq-item { background: white; border: 1px solid #e2e8f0; border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+    .faq-question { width: 100%; text-align: left; padding: 1.5rem 2rem; background: transparent; border: none; font-size: 1.15rem; font-weight: 700; color: var(--text-main); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-main); transition: color 0.2s; }
+    .faq-question:hover { color: var(--accent-blue); }
+    .faq-icon { font-size: 1.8rem; color: var(--accent-blue); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: inline-block; font-weight: 400; }
+    .faq-item.active .faq-icon { transform: rotate(45deg); color: var(--accent-blue); }
+    .faq-item.active { border-color: var(--accent-blue); box-shadow: 0 8px 20px rgba(0, 113, 243, 0.1); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; padding: 0 2rem; color: var(--text-muted); line-height: 1.6; font-size: 1rem; }
+    .faq-item.active .faq-answer { max-height: 500px; padding: 0 2rem 1.5rem 2rem; border-top: 1px solid #f1f5f9; margin-top: 0.5rem; }
+
+    /* SEZIONE FORM CONTATTI IN PAGINA */
+    .contact-box { background: #f1f5f9; border-radius: 32px; max-width: 800px; margin: 2rem auto 6rem auto; padding: 4rem 3rem; }
+    .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+
+    /* FOOTER & SOCIAL */
+    footer { background: #0a0f1c; color: white; padding: 6rem 5% 2rem 5%; margin-top: 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; max-width: 1400px; margin: 0 auto; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 4rem; }
+    .social-links { display: flex; gap: 12px; margin-top: 1.5rem; }
+    .social-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; color: #ffffff; text-decoration: none; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.15); }
+    .social-icon:hover { background: var(--accent-blue); color: #ffffff; transform: translateY(-3px); border-color: var(--accent-blue); }
+    .footer-links h4 { color: var(--accent-blue); margin-bottom: 1.5rem; }
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 0.8rem; }
+    .footer-links a { color: #94a3b8; text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: white; }
+    .footer-legal { max-width: 1400px; margin: 2rem auto 0; color: #64748b; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    
+    /* COOKIE BANNER & MODAL */
+    .cookie-banner {
+        position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+        width: calc(100% - 48px); max-width: 1000px;
+        background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px;
+        padding: 1.5rem 2rem; color: #ffffff; z-index: 10000; box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        display: flex; align-items: center; justify-content: space-between; gap: 2rem; transition: all 0.4s ease;
+    }
+    .cookie-banner.hidden { opacity: 0; pointer-events: none; transform: translate(-50%, 50px); }
+    .cookie-text { font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
+    .cookie-text a { color: var(--accent-lime); text-decoration: underline; font-weight: 600; }
+    .cookie-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+    .btn-cookie-sec { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.6rem 1.2rem; border-radius: 10px; font-weight: 700; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+    .btn-cookie-sec:hover { background: rgba(255,255,255,0.2); }
+    .btn-cookie-main { background: var(--accent-lime); color: #0f172a; border: none; padding: 0.6rem 1.4rem; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 0.85rem; transition: all 0.2s; }
+    .btn-cookie-main:hover { background: #c3f248; transform: translateY(-1px); }
+    
+    .modal-overlay {
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px);
+        z-index: 20000; display: flex; align-items: center; justify-content: center;
+        opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-card { background: #ffffff; color: var(--text-main); width: calc(100% - 40px); max-width: 680px; max-height: 85vh; border-radius: 24px; padding: 2.5rem; box-shadow: 0 25px 60px rgba(0,0,0,0.3); overflow-y: auto; position: relative; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 1rem; margin-bottom: 1.5rem; }
+    .close-modal { background: none; border: none; font-size: 1.8rem; cursor: pointer; color: var(--text-muted); }
+    .modal-body p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.6; }
+    
+    /* TASTO WHATSAPP MOBILE-FRIENDLY SICURO */
+    .whatsapp-float { 
+        position: fixed; bottom: 30px; right: 24px; width: 60px; height: 60px; 
+        background-color: var(--whatsapp-green); color: #ffffff; border-radius: 50%; 
+        display: flex; align-items: center; justify-content: center; 
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); z-index: 99999; 
+        transition: transform 0.3s ease; text-decoration: none; border: 2px solid #ffffff; 
+    }
+    .whatsapp-float:hover { transform: translateY(-4px) scale(1.08); }
+    .whatsapp-float svg { width: 32px; height: 32px; fill: #ffffff; }
+
+    /* RESPONSIVE MEDIA QUERIES */
+    @media (max-width: 1024px) {
+        .mobile-menu-toggle { display: block; }
         
-        <div class="glass-card" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border-radius: 16px; padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <div>
-                <h3 style="color: #d6fd70; font-size: 1.6rem; margin-bottom: 15px;">myPOS Go 2</h3>
-                <p style="font-size: 1rem; margin-bottom: 25px; color: #ddd;">Il terminale di pagamento standalone più economico, tascabile e tascabile.</p>
-                <ul style="text-align: left; margin-bottom: 30px; padding-left: 20px; color: #ccc;">
-                    <li style="margin-bottom: 10px;">100% autonomo, nessun bisogno di smartphone</li>
-                    <li style="margin-bottom: 10px;">Nessun canone mensile (paghi solo sul transato)</li>
-                    <li style="margin-bottom: 10px;">Invio scontrini digitale via E-mail o SMS</li>
-                    <li style="margin-bottom: 10px;">Connettività SIM 4G gratuita e Wi-Fi inclusi</li>
-                </ul>
-            </div>
-            <a href="#contatti" class="btn" style="display: inline-block; padding: 12px 24px; background-color: #ffffff; color: #181818; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s;">Richiedi Info</a>
-        </div>
+        .main-nav {
+            display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%;
+            background: var(--nav-glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.1); padding: 2rem 5%; box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transform: translateY(-10px);
+        }
+        .main-nav.active { opacity: 1; visibility: visible; transform: translateY(0); }
+        .main-nav li { width: 100%; text-align: center; padding: 0.8rem 0; }
+        .main-nav .btn-nav { display: inline-block; width: auto; margin-top: 1rem; }
+
+        .products-grid { grid-template-columns: 1fr; }
         
-        <div class="glass-card" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border-radius: 16px; padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <div>
-                <h3 style="color: #d6fd70; font-size: 1.6rem; margin-bottom: 15px;">myPOS Flex</h3>
-                <p style="font-size: 1rem; margin-bottom: 25px; color: #ddd;">Terminale smart compatto e robusto, progettato per la massima mobilità.</p>
-                <ul style="text-align: left; margin-bottom: 30px; padding-left: 20px; color: #ccc;">
-                    <li style="margin-bottom: 10px;">Design ergonomico resistente a urti e cadute</li>
-                    <li style="margin-bottom: 10px;">Gestione diretta di vendite, mance e rimborsi</li>
-                    <li style="margin-bottom: 10px;">Batteria a lunga durata per tutta la giornata lavorativa</li>
-                    <li style="margin-bottom: 10px;">Accettazione Contactless, Chip&PIN e QR Code</li>
-                </ul>
-            </div>
-            <a href="#contatti" class="btn" style="display: inline-block; padding: 12px 24px; background-color: #ffffff; color: #181818; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s;">Richiedi Info</a>
+        .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
+        .cookie-buttons { width: 100%; justify-content: flex-end; }
+        
+        .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-float { bottom: 20px; right: 16px; width: 55px; height: 55px; }
+        .contact-box { margin: 2rem 5% 4rem 5%; padding: 2.5rem 1.5rem; }
+        .contact-form-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<header data-aos="fade-down" data-aos-duration="1000">
+    <div class="logo-container">
+        <a href="index.html" class="brand-text">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
+    </div>
+    
+    <button class="mobile-menu-toggle" aria-label="Apri Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+
+    <ul class="main-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-siamo.html">Chi Siamo</a></li>
+        <li><a href="servizi-pos.html" style="color: var(--accent-blue);">Servizi POS</a></li>
+        <li><a href="audit-energetico.html">Audit Energetico</a></li>
+        <li><a href="index.html#commissioni">Listino & Tariffe</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('contact-modal')" class="btn-nav">Contattaci</a></li>
+    </ul>
+</header>
+
+<section class="hero-section">
+    <div class="tech-aurora-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-container" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="claim-badge"><span>Senza Canone. Nessun Vincolo.</span></div>
+        <h1 class="hero-title">Terminali POS <span>Smart</span></h1>
+        <p class="hero-subtitle">Scopri la gamma completa dei terminali POS myPOS per accettare pagamenti in mobilità o al punto cassa, con accredito immediato H24 e conto aziendale gratuito incluso.</p>
+    </div>
+</section>
+
+<section class="pricing-section">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;" data-aos="fade-up">
+        <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Scegli il tuo dispositivo</span>
+        <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Una soluzione per ogni attività</h2>
+    </div>
+
+    <div class="products-grid">
+        
+        <div class="product-card" data-aos="fade-up">
+            <div class="product-img-box"><img src="mypos-go-2.webp" alt="myPOS Go 2"></div>
+            <h3 class="prod-title">myPOS Go 2</h3>
+            <p class="prod-subtitle">Tutto ciò che serve, al miglior prezzo</p>
+            <div class="prod-price">€ 29 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> POS portatile 100% autonomo</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Autonomia della batteria di un giorno</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Invia gli scontrini via e-mail o SMS</li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal('contact-modal')" class="btn-custom" style="text-align: center;">Richiedi Info</a>
         </div>
 
-        <div class="glass-card" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border-radius: 16px; padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <div>
-                <h3 style="color: #d6fd70; font-size: 1.6rem; margin-bottom: 15px;">myPOS Go Combo</h3>
-                <p style="font-size: 1rem; margin-bottom: 25px; color: #ddd;">La flessibilità del terminale portatile unita alla base di stampa cartacea.</p>
-                <ul style="text-align: left; margin-bottom: 30px; padding-left: 20px; color: #ccc;">
-                    <li style="margin-bottom: 10px;">Sistema 2-in-1 ideale per bancone o mobilità</li>
-                    <li style="margin-bottom: 10px;">Dock di ricarica con stampante termica integrata</li>
-                    <li style="margin-bottom: 10px;">Autonomia estesa grazie alla doppia batteria</li>
-                    <li style="margin-bottom: 10px;">Emissione immediata di scontrini cartacei</li>
-                </ul>
-            </div>
-            <a href="#contatti" class="btn" style="display: inline-block; padding: 12px 24px; background-color: #ffffff; color: #181818; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s;">Richiedi Info</a>
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-img-box"><img src="mypos-combo.webp" alt="myPOS Go Combo"></div>
+            <h3 class="prod-title">myPOS Go Combo</h3>
+            <p class="prod-subtitle">Stampa le ricevute ovunque ti trovi</p>
+            <div class="prod-price">€ 99 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Lettore di carte 2-in-1 con base di ricarica e stampante</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Estendi l’autonomia combinando due batterie</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Usalo al bancone o in mobilità</li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal('contact-modal')" class="btn-custom" style="text-align: center;">Richiedi Info</a>
         </div>
-        
-        <div class="glass-card" style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border-radius: 16px; padding: 2.5rem 2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255, 255, 255, 0.1);">
-            <div>
-                <h3 style="color: #d6fd70; font-size: 1.6rem; margin-bottom: 15px;">myPOS Ultra</h3>
-                <p style="font-size: 1rem; margin-bottom: 25px; color: #ddd;">Il terminale Android più potente e veloce per attività ad alto volume.</p>
-                <ul style="text-align: left; margin-bottom: 30px; padding-left: 20px; color: #ccc;">
-                    <li style="margin-bottom: 10px;">Ampio schermo multi-touch ad alta definizione</li>
-                    <li style="margin-bottom: 10px;">Stampante integrata ad altissima velocità</li>
-                    <li style="margin-bottom: 10px;">Oltre 1500 transazioni con una singola carica</li>
-                    <li style="margin-bottom: 10px;">Compatibile con app gestionali e di cassa avanzate</li>
-                </ul>
-            </div>
-            <a href="#contatti" class="btn" style="display: inline-block; padding: 12px 24px; background-color: #ffffff; color: #181818; text-decoration: none; border-radius: 8px; font-weight: bold; transition: background 0.3s;">Richiedi Info</a>
+
+        <div class="product-card" data-aos="fade-up">
+            <div class="product-img-box"><img src="mypos-flex.webp" alt="myPOS Flex"></div>
+            <h3 class="prod-title">myPOS Flex</h3>
+            <p class="prod-subtitle">Smart, flessibile e sempre connesso</p>
+            <div class="prod-price">€ 69 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Lavora tutto il giorno, con una sola ricarica.</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Un dispositivo smart completo che sta in una tasca.</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Accedi direttamente dal dispositivo a dati di vendita, mance e rimborsi.</li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal('contact-modal')" class="btn-custom" style="text-align: center;">Richiedi Info</a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-img-box"><img src="mypos-ultra.webp" alt="myPOS Ultra"></div>
+            <h3 class="prod-title">myPOS Ultra</h3>
+            <p class="prod-subtitle">Il massimo delle prestazioni in un design premium</p>
+            <div class="prod-price">€ 179 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Terminale di pagamento Android con stampante ad alta velocità</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Oltre 1500 operazioni con una singola carica</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Design elegante con ampio schermo multi-touch.</li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal('contact-modal')" class="btn-custom" style="text-align: center;">Richiedi Info</a>
         </div>
 
     </div>
 </section>
 
-<section class="faq-section" style="background-color: #ffffff; color: #181818; padding: 5rem 5%;">
-    <h2 class="section-title" style="text-align: center; font-size: 2.5rem; margin-bottom: 3.5rem;">Domande Frequenti (FAQ) sui Terminali POS</h2>
-    <div class="faq-container" style="max-width: 900px; margin: 0 auto;">
+<section style="padding: 6rem 5%; background-color: #ffffff; border-top: 1px solid #e2e8f0;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 4rem;">
         
-        <div class="faq-item" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
-            <button class="faq-question" style="width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.25rem; font-weight: 700; color: #181818; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                Qual è il terminale POS più adatto alla mia attività commerciale? <span style="font-size: 1.5rem; color: #181818; background-color: #d6fd70; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">+</span>
-            </button>
-            <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                <p style="padding-bottom: 20px; color: #555; line-height: 1.6;">La scelta dipende dalle tue esigenze operative quotidiane. Se lavori in mobilità (come tassisti, artigiani o consegne), il compatto <strong>myPOS Go 2</strong> o il versatile <strong>myPOS Flex</strong> sono ideali. Se invece gestisci un negozio fisico o un locale ad alto traffico e necessiti di scontrini cartacei rapidi, la soluzione <strong>Go Combo</strong> o il top di gamma Android <strong>myPOS Ultra</strong> offrono prestazioni eccezionali.</p>
-            </div>
+        <div style="flex: 1 1 500px;" data-aos="fade-right">
+            <span style="display: inline-block; padding: 0.4rem 1rem; background: rgba(0, 113, 243, 0.1); color: var(--accent-blue); font-weight: 700; border-radius: 50px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Soluzioni Retail</span>
+            <h2 style="font-size: 2.5rem; font-weight: 800; color: var(--text-main); line-height: 1.1; margin-bottom: 1.5rem;">Registratori di Cassa myPOS</h2>
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.6;">
+                Non solo POS. Trasforma il tuo punto vendita con i nostri sistemi di cassa All-in-One. Gestisci l'inventario, accetta pagamenti, stampa scontrini ed elabora fatture da un unico dispositivo dal design innovativo.
+            </p>
+            <ul style="list-style: none; margin-bottom: 2.5rem;">
+                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1rem; font-weight: 500; color: var(--text-main);">
+                    <svg style="width: 24px; height: 24px; stroke: var(--accent-blue); flex-shrink: 0;" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Sistemi multi-schermo (lato operatore e lato cliente)
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1rem; font-weight: 500; color: var(--text-main);">
+                    <svg style="width: 24px; height: 24px; stroke: var(--accent-blue); flex-shrink: 0;" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Software di cassa avanzato con gestione magazzino e dipendenti
+                </li>
+                <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 1rem; font-weight: 500; color: var(--text-main);">
+                    <svg style="width: 24px; height: 24px; stroke: var(--accent-blue); flex-shrink: 0;" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Stampante termica ad alta velocità integrata
+                </li>
+            </ul>
+            <a href="javascript:void(0)" onclick="openModal('contact-modal')" class="btn-custom">Scopri i modelli Cassa</a>
         </div>
 
-        <div class="faq-item" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
-            <button class="faq-question" style="width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.25rem; font-weight: 700; color: #181818; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                I terminali POS richiedono il collegamento a uno smartphone o tablet? <span style="font-size: 1.5rem; color: #181818; background-color: #d6fd70; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">+</span>
-            </button>
-            <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                <p style="padding-bottom: 20px; color: #555; line-height: 1.6;">No, tutti i terminali della nostra gamma sono <strong>dispositivi autonomi (standalone)</strong>. Hanno una SIM dati integrata e modulo Wi-Fi nativo, per cui non avrai alcun bisogno di accoppiarli via Bluetooth al telefono per accettare i pagamenti.</p>
-            </div>
-        </div>
-
-        <div class="faq-item" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
-            <button class="faq-question" style="width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.25rem; font-weight: 700; color: #181818; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                Ci sono costi fissi, canoni mensili o contratti di vincolo? <span style="font-size: 1.5rem; color: #181818; background-color: #d6fd70; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">+</span>
-            </button>
-            <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                <p style="padding-bottom: 20px; color: #555; line-height: 1.6;">Assolutamente no. Per la maggior parte dei dispositivi <strong>non ci sono canoni mensili fissi né costi di abbonamento</strong>. Paghi esclusivamente una commissione trasparente e variabile solo ed esclusivamente quando effettui una transazione di vendita. Se non incassi, non paghi nulla.</p>
-            </div>
-        </div>
-
-        <div class="faq-item" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
-            <button class="faq-question" style="width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.25rem; font-weight: 700; color: #181818; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                Come funziona la connessione internet e la SIM inclusa? <span style="font-size: 1.5rem; color: #181818; background-color: #d6fd70; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">+</span>
-            </button>
-            <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                <p style="padding-bottom: 20px; color: #555; line-height: 1.6;">Ogni POS viene fornito con una <strong>SIM dati multi-operatore gratuita e preinstallata</strong>, che si connette automaticamente alla rete 4G più potente disponibile senza costi aggiuntivi di traffico dati. In aggiunta, è sempre possibile collegare il terminale a qualsiasi rete Wi-Fi protetta.</p>
-            </div>
-        </div>
-
-        <div class="faq-item" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
-            <button class="faq-question" style="width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.25rem; font-weight: 700; color: #181818; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                Quali circuiti di carte e modalità di pagamento sono supportati? <span style="font-size: 1.5rem; color: #181818; background-color: #d6fd70; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">+</span>
-            </button>
-            <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                <p style="padding-bottom: 20px; color: #555; line-height: 1.6;">I terminali accettano tutti i principali circuiti di pagamento nazionali e internazionali, inclusi <strong>Visa, Mastercard, Maestro, V Pay, American Express, UnionPay e JCB</strong>. Supportano inoltre i pagamenti Contactless, Chip&PIN e i wallet digitali su smartphone come <strong>Apple Pay, Google Pay e Samsung Pay</strong>.</p>
-            </div>
-        </div>
-
-        <div class="faq-item" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
-            <button class="faq-question" style="width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.25rem; font-weight: 700; color: #181818; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                In quanto tempo ricevo gli incassi sul mio conto aziendale? <span style="font-size: 1.5rem; color: #181818; background-color: #d6fd70; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">+</span>
-            </button>
-            <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                <p style="padding-bottom: 20px; color: #555; line-height: 1.6;">Il grande punto di forza è l'<strong>accredito immediato</strong> dei fondi sul conto aziendale associato (in meno di 3 secondi dall'avvenuta transazione), attivo 24 ore su 24, 7 giorni su 7, compresi i giorni festivi e i fine settimana.</p>
-            </div>
-        </div>
-
-        <div class="faq-item" style="border-bottom: 1px solid #ddd; margin-bottom: 15px;">
-            <button class="faq-question" style="width: 100%; background: none; border: none; text-align: left; padding: 20px 0; font-size: 1.25rem; font-weight: 700; color: #181818; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
-                I pagamenti e i dati dei clienti sono sicuri? <span style="font-size: 1.5rem; color: #181818; background-color: #d6fd70; width: 35px; height: 35px; display: flex; justify-content: center; align-items: center; border-radius: 50%;">+</span>
-            </button>
-            <div class="faq-answer" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
-                <p style="padding-bottom: 20px; color: #555; line-height: 1.6;">Certamente. Tutti i dispositivi rispettano i rigorosi standard di sicurezza internazionali <strong>PCI-DSS</strong>, garantendo la crittografia end-to-end dei dati sensibili e la massima protezione contro le frodi sia per l'esercente che per l'acquirente.</p>
-            </div>
+        <div style="flex: 1 1 400px; text-align: center; position: relative;" data-aos="fade-left">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(circle, rgba(0, 113, 243, 0.1) 0%, transparent 70%); z-index: 0;"></div>
+            <img src="mypos-cash-register.webp" alt="Registratore di Cassa myPOS" style="max-width: 100%; height: auto; position: relative; z-index: 1; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15)); transform: scale(1.05);">
         </div>
 
     </div>
 </section>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const faqItems = document.querySelectorAll('.faq-item');
+<section style="padding: 6rem 5%; background: linear-gradient(135deg, var(--business-black) 0%, #0a0f1c 100%); color: white; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(214, 253, 112, 0.15) 0%, transparent 70%); filter: blur(40px); z-index: 0;"></div>
+    
+    <div style="max-width: 1000px; margin: 0 auto; text-align: center; position: relative; z-index: 1;" data-aos="zoom-in">
+        <svg style="width: 64px; height: 64px; stroke: var(--accent-lime); margin-bottom: 1.5rem;" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
         
-        faqItems.forEach(item => {
-            const btn = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
+        <h2 style="font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 1rem; color: #ffffff;">Hai un fatturato con carte superiore a 10.000€ mensili?</h2>
+        <p style="font-size: 1.2rem; color: #cbd5e1; margin-bottom: 2.5rem; max-width: 800px; margin-inline: auto; line-height: 1.6;">
+            Non comprare il POS. Ottieni un terminale di pagamento con un piano di <strong>noleggio flessibile</strong>, sostituzione hardware garantita e <strong>commissioni di transazione personalizzate e ribassate</strong>, studiate su misura per i tuoi volumi di vendita.
+        </p>
+        
+        <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem;">
+            <div style="text-align: center;">
+                <h4 style="color: var(--accent-lime); font-size: 1.8rem; font-weight: 800;">€ 0</h4>
+                <p style="color: #94a3b8; font-size: 0.95rem;">Costo di attivazione</p>
+            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
+            <div style="text-align: center;">
+                <h4 style="color: var(--accent-lime); font-size: 1.8rem; font-weight: 800;">Hardware</h4>
+                <p style="color: #94a3b8; font-size: 0.95rem;">Sostituzione Inclusa</p>
+            </div>
+            <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
+            <div style="text-align: center;">
+                <h4 style="color: var(--accent-lime); font-size: 1.8rem; font-weight: 800;">VIP</h4>
+                <p style="color: #94a3b8; font-size: 0.95rem;">Assistenza Dedicata</p>
+            </div>
+        </div>
+
+        <a href="javascript:void(0)" onclick="openModal('contact-modal')" class="btn-custom" style="background: var(--accent-lime); color: var(--business-black) !important; font-size: 1.15rem; padding: 1.2rem 3rem; text-transform: uppercase; letter-spacing: 0.5px;">Richiedi un Preventivo Personalizzato</a>
+        <p style="font-size: 0.85rem; color: #64748b; margin-top: 1.5rem;">* I piani di noleggio sono soggetti a verifica della fattibilità commerciale basata sul fatturato annuo e sullo storico dell'attività.</p>
+    </div>
+</section>
+
+<section id="faq" class="faq-section" data-aos="fade-up">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem auto;">
+        <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Tutto ciò che devi sapere</span>
+        <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Domande Frequenti (FAQ) sui POS</h2>
+    </div>
+    
+    <div class="faq-item">
+        <button class="faq-question">1. Qual è il terminale POS più adatto alla mia attività?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>La scelta del lettore di carte dipende dalle tue esigenze. Se hai bisogno di maggiore mobilità (es. artigiani, consegne, tassisti), un lettore portatile come <strong>myPOS Go 2</strong> o <strong>myPOS Flex</strong> è la soluzione perfetta. Se invece possiedi un negozio fisico ad alto traffico o un ristorante e hai bisogno di stampare ricevute molto velocemente, un POS smart di fascia alta come il <strong>myPOS Ultra</strong> o la soluzione <strong>Go Combo</strong> sono l'ideale.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">2. I terminali necessitano di uno smartphone per funzionare?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>Assolutamente no. Tutti i terminali myPOS sono dispositivi "Stand-Alone" (autonomi). Non richiedono alcun collegamento via Bluetooth a uno smartphone o tablet per poter funzionare, liberandoti da fastidiose procedure di accoppiamento e garantendo transazioni molto più veloci.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">3. Come funziona la connessione internet? Devo pagare una SIM?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>Non devi pagare nulla per la connessione dati. Ogni terminale include già al suo interno una <strong>Data SIM gratuita</strong> con connessione 3G/4G illimitata in tutta Europa, senza costi aggiuntivi di abbonamento. In alternativa, puoi sempre collegare il terminale anche a una rete Wi-Fi locale.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">4. Ci sono costi di noleggio, canoni mensili o contratti a lungo termine?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>Nessun vincolo e nessun canone fisso. Con l'acquisto standard, il dispositivo è tuo e pagherai <strong>esclusivamente una piccola commissione sul transato</strong> (solo quando effettivamente incassi). Non ci sono costi di comodato d'uso, né contratti che ti vincolano per anni.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">5. Conviene di più l'acquisto o il noleggio del POS?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>Dipende dai volumi del tuo business. Se il tuo transato mensile medio è <strong>inferiore ai 5.000 euro</strong>, l'acquisto è la scelta migliore perché azzera i costi fissi. Se invece <strong>superi i 5.000 euro mensili</strong>, il noleggio diventa molto più conveniente: un piccolo canone mensile compensa ampiamente il forte taglio sulle commissioni, che per volumi elevati possono scendere facilmente allo <strong>0,50%</strong>.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">6. Quanto tempo serve per ricevere l'accredito dei pagamenti?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>L'accredito è <strong>immediato</strong>. A differenza dei circuiti bancari tradizionali (che richiedono 2-3 giorni lavorativi), i fondi delle tue transazioni sono disponibili in tempo reale, in meno di 3 secondi (H24, compresi festivi e weekend), direttamente sul tuo conto business myPOS gratuito.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">7. Quali metodi e carte di pagamento vengono accettati?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>I terminali accettano tutti i principali circuiti internazionali e nazionali, inclusi <strong>Visa, Mastercard, Maestro, American Express, V Pay, JCB e UnionPay</strong>. Elaborano pagamenti contactless, tramite inserimento Chip&PIN e supportano nativamente i wallet digitali come <strong>Apple Pay, Google Pay e Samsung Pay</strong>.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">8. I terminali e le transazioni sono sicuri?<span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+            <p>Sì, tutti i dispositivi rispettano gli altissimi requisiti degli standard <strong>PCI-DSS</strong> (Payment Card Industry Data Security Standard) imposti dai circuiti di pagamento. Questo garantisce transazioni protette e criptate ad ogni strisciata o tap, tutelando sia te che i tuoi clienti.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contatti" class="contact-box" data-aos="fade-up">
+    <div style="max-width: 700px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -1px; text-align: center;">Richiedi una Consulenza Gratuita</h2>
+        <p style="text-align: center; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 2rem;">Compila il form per essere ricontattato in tempi brevi dal nostro team.</p>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form-grid">
+            <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
+            <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
+            <input type="text" name="azienda" placeholder="Cognome o Azienda" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
+            <input type="tel" name="telefono" placeholder="Telefono" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
+            <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
             
-            btn.addEventListener('click', () => {
-                const isOpen = answer.style.maxHeight && answer.style.maxHeight !== "0px";
-                
-                // Chiude tutte le altre sezioni aperte
-                faqItems.forEach(el => {
-                    el.querySelector('.faq-answer').style.maxHeight = null;
-                    el.querySelector('.faq-question span').style.transform = "rotate(0deg)";
-                });
-                
-                // Se quella cliccata non era aperta, la apre
-                if (!isOpen) {
-                    answer.style.maxHeight = answer.scrollHeight + "px";
-                    btn.querySelector('span').style.transform = "rotate(45deg)";
-                }
+            <div style="grid-column: 1 / -1; display: flex; gap: 12px; align-items: flex-start; margin-top: 0.5rem;">
+                <input type="checkbox" name="privacy_consent" id="privacy-page" required style="margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;">
+                <label for="privacy-page" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                    Dichiaro di aver letto e compreso la <a href="javascript:void(0)" onclick="openModal('privacy-modal')" style="color: var(--accent-blue); font-weight: 600;">Privacy Policy</a> e accetto il trattamento dei dati personali ai sensi dell'Art. 13 del GDPR.
+                </label>
+            </div>
+
+            <button type="submit" class="btn-custom" style="grid-column: 1 / -1; width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center;">Invia Richiesta</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <a href="index.html" class="brand-text-footer">evo<span class="pos-part">POS</span><span class="it-part">.it</span></a>
+            <p style="color: #94a3b8; max-width: 320px; font-size: 1.05rem;">L'Evoluzione dei Pagamenti e della Gestione Energetica dal 2003.</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/evoposIT" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/evopos.it/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://x.com/evoPOSit" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="X">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Menu</h4>
+            <ul>
+                <li><a href="chi-siamo.html">Chi Siamo</a></li>
+                <li><a href="servizi-pos.html">Servizi POS</a></li>
+                <li><a href="audit-energetico.html">Audit Energetico</a></li>
+                <li><a href="index.html#commissioni">Listino & Tariffe</a></li>
+                <li><a href="javascript:void(0)" onclick="openModal('contact-modal')">Contatti</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Contatti Diretti & Legali</h4>
+            <ul>
+                <li><a href="mailto:info@evopos.it">✉️ Email: info@evopos.it</a></li>
+                <li><a href="mailto:vitantonio.dizanni@pec.it">📜 PEC: vitantonio.dizanni@pec.it</a></li>
+                <li><a href="tel:+393737600797">📞 Tel: (+39) 373 7600797</a></li>
+                <li style="color: #94a3b8; margin-top: 0.5rem;">📍 C.so Garibaldi 9, 70033 Corato (BA)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-legal">
+        <div>&copy; 2026 evoPOS.it - Vitantonio Di Zanni - P.IVA: <strong>09104160727</strong></div>
+        <div>
+            <a href="javascript:void(0)" onclick="openModal('cookie-modal')" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Cookie Policy</a>
+            <a href="javascript:void(0)" onclick="openModal('privacy-modal')" style="color: #94a3b8; text-decoration: underline; margin-right: 15px;">Privacy Policy</a>
+            <a href="javascript:void(0)" onclick="openModal('terms-modal')" style="color: #94a3b8; text-decoration: underline;">Termini e Condizioni</a>
+        </div>
+    </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-text">
+        <strong>Informativa Privacy & Cookie:</strong> Questo sito utilizza unicamente cookie tecnici essenziali per garantire la sicurezza e il corretto funzionamento della navigazione. <a href="javascript:void(0)" onclick="openModal('cookie-modal')">Leggi la Cookie Policy</a>.
+    </div>
+    <div class="cookie-buttons">
+        <button onclick="acceptCookies('necessary')" class="btn-cookie-sec">Solo Tecnici</button>
+        <button onclick="acceptCookies('all')" class="btn-cookie-main">Accetta Tutti</button>
+    </div>
+</div>
+
+<div id="contact-modal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3 style="font-size: 1.4rem; font-weight: 800;">Richiedi una Consulenza</h3>
+            <button class="close-modal" onclick="closeModal('contact-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p style="text-align: left; color: var(--text-muted); margin-bottom: 1.5rem;">Compila il form per essere ricontattato in tempi brevi dal nostro team commerciale.</p>
+            <form action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+                <input type="hidden" name="access_key" value="ca37c102-7614-41b8-8388-2c02852824cc">
+                <input type="text" name="nome" placeholder="Nome" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
+                <input type="text" name="azienda" placeholder="Cognome o Azienda" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
+                <input type="tel" name="telefono" placeholder="Telefono" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
+                <input type="email" name="email" placeholder="Email" required style="padding: 1rem; border-radius: 12px; border: 1px solid #cbd5e1; width: 100%; font-family: inherit;">
+                <div style="display: flex; gap: 12px; align-items: flex-start; margin-top: 0.5rem; text-align: left;">
+                    <input type="checkbox" name="privacy_consent" id="privacy-modal-check" required style="margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;">
+                    <label for="privacy-modal-check" style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                        Dichiaro di aver letto e compreso la <a href="javascript:void(0)" onclick="openModal('privacy-modal')" style="color: var(--accent-blue); font-weight: 600;">Privacy Policy</a> e accetto il trattamento dei dati personali ai sensi dell'Art. 13 del GDPR.
+                    </label>
+                </div>
+                <button type="submit" class="btn-custom" style="width: 100%; padding: 1rem; font-size: 1.1rem; text-align: center; margin-top: 1rem;">Invia Richiesta</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="cookie-modal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3 style="font-size: 1.4rem; font-weight: 800;">Cookie Policy</h3>
+            <button class="close-modal" onclick="closeModal('cookie-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p><strong>1. Cosa sono i Cookie</strong><br>
+            I cookie sono piccoli file di testo che i siti visitati inviano al terminale dell'utente.</p>
+            <p><strong>2. Tipologia di Cookie Utilizzati</strong><br>
+            Questo portale, <em>evoPOS.it</em>, utilizza esclusivamente <strong>cookie tecnici ed essenziali</strong>. Tali cookie sono strettamente necessari al corretto funzionamento della struttura web e al salvataggio delle impostazioni di preferenza. Non vengono utilizzati cookie di profilazione proprietari.</p>
+        </div>
+        <div style="margin-top: 1.5rem; text-align: right;">
+            <button onclick="closeModal('cookie-modal')" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
+        </div>
+    </div>
+</div>
+
+<div id="privacy-modal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3 style="font-size: 1.4rem; font-weight: 800;">Privacy Policy (GDPR)</h3>
+            <button class="close-modal" onclick="closeModal('privacy-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p><strong>Informativa sul Trattamento dei Dati Personali (Art. 13 Reg. UE 2016/679)</strong></p>
+            <p><strong>1. Titolare del Trattamento:</strong><br>
+            Vitantonio Di Zanni - Sede Legale: Corso Garibaldi 9, 70033 Corato (BA). P.IVA: 09104160727 | PEC: <em>vitantonio.dizanni@pec.it</em> | Email: <em>info@evopos.it</em></p>
+            <p><strong>2. Finalità e Base Giuridica:</strong><br>
+            I dati personali forniti spontaneamente (es. tramite il form di contatto) sono trattati esclusivamente per rispondere alle tue richieste, fornire consulenza sui servizi POS ed Energia.</p>
+        </div>
+        <div style="margin-top: 1.5rem; text-align: right;">
+            <button onclick="closeModal('privacy-modal')" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
+        </div>
+    </div>
+</div>
+
+<div id="terms-modal" class="modal-overlay">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h3 style="font-size: 1.4rem; font-weight: 800;">Termini e Condizioni</h3>
+            <button class="close-modal" onclick="closeModal('terms-modal')">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p><strong>1. Servizi Offerti</strong><br>
+            Il sito ha finalità informative e di acquisizione contatti per i servizi di consulenza in ambito Fintech (sistemi POS) ed Efficienza Energetica erogati da Vitantonio Di Zanni.</p>
+            <p><strong>2. Limitazione di Responsabilità e Tariffe</strong><br>
+            Il Titolare si impegna a mantenere aggiornate le informazioni presenti. Tuttavia, le tariffe menzionate hanno scopo puramente indicativo e promozionale, soggette a valutazione specifica in fase di preventivo.</p>
+        </div>
+        <div style="margin-top: 1.5rem; text-align: right;">
+            <button onclick="closeModal('terms-modal')" class="btn-custom" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Chiudi Informativa</button>
+        </div>
+    </div>
+</div>
+
+<a href="https://wa.me/393737600797" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contattaci su WhatsApp">
+    <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ once: true, offset: 100 });
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        var consent = localStorage.getItem("evopos_cookie_consent");
+        if (consent) {
+            document.getElementById("cookie-banner").classList.add("hidden");
+        }
+    });
+    
+    function acceptCookies(type) {
+        localStorage.setItem("evopos_cookie_consent", type);
+        document.getElementById("cookie-banner").classList.add("hidden");
+    }
+    
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.add("active");
+    }
+    
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.remove("active");
+    }
+
+    /* Gestione FAQ Accordion */
+    document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
             });
+
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+
+    /* GESTIONE HAMBURGER MENU MOBILE */
+    const mobileMenuBtn = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    
+    const hamburgerIcon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>';
+    const closeIcon = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke=\"currentColor\" stroke-width="2" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"></line><line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"></line></svg>';
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        if(mainNav.classList.contains('active')) {
+            mobileMenuBtn.innerHTML = closeIcon;
+        } else {
+            mobileMenuBtn.innerHTML = hamburgerIcon;
+        }
+    });
+
+    document.querySelectorAll('.main-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            mobileMenuBtn.innerHTML = hamburgerIcon;
         });
     });
 </script>
+</body>
+</html>
