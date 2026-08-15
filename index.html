@@ -98,7 +98,7 @@
     }
     .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(24, 24, 24, 0.25); backdrop-filter: blur(12px); z-index: 1; }
     
-    /* LA NUOVA GRIGLIA HERO: Colonna dx più grande */
+    /* GRIGLIA HERO: Colonna dx più grande */
     .hero-container {
         display: grid; grid-template-columns: 1fr 1.15fr; gap: 3rem; align-items: center;
         max-width: 1400px; width: 100%; z-index: 2;
@@ -145,6 +145,39 @@
     .pricing-card { background: white; border-radius: 24px; padding: 4rem 3rem; border: 2px solid #e2e8f0; box-shadow: 0 15px 40px rgba(0,0,0,0.04); text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
     .pricing-card.featured { border-color: var(--accent-blue); background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%); }
     .big-percentage { font-size: clamp(4rem, 7vw, 6rem); font-weight: 800; color: var(--accent-blue); line-height: 1; margin: 1.5rem 0; letter-spacing: -2px; }
+
+    /* NUOVA SEZIONE: VETRINA PRODOTTI myPOS */
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; margin-top: 4rem; }
+    .product-card { 
+        background: white; border-radius: 24px; padding: 3rem 2.5rem; border: 2px solid #e2e8f0; 
+        display: flex; flex-direction: column; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); 
+    }
+    .product-card:hover { border-color: var(--accent-blue); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 113, 243, 0.1); }
+    .product-img-box { height: 260px; display: flex; justify-content: center; align-items: center; margin-bottom: 2.5rem; }
+    .product-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1)); transition: transform 0.3s ease; }
+    .product-card:hover .product-img-box img { transform: scale(1.05); }
+    
+    .prod-title { font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.2rem; }
+    .prod-subtitle { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; min-height: 2.8rem; margin-bottom: 1rem; }
+    .prod-price { font-size: 2.4rem; font-weight: 900; color: var(--text-main); margin-bottom: 1.5rem; display: flex; align-items: baseline; gap: 5px; }
+    .prod-price span { font-size: 0.9rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; }
+    
+    .prod-features { list-style: none; margin-bottom: 2.5rem; flex-grow: 1; }
+    .prod-features li { display: flex; align-items: flex-start; gap: 12px; font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.9rem; line-height: 1.5; font-weight: 500; }
+    .prod-features svg { flex-shrink: 0; width: 22px; height: 22px; stroke: var(--accent-blue); margin-top: 2px; }
+    
+    /* PRODOTTI FULL-WIDTH */
+    .product-card.full-width { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; padding: 4rem; }
+    .product-card.full-width .product-img-box { height: 350px; margin-bottom: 0; }
+    
+    /* BOX SPECIALE NOLEGGIO */
+    .product-card.full-width.noleggio { 
+        grid-template-columns: 1fr; text-align: center; 
+        background: linear-gradient(135deg, var(--business-black), #0a0f1c); 
+        color: white; border: none; padding: 5rem 3rem; margin-top: 1rem;
+    }
+    .product-card.full-width.noleggio .prod-title { color: white; font-size: 2.8rem; }
+    .product-card.full-width.noleggio .prod-subtitle { color: #cbd5e1; font-size: 1.15rem; max-width: 650px; margin: 0 auto 2.5rem auto; min-height: auto; }
 
     /* FAQ ACCORDION */
     .faq-section { padding: 4rem 5% 2rem 5%; max-width: 900px; margin: 0 auto; }
@@ -233,10 +266,15 @@
         .hero-content { text-align: center; }
         .hero-subtitle { margin-inline: auto; }
         
-        /* RESET PER CELLULARI: Annulla l'ingrandimento e riporta l'immagine centrata */
         .hero-image-box img { transform: scale(1) translateX(0); }
 
-        .business-grid, .pricing-grid, .footer-grid { grid-template-columns: 1fr; }
+        .business-grid, .pricing-grid, .footer-grid, .products-grid { grid-template-columns: 1fr; }
+        
+        /* Adattamento Vetrina Prodotti per Mobile */
+        .product-card.full-width { grid-template-columns: 1fr; text-align: center; padding: 3rem 2rem; gap: 2rem; }
+        .product-card.full-width .product-img-box { height: auto; max-height: 250px; }
+        .product-card.full-width .prod-features li { text-align: left; }
+        
         .cookie-banner { flex-direction: column; align-items: flex-start; text-align: left; }
         .cookie-buttons { width: 100%; justify-content: flex-end; }
     }
@@ -350,6 +388,7 @@
         <span style="color: var(--accent-blue); font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px;">Trasparenza Assoluta</span>
         <h2 style="font-size: 2.8rem; font-weight: 800; letter-spacing: -1px; margin-top: 0.5rem;">Scegli la formula ideale per la tua azienda</h2>
     </div>
+    
     <div class="pricing-grid">
         <div class="pricing-card" data-aos="fade-right">
             <div>
@@ -369,6 +408,92 @@
             </div>
             <div style="margin-top: 2.5rem;"><a href="#contatti" class="btn-custom" style="width: 100%; text-align: center;">Richiedi Info</a></div>
         </div>
+    </div>
+
+    <div class="products-grid">
+        
+        <div class="product-card" data-aos="fade-up">
+            <div class="product-img-box">
+                <img src="mypos-go-2.webp" alt="myPOS Go 2">
+            </div>
+            <h3 class="prod-title">myPOS Go 2</h3>
+            <p class="prod-subtitle">Tutto ciò che serve, al miglior prezzo</p>
+            <div class="prod-price">€ 29 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> POS portatile autonomo</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Autonomia della batteria di un giorno</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Invia gli scontrini via e-mail o SMS</li>
+            </ul>
+            <a href="#contatti" class="btn-custom" style="text-align: center;">Richiedi Info</a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-img-box">
+                <img src="mypos-combo.webp" alt="myPOS Go Combo">
+            </div>
+            <h3 class="prod-title">myPOS Go Combo</h3>
+            <p class="prod-subtitle">Stampa le ricevute ovunque ti trovi</p>
+            <div class="prod-price">€ 99 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Lettore di carte 2-in-1 con base di ricarica e stampante</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Estendi l’autonomia combinando due batterie</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Usalo al bancone o in mobilità</li>
+            </ul>
+            <a href="#contatti" class="btn-custom" style="text-align: center;">Richiedi Info</a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up">
+            <div class="product-img-box">
+                <img src="mypos-flex.webp" alt="myPOS Flex">
+            </div>
+            <h3 class="prod-title">myPOS Flex</h3>
+            <p class="prod-subtitle">Smart, flessibile e sempre connesso</p>
+            <div class="prod-price">€ 69 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Lavora tutto il giorno, con una sola ricarica.</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Un dispositivo smart completo che sta in una tasca.</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Accedi direttamente dal dispositivo a dati di vendita, mance e rimborsi.</li>
+            </ul>
+            <a href="#contatti" class="btn-custom" style="text-align: center;">Richiedi Info</a>
+        </div>
+
+        <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="product-img-box">
+                <img src="mypos-ultra.webp" alt="myPOS Ultra">
+            </div>
+            <h3 class="prod-title">myPOS Ultra</h3>
+            <p class="prod-subtitle">Il massimo delle prestazioni in un design premium</p>
+            <div class="prod-price">€ 179 <span>(IVA escl.)</span></div>
+            <ul class="prod-features">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Terminale di pagamento Android con stampante ad alta velocità</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Batteria di lunga durata: oltre 1500 operazioni con una singola carica</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Design elegante con ampio schermo multi-touch.</li>
+            </ul>
+            <a href="#contatti" class="btn-custom" style="text-align: center;">Richiedi Info</a>
+        </div>
+
+        <div class="product-card full-width" data-aos="fade-up">
+            <div class="product-img-box">
+                <img src="mypos-cash-register.webp" alt="Registratore di cassa myPOS">
+            </div>
+            <div class="product-info">
+                <h3 class="prod-title">Registratore di cassa myPOS</h3>
+                <p class="prod-subtitle" style="font-size: 1.1rem; margin-bottom: 2rem;">La soluzione all-in-one per gestire l'intero punto vendita, dai pagamenti alla fatturazione, in un'unica postazione elegante e ultra-tecnologica.</p>
+                <ul class="prod-features">
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Doppio schermo touch (operatore e cliente)</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Gestione integrata del magazzino e dei prodotti</li>
+                    <li><svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Stampa scontrini ad alta velocità integrata</li>
+                </ul>
+                <a href="#contatti" class="btn-custom">Richiedi Preventivo</a>
+            </div>
+        </div>
+
+        <div class="product-card full-width noleggio" data-aos="zoom-in" data-aos-duration="800">
+            <h3 class="prod-title">Preferisci il Noleggio?</h3>
+            <p class="prod-subtitle">Non farti fermare dai costi iniziali. Scegli il terminale perfetto per la tua attività con il nostro piano di noleggio a canone fisso: commissioni agevolate allo 0,50% e zero pensieri sulla manutenzione.</p>
+            <a href="#contatti" class="btn-custom" style="background: var(--accent-lime); color: var(--business-black) !important; font-size: 1.1rem; padding: 1rem 3rem;">Scopri le formule Noleggio</a>
+        </div>
+
     </div>
 </section>
 
